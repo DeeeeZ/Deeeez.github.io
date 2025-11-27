@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -30,7 +33,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero bg-pattern">
         <div class="container grid grid-2 gap-md items-center">
             <div class="hero-content">
                 <div class="divider"></div>
@@ -88,16 +91,36 @@
                 <h2>Measurable Impact</h2>
                 <div class="divider divider-center"></div>
             </div>
-            <div class="grid grid-3">
+            <div class="grid grid-3 gap-md">
+                <!-- Stat 1: Value -->
                 <div class="stat-item text-center">
+                    <div class="chart-container" style="height: 120px;">
+                        <div class="bar-chart">
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar highlight" style="height: 100%;"></div>
+                        </div>
+                    </div>
                     <div class="stat-number">$26k+</div>
                     <div class="stat-label">Value Delivered Per Project</div>
                 </div>
+                <!-- Stat 2: ROI -->
                 <div class="stat-item text-center">
+                    <div class="donut-chart">
+                        <div class="donut-text">2x</div>
+                    </div>
                     <div class="stat-number">200%</div>
                     <div class="stat-label">Average ROI</div>
                 </div>
+                <!-- Stat 3: Payback -->
                 <div class="stat-item text-center">
+                    <div style="height: 120px; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                            <div class="progress-marker">Target Met</div>
+                        </div>
+                    </div>
                     <div class="stat-number">&lt;6 Mo</div>
                     <div class="stat-label">Payback Period</div>
                 </div>
@@ -165,23 +188,27 @@
     </section>
 
     <!-- Expertise -->
-    <section id="expertise" class="section" style="background: var(--bg-surface);">
+    <section id="expertise" class="section bg-pattern" style="background-color: #f9f9f9;">
         <div class="container">
             <h2 style="margin-bottom: var(--spacing-md);">Core Competencies</h2>
             <div class="grid grid-4 gap-md">
                 <div>
+                    <div class="icon-box"><i class="ph ph-bank"></i></div>
                     <h4>Portal Integration</h4>
                     <p style="font-size: 0.9rem;">Automated extraction from banks & vendors.</p>
                 </div>
                 <div>
+                    <div class="icon-box"><i class="ph ph-file-text"></i></div>
                     <h4>Report Generation</h4>
                     <p style="font-size: 0.9rem;">Scheduled reporting from Oracle & SAP.</p>
                 </div>
                 <div>
+                    <div class="icon-box"><i class="ph ph-scales"></i></div>
                     <h4>Reconciliation</h4>
                     <p style="font-size: 0.9rem;">Intelligent transaction matching engines.</p>
                 </div>
                 <div>
+                    <div class="icon-box"><i class="ph ph-database"></i></div>
                     <h4>Data ETL</h4>
                     <p style="font-size: 0.9rem;">Transforming raw data into actionable insights.</p>
                 </div>
