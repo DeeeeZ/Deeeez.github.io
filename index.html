@@ -1,519 +1,232 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeyaAldeen AlSoub | Enterprise Finance Automation</title>
+    <meta name="description" content="Strategic automation for enterprise finance. Founder of Smart Plus Hub.">
     
-    <title>DeyaAldeen AlSoub | Finance Process Automation Expert</title>
-    <meta name="description" content="Cut finance operations costs by up to 70%. Proven ROI in ~3 months. Independent process automation consultant specializing in AP/AR, FP&A, and compliance.">
-    <meta name="author" content="DeyaAldeen AlSoub">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://deya.example/">
-    <meta property="og:title" content="DeyaAldeen AlSoub | Finance Process Automation Expert">
-    <meta property="og:description" content="Automate finance, prove ROI, fast. Cut processing time by 70% with zero disruption to operations.">
-    <meta property="og:image" content="https://placehold.co/1200x630/0f172a/ffffff?text=Automate.+Prove+ROI.">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://deya.example/">
-    <meta property="twitter:title" content="DeyaAldeen AlSoub | Finance Process Automation Expert">
-    <meta property="twitter:description" content="Automate finance, prove ROI, fast. Cut processing time by 70% with zero disruption to operations.">
-    <meta property="twitter:image" content="https://placehold.co/1200x630/0f172a/ffffff?text=Automate.+Prove+ROI.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // Dark mode persistence logic
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
-    
-    <style>
-        :root {
-            scroll-padding-top: 5rem; /* Offset for sticky header */
-        }
-        .focus-ring {
-            @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 dark:focus-visible:ring-offset-slate-900;
-        }
-    </style>
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Person",
-          "name": "DeyaAldeen AlSoub",
-          "url": "https://deya.example/",
-          "jobTitle": "Process Automation Consultant",
-          "knowsAbout": ["Finance Automation", "Robotic Process Automation (RPA)", "Power Platform", "VBA", "AP Automation", "AR Automation", "Record-to-Report"],
-          "sameAs": [
-            "https://www.linkedin.com/in/deya-placeholder/"
-          ]
-        },
-        {
-          "@type": "ProfessionalService",
-          "name": "Finance Process Automation Consulting",
-          "provider": {
-            "@type": "Person",
-            "name": "DeyaAldeen AlSoub"
-          },
-          "url": "https://deya.example/",
-          "description": "Specialized consulting to optimize and automate enterprise finance operations (AP, AR, FP&A, Shared Services) for measurable ROI and risk reduction.",
-          "serviceType": "Business Consulting",
-          "areaServed": {
-            "@type": "Country",
-            "name": "AE"
-          }
-        },
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://deya.example/"
-          }]
-        }
-      ]
-    }
-    </script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 antialiased font-sans">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute z-50 top-4 left-4 px-4 py-2 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-lg shadow-md focus-ring">
-        Skip to main content
-    </a>
+<body>
 
-    <!-- Header & Navigation -->
-    <header id="header" class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-xl font-bold text-blue-600 dark:text-blue-400 focus-ring rounded-md">
-                        DeyaAldeen AlSoub
-                    </a>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex md:items-center md:space-x-8">
-                    <a href="#about" class="font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 focus-ring rounded-md px-2 py-1">About</a>
-                    <a href="#services" class="font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 focus-ring rounded-md px-2 py-1">Services</a>
-                    <a href="#cases" class="font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 focus-ring rounded-md px-2 py-1">Case Studies</a>
-                    <a href="#contact" class="font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 focus-ring rounded-md px-2 py-1">Contact</a>
-                </nav>
-
-                <div class="flex items-center">
-                    <!-- Dark Mode Toggle -->
-                    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="mr-4 p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring">
-                        <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    </button>
-                    <!-- Mobile menu button -->
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" aria-controls="mobile-menu" aria-expanded="false">
-                            <span class="sr-only">Open main menu</span>
-                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile menu, show/hide based on menu state. -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Services</a>
-                <a href="#cases" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Case Studies</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
-            </div>
+    <!-- Navigation -->
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="#" class="logo">DeyaAldeen AlSoub</a>
+            <nav class="nav-links">
+                <a href="#expertise">Expertise</a>
+                <a href="#impact">Impact</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section id="hero" class="py-20 sm:py-28 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                    Automate Finance. Prove ROI. Fast.
-                </h1>
-                <p class="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-slate-600 dark:text-slate-400">
-                    Cut processing time by up to 70%. ROI proven in 3.2 months. Zero disruption to your operations.
-                </p>
-                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus-ring transition-colors duration-200">
-                        Book Free ROI Analysis
-                    </a>
-                    <a href="portfolio.pdf" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-slate-300 dark:border-slate-600 text-base font-medium rounded-md text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 focus-ring transition-colors duration-200">
-                        Download Case Studies
-                    </a>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container grid grid-2 gap-md items-center">
+            <div class="hero-content">
+                <div class="divider"></div>
+                <h1>Eliminating the manual work that holds finance teams back.</h1>
+                <p class="hero-subtitle">I partner with MENA's leading enterprises to architect and deploy automated financial operations. 200%+ ROI, guaranteed.</p>
+                <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
             </div>
-        </section>
+            <div class="hero-image-wrapper">
+                <img src="assets/images/replicate-prediction-z1664zz9d5rmc0crpmwtc1de3r.png" alt="DeyaAldeen AlSoub" class="hero-image">
+            </div>
+        </div>
+    </section>
 
-        <!-- Credibility Bar -->
-        <section class="bg-white dark:bg-slate-900 py-6 border-y border-slate-200 dark:border-slate-700">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <p class="text-center text-sm sm:text-base font-medium text-slate-600 dark:text-slate-400 tracking-wide">
-                    Experience with Chalhoub Group (Chanel, Dior, Louis Vuitton) and enterprise finance departments. <span class="opacity-75">(Names for context only; no endorsement implied.)</span>
-                </p>
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container text-center">
+            <p class="trust-label">Trusted by leadership at</p>
+            <div class="logos-grid">
+                <span class="partner-logo">Louis Vuitton</span>
+                <span class="partner-logo">Dior</span>
+                <span class="partner-logo">Fendi</span>
+                <span class="partner-logo">Tiffany & Co.</span>
+                <span class="partner-logo">Sephora</span>
+                <span class="partner-logo">Versace</span>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-20 sm:py-28">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
-                <div class="md:col-span-2">
-                    <img class="rounded-lg shadow-xl w-full h-auto object-cover" src="https://placehold.co/400x500/e2e8f0/334155?text=Deya+AlSoub" alt="Headshot of DeyaAldeen AlSoub, Process Automation Consultant" loading="lazy">
+    <!-- The Problem (Editorial Style) -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2 gap-md">
+                <div>
+                    <h2>The Efficiency Gap in Modern Finance</h2>
+                    <div class="divider"></div>
+                    <p>Despite significant investment in ERPs, finance professionals still spend hours on low-value, repetitive tasks. This "Efficiency Gap" costs enterprises millions in lost productivity and errors.</p>
                 </div>
-                <div class="md:col-span-3">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">From Manual Chaos to Automated ROI</h2>
-                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-                        Your finance team spends over 60% of their time on repetitive tasks. Invoice processing, reconciliations, report generation – skilled professionals reduced to data entry clerks. The costs are tangible: delayed closings, compliance risks, and burned-out talent.
-                    </p>
-                    <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-                        I specialize in transforming finance operations through intelligent automation that delivers measurable ROI. Recent results speak for themselves: 275% ROI on invoice automation, 47 hours saved monthly on refunds, and error rates slashed from 15% to under 1%. These aren't projections—they're documented outcomes.
-                    </p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Core Services -->
-        <section id="services" class="py-20 sm:py-28 bg-slate-100 dark:bg-slate-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">Outcome-Focused Automation Services</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400">
-                        Every engagement is designed to produce a tangible business impact, from initial analysis to final handover.
-                    </p>
-                </div>
-                <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                    <!-- Service Card 1 -->
-                    <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Process Analysis & Optimization</h3>
-                        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-400 list-disc list-inside">
-                            <li>Map current-state workflows</li>
-                            <li>Calculate automation potential & ROI</li>
-                            <li>Design future-state efficiency gains</li>
-                        </ul>
-                    </div>
-                    <!-- Service Card 2 -->
-                    <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Automation Solution Design</h3>
-                        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-400 list-disc list-inside">
-                            <li>Build resilient RPA & Power Platform bots</li>
-                            <li>Develop custom scripts for legacy systems</li>
-                            <li>Integrate with your existing ERP</li>
-                        </ul>
-                    </div>
-                    <!-- Service Card 3 -->
-                    <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">ROI & Business Case Development</h3>
-                        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-400 list-disc list-inside">
-                            <li>Quantify labor savings & error reduction</li>
-                            <li>Calculate payback period and NPV</li>
-                            <li>Present executive-ready justifications</li>
-                        </ul>
-                    </div>
-                    <!-- Service Card 4 -->
-                    <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Documentation & Training</h3>
-                        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-400 list-disc list-inside">
-                            <li>Create comprehensive process guides</li>
-                            <li>Deliver hands-on training for owners</li>
-                            <li>Establish monitoring dashboards & KPIs</li>
-                        </ul>
-                    </div>
+                <div>
+                    <p><strong>The Reality:</strong></p>
+                    <ul style="margin-top: 1rem; list-style: square; padding-left: 1.5rem; color: var(--text-muted);">
+                        <li style="margin-bottom: 0.5rem;">Downloading reports from disparate portals</li>
+                        <li style="margin-bottom: 0.5rem;">Manual data entry and copy-pasting</li>
+                        <li style="margin-bottom: 0.5rem;">Line-by-line transaction reconciliation</li>
+                        <li style="margin-bottom: 0.5rem;">Recurring error correction cycles</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Case Studies -->
-        <section id="cases" class="py-20 sm:py-28">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">Proven Results in Finance Automation</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400">
-                        Real-world examples of automation delivering significant, measurable value.
-                    </p>
+    <!-- Impact / Stats -->
+    <section id="impact" class="section" style="background: var(--bg-surface);">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: var(--spacing-md);">
+                <h2>Measurable Impact</h2>
+                <div class="divider divider-center"></div>
+            </div>
+            <div class="grid grid-3">
+                <div class="stat-item text-center">
+                    <div class="stat-number">$26k+</div>
+                    <div class="stat-label">Value Delivered Per Project</div>
                 </div>
-                <div class="mt-16 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
-                    <!-- Case Study 1 -->
-                    <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg overflow-hidden border border-slate-200 dark:border-slate-700">
-                        <div class="p-8">
-                            <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">Invoice Upload Automation</h3>
-                            <p class="mt-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Problem:</p>
-                            <p class="text-slate-600 dark:text-slate-400">Manual invoice data entry was slow, error-prone, and consumed excessive FTE hours.</p>
-                            <p class="mt-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Solution:</p>
-                            <p class="text-slate-600 dark:text-slate-400">Deployed an RPA bot to read, validate, and upload invoice data into the ERP system automatically.</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-800 px-8 py-6">
-                            <h4 class="font-bold text-slate-900 dark:text-white">Results:</h4>
-                            <ul class="mt-4 space-y-3">
-                                <li class="flex items-start"><span class="flex-shrink-0 h-6 w-6 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span><span><strong class="text-green-600 dark:text-green-400">116 hours/month</strong> saved</span></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 h-6 w-6 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-3.75-.625m3.75.625V3.375" /></svg></span><span><strong class="text-green-600 dark:text-green-400">275% ROI</strong> achieved</span></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 h-6 w-6 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18" /></svg></span><span>Break-even in <strong class="text-green-600 dark:text-green-400">3.2 months</strong></span></li>
-                            </ul>
-                        </div>
+                <div class="stat-item text-center">
+                    <div class="stat-number">200%</div>
+                    <div class="stat-label">Average ROI</div>
+                </div>
+                <div class="stat-item text-center">
+                    <div class="stat-number">&lt;6 Mo</div>
+                    <div class="stat-label">Payback Period</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section">
+        <div class="container">
+            <h2 style="margin-bottom: var(--spacing-md);">Selected Case Studies</h2>
+            <div class="grid grid-3 gap-md">
+                <div class="card">
+                    <span class="card-meta">Chalhoub Group</span>
+                    <h4>Portal Automation Suite</h4>
+                    <p>Automated data extraction for 17 merchant accounts, reducing manual effort by 85% across the finance department.</p>
+                </div>
+                <div class="card">
+                    <span class="card-meta">Chalhoub Group</span>
+                    <h4>BI Reports Automation</h4>
+                    <p>Implemented RPA to generate 46 daily reports across 24 entities, eliminating 160 hours of monthly manual work.</p>
+                </div>
+                <div class="card">
+                    <span class="card-meta">Chalhoub Group</span>
+                    <h4>Reconciliation Engine</h4>
+                    <p>Deployed intelligent matching for bank and vendor reconciliation, achieving 632% ROI with zero errors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodology" class="section">
+        <div class="container">
+            <div class="grid grid-2 gap-md items-center">
+                <div>
+                    <h2>The Methodology</h2>
+                    <div class="divider"></div>
+                    <p>I employ a rigorous, four-stage process to ensure every automation initiative delivers tangible business value.</p>
+                </div>
+                <div class="grid grid-2 gap-md">
+                    <div class="process-step">
+                        <span class="process-number">01</span>
+                        <h4>Discover</h4>
+                        <p style="font-size: 0.9rem;">Audit current workflows to identify high-impact opportunities.</p>
                     </div>
-                    <!-- Case Study 2 -->
-                    <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg overflow-hidden border border-slate-200 dark:border-slate-700">
-                        <div class="p-8">
-                            <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">Refunds Automation</h3>
-                            <p class="mt-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Problem:</p>
-                            <p class="text-slate-600 dark:text-slate-400">High volume of refund requests led to a 15% error rate and significant processing delays.</p>
-                            <p class="mt-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Solution:</p>
-                            <p class="text-slate-600 dark:text-slate-400">An automated workflow that validates refund data against system records and processes payments.</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-800 px-8 py-6">
-                            <h4 class="font-bold text-slate-900 dark:text-white">Results:</h4>
-                            <ul class="mt-4 space-y-3">
-                                <li class="flex items-start"><span class="flex-shrink-0 h-6 w-6 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span><span><strong class="text-green-600 dark:text-green-400">47 hours/month</strong> saved</span></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 h-6 w-6 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span><span>Error rate from 15% to <strong class="text-green-600 dark:text-green-400">&lt;1%</strong></span></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 h-6 w-6 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-3.75-.625m3.75.625V3.375" /></svg></span><span><strong class="text-green-600 dark:text-green-400">125% ROI</strong> achieved</span></li>
-                            </ul>
-                        </div>
+                    <div class="process-step">
+                        <span class="process-number">02</span>
+                        <h4>Design</h4>
+                        <p style="font-size: 0.9rem;">Architect tailored solutions aligned with existing systems.</p>
                     </div>
-                    <!-- Case Study 3 -->
-                    <div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg overflow-hidden border border-slate-200 dark:border-slate-700">
-                        <div class="p-8">
-                            <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">Portal Automations</h3>
-                            <p class="mt-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Problem:</p>
-                            <p class="text-slate-600 dark:text-slate-400">Team members spent hours each day manually logging into multiple vendor portals to download reports.</p>
-                            <p class="mt-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Solution:</p>
-                            <p class="text-slate-600 dark:text-slate-400">Developed scheduled bots to log in, navigate, and download necessary files, saving them to a central location.</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-800 px-8 py-6">
-                            <h4 class="font-bold text-slate-900 dark:text-white">Results:</h4>
-                            <ul class="mt-4 space-y-3">
-                                <li class="flex items-start"><span class="flex-shrink-0 h-6 w-6 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.5l6.75-6.75m0 0l6.75 6.75M9.75 6.75v10.5" /></svg></span><span><strong class="text-green-600 dark:text-green-400">Eliminated</strong> daily manual downloads</span></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 h-6 w-6 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg></span><span><strong class="text-green-600 dark:text-green-400">Freed FTE time</strong> for value-added analysis</span></li>
-                                <li class="flex items-start"><span class="flex-shrink-0 h-6 w-6 text-green-500"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span><span>Improved data consistency and timeliness</span></li>
-                            </ul>
-                        </div>
+                    <div class="process-step">
+                        <span class="process-number">03</span>
+                        <h4>Deploy</h4>
+                        <p style="font-size: 0.9rem;">Build, test, and launch with full team training.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">04</span>
+                        <h4>Deliver</h4>
+                        <p style="font-size: 0.9rem;">Measure results against ROI projections.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Methodology Section -->
-        <section id="methodology" class="py-20 sm:py-28 bg-slate-100 dark:bg-slate-800">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">A Disciplined Path to Automation ROI</h2>
-                    <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400">
-                        My 7-step methodology ensures projects are delivered on time, on budget, and with maximum impact.
-                    </p>
+    <!-- Expertise -->
+    <section id="expertise" class="section" style="background: var(--bg-surface);">
+        <div class="container">
+            <h2 style="margin-bottom: var(--spacing-md);">Core Competencies</h2>
+            <div class="grid grid-4 gap-md">
+                <div>
+                    <h4>Portal Integration</h4>
+                    <p style="font-size: 0.9rem;">Automated extraction from banks & vendors.</p>
                 </div>
-                <div class="mt-16 space-y-8">
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
-                        <div><h3 class="text-lg font-bold text-slate-900 dark:text-white">Discovery</h3><p class="text-slate-600 dark:text-slate-400">We start by understanding your strategic goals and identifying key operational pain points.</p></div>
-                    </div>
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
-                        <div><h3 class="text-lg font-bold text-slate-900 dark:text-white">Process Mapping</h3><p class="text-slate-600 dark:text-slate-400">We document the current-state process in detail to uncover all inefficiencies and opportunities.</p></div>
-                    </div>
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
-                        <div><h3 class="text-lg font-bold text-slate-900 dark:text-white">ROI Analysis</h3><p class="text-slate-600 dark:text-slate-400">A data-driven business case is built to quantify the expected financial return and payback period.</p></div>
-                    </div>
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
-                        <div><h3 class="text-lg font-bold text-slate-900 dark:text-white">Solution Design</h3><p class="text-slate-600 dark:text-slate-400">I architect a scalable and resilient automation solution tailored to your technology environment.</p></div>
-                    </div>
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
-                        <div><h3 class="text-lg font-bold text-slate-900 dark:text-white">Testing</h3><p class="text-slate-600 dark:text-slate-400">Rigorous user acceptance testing (UAT) is conducted to ensure the solution is robust and error-free.</p></div>
-                    </div>
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">6</div>
-                        <div><h3 class="text-lg font-bold text-slate-900 dark:text-white">Deployment</h3><p class="text-slate-600 dark:text-slate-400">The automation is deployed into your production environment with careful monitoring and support.</p></div>
-                    </div>
-                    <div class="flex gap-4 items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">7</div>
-                        <div><h3 class="text-lg font-bold text-slate-900 dark:text-white">Training</h3><p class="text-slate-600 dark:text-slate-400">Your team receives comprehensive training and documentation to manage the new solution.</p></div>
-                    </div>
+                <div>
+                    <h4>Report Generation</h4>
+                    <p style="font-size: 0.9rem;">Scheduled reporting from Oracle & SAP.</p>
                 </div>
-                <div class="mt-12 text-center">
-                    <p class="italic text-slate-600 dark:text-slate-400">This structured approach minimizes risk and ensures the final solution aligns perfectly with your business objectives.</p>
+                <div>
+                    <h4>Reconciliation</h4>
+                    <p style="font-size: 0.9rem;">Intelligent transaction matching engines.</p>
+                </div>
+                <div>
+                    <h4>Data ETL</h4>
+                    <p style="font-size: 0.9rem;">Transforming raw data into actionable insights.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="py-20 sm:py-28">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">Frequently Asked Questions</h2>
-                </div>
-                <div class="mt-12 divide-y divide-slate-200 dark:divide-slate-700">
-                    <details class="py-4 group">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-                            <span class="text-slate-900 dark:text-white">How do you prove the ROI for an automation project?</span>
-                            <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="text-slate-600 dark:text-slate-400 mt-3">
-                            ROI is calculated using a clear formula: (Financial Gain - Project Cost) / Project Cost. We establish baseline metrics before starting (e.g., hours spent, error rates, processing costs) and measure the same metrics after deployment. This provides a data-backed, undeniable measure of the project's financial impact.
-                        </p>
-                    </details>
-                    <details class="py-4 group">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-                            <span class="text-slate-900 dark:text-white">What is a typical project timeline?</span>
-                            <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="text-slate-600 dark:text-slate-400 mt-3">
-                            A pilot or proof-of-concept for a single, well-defined process can take as little as 2-4 weeks. More complex, end-to-end automations typically range from 6-12 weeks. The timeline is always defined upfront after the initial discovery and process mapping phase.
-                        </p>
-                    </details>
-                    <details class="py-4 group">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-                            <span class="text-slate-900 dark:text-white">How do you handle change management with our team?</span>
-                            <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="text-slate-600 dark:text-slate-400 mt-3">
-                            Change management is critical. I involve key team members from the start, positioning automation as a tool to eliminate tedious work, not replace people. Comprehensive training and clear documentation ensure a smooth transition and empower your team to own and manage the new process effectively.
-                        </p>
-                    </details>
-                    <details class="py-4 group">
-                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-                            <span class="text-slate-900 dark:text-white">Will this work with our existing tech stack (Oracle/SAP)?</span>
-                            <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="text-slate-600 dark:text-slate-400 mt-3">
-                            Absolutely. The technologies I use (RPA, Power Platform, VBA) are designed to be technology-agnostic. They work on top of your existing applications—ERPs like Oracle and SAP, CRMs, web portals, and legacy systems—without requiring expensive API development or system changes.
-                        </p>
-                    </details>
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container grid grid-2 gap-lg">
+            <div>
+                <h2>Start the Conversation</h2>
+                <div class="divider"></div>
+                <p>I work with a select number of enterprise clients to ensure maximum attention and impact. Let's discuss your operational challenges.</p>
+                
+                <div style="margin-top: var(--spacing-md);">
+                    <p><strong>DeyaAldeen AlSoub</strong><br>Founder, Smart Plus Hub</p>
+                    <p>contact@smartplushub.com<br>+962 79 8103323</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Amman, Jordan</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Primary CTA & Contact Form -->
-        <section id="contact" class="py-20 sm:py-28 bg-slate-100 dark:bg-slate-800">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight sm:text-4xl">Ready to Calculate Your ROI?</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400">
-                        The free consultation includes a high-level process assessment and a potential ROI projection. No obligations.
-                    </p>
-                </div>
-                <div class="mt-12 bg-white dark:bg-slate-900 p-8 rounded-lg shadow-lg">
-                    <form id="contact-form" action="mailto:contact@deya.example" method="post" enctype="text/plain" class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Name *</label>
-                                <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                            </div>
-                            <div>
-                                <label for="work-email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Work Email *</label>
-                                <input type="email" name="work-email" id="work-email" required pattern="^[^@]+@(?!gmail|yahoo|hotmail|outlook\.com)[^@]+\.[^@]+$" title="Please use your work email address" class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="company" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Company *</label>
-                            <input type="text" name="company" id="company" required class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        </div>
-                        <div>
-                            <label for="challenge" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Primary Process Challenge *</label>
-                            <textarea id="challenge" name="challenge" rows="4" required class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., Manual AP invoice processing, month-end reporting, bank reconciliations..."></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus-ring transition-colors duration-200">
-                                Request Free ROI Analysis
-                            </button>
-                        </div>
-                    </form>
-                    <p class="mt-4 text-xs text-center text-slate-500 dark:text-slate-400">
-                        Your information is confidential and will only be used for our consultation.
-                    </p>
-                </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Full Name">
+                    <input type="text" placeholder="Company / Organization">
+                    <input type="email" placeholder="Business Email">
+                    <textarea rows="5" placeholder="Briefly describe your operational challenge..."></textarea>
+                    <button type="submit" class="btn btn-primary">Request Consultation</button>
+                </form>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="bg-slate-900 dark:bg-black text-slate-300">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-             <div class="flex justify-center space-x-6 mb-8">
-                    <a href="mailto:contact@deya.example" class="text-slate-400 hover:text-white transition-colors">Email</a>
-                    <span class="text-slate-600">/</span>
-                    <a href="tel:+XXXXXXXXXXX" class="text-slate-400 hover:text-white transition-colors">Phone</a>
-                    <span class="text-slate-600">/</span>
-                    <a href="https://www.linkedin.com/in/deya-placeholder/" class="text-slate-400 hover:text-white transition-colors">LinkedIn</a>
-                </div>
-            <p class="text-sm text-slate-500">
-                &copy; 2024 DeyaAldeen AlSoub. All rights reserved.
-            </p>
+    <!-- Footer -->
+    <footer>
+        <div class="container flex justify-between items-center">
+            <div class="logo" style="font-size: 1.2rem;">DeyaAldeen AlSoub</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p style="font-size: 0.8rem; margin: 0;">&copy; 2025</p>
         </div>
     </footer>
 
-    <script>
-        // --- Dark Mode Toggle ---
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-        function setTheme(isDark) {
-            if (isDark) {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-                themeToggleLightIcon.classList.remove('hidden');
-                themeToggleDarkIcon.classList.add('hidden');
-            } else {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-                themeToggleLightIcon.classList.add('hidden');
-                themeToggleDarkIcon.classList.remove('hidden');
-            }
-        }
-
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            setTheme(true);
-        } else {
-            setTheme(false);
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            setTheme(!document.documentElement.classList.contains('dark'));
-        });
-
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const openIcon = mobileMenuButton.querySelector('svg:first-of-type');
-        const closeIcon = mobileMenuButton.querySelector('svg:last-of-type');
-
-        mobileMenuButton.addEventListener('click', () => {
-            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-            mobileMenu.classList.toggle('hidden');
-            openIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        });
-        
-        mobileMenu.addEventListener('click', (event) => {
-            if (event.target.tagName === 'A') {
-                mobileMenuButton.click();
-            }
-        });
-    </script>
 </body>
 </html>
