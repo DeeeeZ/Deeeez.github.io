@@ -17,9 +17,11 @@ Thumbs.db
 desktop.ini
 landing2.html
 
+
 # IDE / editor
 .vscode/
 .idea/
+*.claude/
 *.sublime-workspace
 *.sublime-project
 
