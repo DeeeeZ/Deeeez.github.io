@@ -252,7 +252,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 0;
+  z-index: 20;
 }
 
 .brand-logo:hover .tech-reveal {
@@ -284,8 +284,8 @@ body {
 }
 
 .brand-logo:hover .logo-text {
-  transform: scale(1.1);
-  color: white;
+  opacity: 0;
+  transform: scale(0.9);
 }
 
 .brand-logo .corner-accent {
