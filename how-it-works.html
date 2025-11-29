@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Methodology | DeyaAldeen AlSoub</title>
+    <meta name="description" content="Our rigorous four-phase approach to enterprise automation." />
+    <link rel="canonical" href="https://www.deyaaldeen.com/how-it-works" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                950: '#020c1b',
+                900: '#051c2c',
+                800: '#0a2540',
+                700: '#1e3a8a',
+                200: '#c7d2fe',
+              },
+              gold: {
+                400: '#d4af37',
+                500: '#c5a028',
+              },
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            boxShadow: {
+              'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+              'card': '0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)',
+              'glow': '0 0 15px rgba(212, 175, 55, 0.1)',
+            },
+            animation: {
+              'fade-up': 'fadeUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+              fadeUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      .font-serif { letter-spacing: -0.02em; }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+      .dark ::-webkit-scrollbar-thumb { background: #1e293b; }
+      .reveal { opacity: 0; transform: translateY(20px); transition: all 1s ease-out; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-white dark:bg-navy-950 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 w-full bg-white/95 dark:bg-navy-950/95 backdrop-blur-md border-b border-gray-100 dark:border-white/5 transition-all duration-500">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex justify-between items-end h-24 pb-6">
+          <a href="index.html" class="flex-shrink-0 group relative z-10">
+            <div class="flex flex-col">
+              <span class="font-serif font-bold text-2xl text-navy-900 dark:text-white tracking-tight leading-none group-hover:opacity-80 transition-opacity">
+                DeyaAldeen AlSoub
+              </span>
+              <span class="text-[10px] uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mt-1 font-medium group-hover:text-gold-400 transition-colors">
+                Process Intelligence
+              </span>
+            </div>
+          </a>
+
+          <div class="hidden md:flex items-center space-x-12 mb-1">
+            <a href="results.html" class="text-sm font-medium tracking-widest uppercase transition-all duration-300 border-b-2 pb-1 text-gray-500 dark:text-gray-400 border-transparent hover:text-navy-900 dark:hover:text-white hover:border-gray-200 dark:hover:border-white/20">
+              Impact
+            </a>
+            <a href="how-it-works.html" class="text-sm font-medium tracking-widest uppercase transition-all duration-300 border-b-2 pb-1 text-navy-900 dark:text-white border-navy-900 dark:border-white">
+              Methodology
+            </a>
+            <a href="contact.html" class="text-sm font-medium tracking-widest uppercase transition-all duration-300 border-b-2 pb-1 text-gray-500 dark:text-gray-400 border-transparent hover:text-navy-900 dark:hover:text-white hover:border-gray-200 dark:hover:border-white/20">
+              Contact
+            </a>
+
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-navy-900 dark:text-white transition-colors" aria-label="Toggle Dark Mode">
+              <i data-lucide="moon" class="w-[18px] h-[18px] dark:hidden"></i>
+              <i data-lucide="sun" class="w-[18px] h-[18px] hidden dark:block"></i>
+            </button>
+
+            <a href="contact.html" class="ml-4 px-8 py-3 bg-navy-900 dark:bg-white text-white dark:text-navy-900 text-xs font-bold tracking-widest uppercase hover:bg-navy-800 dark:hover:bg-gray-200 transition-all shadow-subtle hover:shadow-card">
+              Consult Us
+            </a>
+          </div>
+
+          <div class="md:hidden flex items-center mb-1 gap-4">
+            <button id="theme-toggle-mobile" class="p-2 text-navy-900 dark:text-white">
+              <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+              <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+            </button>
+            <button id="mobile-menu-btn" class="text-navy-900 dark:text-white focus:outline-none">
+              <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+              <i data-lucide="x" class="w-6 h-6 hidden" id="close-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden bg-white dark:bg-navy-950 border-t border-gray-100 dark:border-white/10 absolute w-full h-screen left-0 top-24 z-40 hidden animate-fade-up">
+        <div class="px-6 pt-12 space-y-8">
+          <a href="results.html" class="block text-3xl font-serif font-medium text-navy-900 dark:text-white hover:pl-2 transition-all">Impact</a>
+          <a href="how-it-works.html" class="block text-3xl font-serif font-medium text-navy-900 dark:text-white hover:pl-2 transition-all">Methodology</a>
+          <a href="contact.html" class="block text-3xl font-serif font-medium text-navy-900 dark:text-white hover:pl-2 transition-all">Contact</a>
+          <div class="pt-12 border-t border-gray-100 dark:border-white/10">
+            <a href="contact.html" class="block w-full py-4 bg-navy-900 dark:bg-white text-white dark:text-navy-900 text-center text-lg font-serif font-bold">
+              Start Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero -->
+      <section class="bg-white dark:bg-navy-950 pt-24 pb-20 border-b border-gray-100 dark:border-white/5 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="reveal">
+            <div class="max-w-3xl">
+              <h6 class="text-navy-900 dark:text-gold-400 font-bold uppercase tracking-widest text-xs mb-6">Our Framework</h6>
+              <h1 class="text-5xl md:text-6xl font-serif text-navy-900 dark:text-white mb-6 tracking-tight">Rigorous Methodology</h1>
+              <p class="text-xl text-gray-600 dark:text-gray-300 font-light font-serif leading-relaxed">
+                We deploy a structured four-phase approach to ensure every automation initiative delivers measurable business value. From initial audit to value realization in weeks, not months.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Process - Vertical Timeline -->
+      <section class="py-24 relative overflow-hidden bg-white dark:bg-navy-950 transition-colors duration-500">
+        <!-- Animated Line Container -->
+        <div class="absolute inset-0 pointer-events-none z-0">
+          <svg width="100%" height="100%">
+            <line x1="50%" y1="0" x2="50%" y2="100%" stroke="currentColor" stroke-width="1" class="text-gray-200 dark:text-white/10 hidden md:block" />
+          </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div class="space-y-24">
+
+            <!-- Step 1 -->
+            <div class="grid md:grid-cols-2 gap-12 relative">
+              <div class="md:text-right md:pr-12">
+                <div class="reveal">
+                  <span class="text-6xl font-serif text-gray-100 dark:text-navy-800 font-bold block mb-4 transition-colors">01</span>
+                  <h3 class="text-2xl font-serif text-navy-900 dark:text-white mb-4">Discovery & Audit</h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                    We audit your current processes to identify the highest-impact automation opportunities. We identify specific bottlenecks where automation will yield the highest ROI.
+                  </p>
+                  <div class="text-xs font-bold text-navy-900 dark:text-gold-400 uppercase tracking-widest border-t border-gray-100 dark:border-white/10 pt-4 inline-block">
+                    Deliverable: ROI Projection
+                  </div>
+                </div>
+              </div>
+              <div class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-12">
+                <div class="w-4 h-4 bg-navy-900 dark:bg-white rounded-full border-4 border-white dark:border-navy-950 shadow-glow z-10"></div>
+              </div>
+              <div class="md:pl-12"></div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="grid md:grid-cols-2 gap-12 relative">
+              <div class="order-2 md:order-1 md:text-right md:pr-12"></div>
+              <div class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-12">
+                <div class="w-4 h-4 bg-white dark:bg-navy-950 border-2 border-navy-900 dark:border-white rounded-full z-10"></div>
+              </div>
+              <div class="order-1 md:order-2 md:pl-12">
+                <div class="reveal" style="transition-delay: 100ms">
+                  <span class="text-6xl font-serif text-gray-100 dark:text-navy-800 font-bold block mb-4 transition-colors">02</span>
+                  <h3 class="text-2xl font-serif text-navy-900 dark:text-white mb-4">Solution Design</h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                    We architect a solution tailored to your ecosystem. This phase ensures technical feasibility and alignment with your IT security protocols before any code is written.
+                  </p>
+                  <div class="text-xs font-bold text-navy-900 dark:text-gold-400 uppercase tracking-widest border-t border-gray-100 dark:border-white/10 pt-4 inline-block">
+                    Deliverable: Solution Design Document
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="grid md:grid-cols-2 gap-12 relative">
+              <div class="md:text-right md:pr-12">
+                <div class="reveal" style="transition-delay: 100ms">
+                  <span class="text-6xl font-serif text-gray-100 dark:text-navy-800 font-bold block mb-4 transition-colors">03</span>
+                  <h3 class="text-2xl font-serif text-navy-900 dark:text-white mb-4">Deployment</h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                    We build, test, and launch your automation in a staged environment. We handle integration complexities and train your team to manage the new workflows.
+                  </p>
+                  <div class="text-xs font-bold text-navy-900 dark:text-gold-400 uppercase tracking-widest border-t border-gray-100 dark:border-white/10 pt-4 inline-block">
+                    Deliverable: Working Solution
+                  </div>
+                </div>
+              </div>
+              <div class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-12">
+                <div class="w-4 h-4 bg-white dark:bg-navy-950 border-2 border-navy-900 dark:border-white rounded-full z-10"></div>
+              </div>
+              <div class="md:pl-12"></div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="grid md:grid-cols-2 gap-12 relative">
+              <div class="order-2 md:order-1 md:text-right md:pr-12"></div>
+              <div class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-12">
+                <div class="w-4 h-4 bg-navy-900 dark:bg-white rounded-full border-4 border-white dark:border-navy-950 shadow-glow z-10"></div>
+              </div>
+              <div class="order-1 md:order-2 md:pl-12">
+                <div class="reveal" style="transition-delay: 100ms">
+                  <span class="text-6xl font-serif text-gray-100 dark:text-navy-800 font-bold block mb-4 transition-colors">04</span>
+                  <h3 class="text-2xl font-serif text-navy-900 dark:text-white mb-4">Value Realization</h3>
+                  <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                    We monitor performance post-launch to ensure the solution meets its ROI targets. We address edge cases and optimize the workflow to maximize efficiency.
+                  </p>
+                  <div class="text-xs font-bold text-navy-900 dark:text-gold-400 uppercase tracking-widest border-t border-gray-100 dark:border-white/10 pt-4 inline-block">
+                    Deliverable: Validated Savings Report
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Capabilities Grid -->
+      <section class="bg-navy-900 dark:bg-black text-white py-24 border-t border-gray-200 dark:border-white/5 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 gap-16">
+            <div class="reveal">
+              <div>
+                <h2 class="text-3xl font-serif mb-8 text-white">Core Competencies</h2>
+                <ul class="space-y-6">
+                  <li class="flex items-center border-b border-white/10 pb-4">
+                    <span class="w-1.5 h-1.5 bg-white dark:bg-gold-400 mr-4"></span>
+                    <span class="text-gray-200 font-light text-lg">Portal Integrations (Banks, Payment Gateways)</span>
+                  </li>
+                  <li class="flex items-center border-b border-white/10 pb-4">
+                    <span class="w-1.5 h-1.5 bg-white dark:bg-gold-400 mr-4"></span>
+                    <span class="text-gray-200 font-light text-lg">Automated Report Generation (SAP, Oracle)</span>
+                  </li>
+                  <li class="flex items-center border-b border-white/10 pb-4">
+                    <span class="w-1.5 h-1.5 bg-white dark:bg-gold-400 mr-4"></span>
+                    <span class="text-gray-200 font-light text-lg">Reconciliation Engines (GL, Bank, Vendor)</span>
+                  </li>
+                  <li class="flex items-center border-b border-white/10 pb-4">
+                    <span class="w-1.5 h-1.5 bg-white dark:bg-gold-400 mr-4"></span>
+                    <span class="text-gray-200 font-light text-lg">ETL Data Processing Pipelines</span>
+                  </li>
+                  <li class="flex items-center border-b border-white/10 pb-4">
+                    <span class="w-1.5 h-1.5 bg-white dark:bg-gold-400 mr-4"></span>
+                    <span class="text-gray-200 font-light text-lg">Structured Email & Invoice Processing</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="reveal" style="transition-delay: 200ms">
+              <div>
+                <h2 class="text-3xl font-serif mb-8 text-white">Technology Agnostic</h2>
+                <p class="text-gray-400 mb-8 font-serif font-light leading-relaxed">
+                  We are not software vendors. We are problem solvers. We select the optimal technology stack for your specific infrastructure and security requirements.
+                </p>
+                <div class="flex flex-wrap gap-x-8 gap-y-4">
+                  <span class="text-sm uppercase tracking-widest text-gray-500 font-bold border border-white/10 px-3 py-1 rounded-sm">Python</span>
+                  <span class="text-sm uppercase tracking-widest text-gray-500 font-bold border border-white/10 px-3 py-1 rounded-sm">Power Automate</span>
+                  <span class="text-sm uppercase tracking-widest text-gray-500 font-bold border border-white/10 px-3 py-1 rounded-sm">Selenium</span>
+                  <span class="text-sm uppercase tracking-widest text-gray-500 font-bold border border-white/10 px-3 py-1 rounded-sm">SQL</span>
+                  <span class="text-sm uppercase tracking-widest text-gray-500 font-bold border border-white/10 px-3 py-1 rounded-sm">REST APIs</span>
+                  <span class="text-sm uppercase tracking-widest text-gray-500 font-bold border border-white/10 px-3 py-1 rounded-sm">VBA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Client Perspectives / Social Proof -->
+      <section class="py-24 bg-gray-50 dark:bg-navy-900 border-t border-gray-100 dark:border-white/5 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="reveal">
+            <h6 class="text-navy-900 dark:text-gold-400 font-bold uppercase tracking-widest text-xs mb-12 text-center">
+              Client Perspectives
+            </h6>
+            <div class="grid md:grid-cols-2 gap-12">
+              <!-- Testimonial 1 -->
+              <div class="bg-white dark:bg-navy-950 p-10 shadow-subtle dark:shadow-none border border-gray-100 dark:border-white/5">
+                <div class="text-4xl text-navy-200 dark:text-navy-800 font-serif leading-none mb-6">"</div>
+                <p class="text-gray-600 dark:text-gray-300 font-serif text-lg leading-relaxed mb-8">
+                  The strategic clarity DeyaAldeen brought to our chaotic data landscape was invaluable. The methodology is not just about code; it's about understanding the financial heartbeat of the organization.
+                </p>
+                <div>
+                  <div class="text-navy-900 dark:text-white font-bold text-sm uppercase tracking-wider">Group CFO</div>
+                  <div class="text-gray-400 text-xs mt-1">Leading Luxury Retailer</div>
+                </div>
+              </div>
+
+              <!-- Testimonial 2 -->
+              <div class="bg-white dark:bg-navy-950 p-10 shadow-subtle dark:shadow-none border border-gray-100 dark:border-white/5">
+                <div class="text-4xl text-navy-200 dark:text-navy-800 font-serif leading-none mb-6">"</div>
+                <p class="text-gray-600 dark:text-gray-300 font-serif text-lg leading-relaxed mb-8">
+                  We moved from manual, error-prone reporting to fully automated dashboards in under six weeks. The implementation was rigorous, documented, and completely seamless.
+                </p>
+                <div>
+                  <div class="text-navy-900 dark:text-white font-bold text-sm uppercase tracking-wider">Director of Operations</div>
+                  <div class="text-gray-400 text-xs mt-1">Regional Distribution Giant</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-24 bg-white dark:bg-navy-950 text-center transition-colors duration-500">
+        <div class="reveal">
+          <h2 class="text-4xl font-serif text-navy-900 dark:text-white mb-8">Begin the transformation</h2>
+          <a href="contact.html" class="inline-block px-12 py-4 border-2 border-navy-900 dark:border-gold-400 text-navy-900 dark:text-gold-400 font-bold tracking-widest uppercase hover:bg-navy-900 hover:text-white dark:hover:bg-gold-400 dark:hover:text-navy-950 transition-all">
+            Schedule Process Audit
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-navy-950 border-t border-gray-200 dark:border-white/5 pt-24 pb-12 transition-colors duration-500">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+          <div class="md:col-span-1">
+            <div class="font-serif font-bold text-2xl text-navy-900 dark:text-white tracking-tight mb-6">DA</div>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed font-serif">Amman &bull; Dubai &bull; Riyadh</p>
+          </div>
+          <div>
+            <h3 class="text-navy-900 dark:text-white font-bold mb-6 text-xs uppercase tracking-widest">Practice Areas</h3>
+            <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+              <li><a href="results.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Process Automation</a></li>
+              <li><a href="results.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Financial Transformation</a></li>
+              <li><a href="how-it-works.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Reconciliation Engines</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-navy-900 dark:text-white font-bold mb-6 text-xs uppercase tracking-widest">Firm</h3>
+            <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+              <li><a href="how-it-works.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Methodology</a></li>
+              <li><a href="results.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Impact Reports</a></li>
+              <li><a href="contact.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Careers</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-navy-900 dark:text-white font-bold mb-6 text-xs uppercase tracking-widest">Connect</h3>
+            <div class="flex space-x-4 mb-4">
+              <a href="#" class="text-gray-400 dark:text-gray-500 hover:text-navy-900 dark:hover:text-white transition-colors">
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              </a>
+            </div>
+            <div class="text-sm text-gray-500 dark:text-gray-400">
+              <a href="mailto:contact@smartplushub.com" class="hover:text-navy-900 dark:hover:text-white block mb-1">contact@smartplushub.com</a>
+              <a href="tel:+962798103323" class="hover:text-navy-900 dark:hover:text-white block">+962 79 8103323</a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-100 dark:border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 dark:text-gray-600 uppercase tracking-wider">
+          <p>&copy; 2025 DeyaAldeen AlSoub. All rights reserved.</p>
+          <div class="flex space-x-8 mt-4 md:mt-0">
+            <a href="#" class="hover:text-navy-900 dark:hover:text-white transition-colors">Privacy</a>
+            <a href="#" class="hover:text-navy-900 dark:hover:text-white transition-colors">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+      function toggleTheme() {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      }
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+      themeToggle?.addEventListener('click', toggleTheme);
+      themeToggleMobile?.addEventListener('click', toggleTheme);
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      mobileMenuBtn?.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+      const reveals = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>

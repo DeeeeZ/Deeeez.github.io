@@ -1,259 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeyaAldeen AlSoub | Enterprise Finance Automation</title>
-    <meta name="description" content="Strategic automation for enterprise finance. Founder of Smart Plus Hub.">
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DeyaAldeen AlSoub | Enterprise Automation</title>
+    <meta name="description" content="Process automation for enterprise finance operations. Driven by expertise." />
+    <link rel="canonical" href="https://www.deyaaldeen.com/" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                950: '#020c1b',
+                900: '#051c2c',
+                800: '#0a2540',
+                700: '#1e3a8a',
+                200: '#c7d2fe',
+              },
+              gold: {
+                400: '#d4af37',
+                500: '#c5a028',
+              },
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            boxShadow: {
+              'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+              'card': '0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)',
+              'glow': '0 0 15px rgba(212, 175, 55, 0.1)',
+            },
+            animation: {
+              'fade-up': 'fadeUp 0.8s ease-out forwards',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'marquee': 'marquee 60s linear infinite',
+              'marquee-reverse': 'marqueeReverse 60s linear infinite',
+            },
+            keyframes: {
+              fadeUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-50%)' },
+              },
+              marqueeReverse: {
+                '0%': { transform: 'translateX(-50%)' },
+                '100%': { transform: 'translateX(0%)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .font-serif {
+        letter-spacing: -0.02em;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #1e293b;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 1s ease-out;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Partner logo styles */
+      .partner-logo {
+        height: 56px;
+        width: auto;
+        filter: grayscale(100%) opacity(0.6);
+        transition: filter 0.4s ease, transform 0.3s ease;
+      }
+      .partner-logo:hover {
+        filter: grayscale(0%) opacity(1);
+        transform: scale(1.08);
+      }
+      .dark .partner-logo {
+        filter: grayscale(100%) opacity(0.4) invert(1);
+      }
+      .dark .partner-logo:hover {
+        filter: grayscale(0%) opacity(1) invert(0);
+      }
+      @media (min-width: 768px) {
+        .partner-logo {
+          height: 80px;
+        }
+      }
+    </style>
 </head>
-<body>
+<body class="bg-white dark:bg-navy-950 text-gray-900 dark:text-gray-100 transition-colors duration-500">
 
     <!-- Navigation -->
-    <header>
-        <div class="container flex justify-between items-center">
-            <a href="#" class="logo">DeyaAldeen AlSoub</a>
-            <nav class="nav-links">
-                <a href="#expertise">Expertise</a>
-                <a href="#impact">Impact</a>
-                <a href="#methodology">Methodology</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <nav class="sticky top-0 z-50 w-full bg-white/95 dark:bg-navy-950/95 backdrop-blur-md border-b border-gray-100 dark:border-white/5 transition-all duration-500">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex justify-between items-end h-24 pb-6">
+          <!-- Logo -->
+          <a href="index.html" class="flex-shrink-0 group relative z-10">
+            <div class="flex flex-col">
+              <span class="font-serif font-bold text-2xl text-navy-900 dark:text-white tracking-tight leading-none group-hover:opacity-80 transition-opacity">
+                DeyaAldeen AlSoub
+              </span>
+              <span class="text-[10px] uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mt-1 font-medium group-hover:text-gold-400 transition-colors">
+                Process Intelligence
+              </span>
+            </div>
+          </a>
 
-    <!-- Hero Section -->
-    <section class="hero bg-pattern">
-        <div class="container grid grid-2 gap-md items-center">
-            <div class="hero-content">
-                <div class="divider"></div>
-                <h1>Eliminating the manual work that holds finance teams back.</h1>
-                <p class="hero-subtitle">I partner with MENA's leading enterprises to architect and deploy automated financial operations. 200%+ ROI, guaranteed.</p>
-                <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
-            </div>
-            <div class="hero-image-wrapper">
-                <img src="assets/images/replicate-prediction-z1664zz9d5rmc0crpmwtc1de3r.png" alt="DeyaAldeen AlSoub" class="hero-image">
-            </div>
-        </div>
-    </section>
+          <!-- Desktop Nav -->
+          <div class="hidden md:flex items-center space-x-12 mb-1">
+            <a href="results.html" class="text-sm font-medium tracking-widest uppercase transition-all duration-300 border-b-2 pb-1 text-gray-500 dark:text-gray-400 border-transparent hover:text-navy-900 dark:hover:text-white hover:border-gray-200 dark:hover:border-white/20">
+              Impact
+            </a>
+            <a href="how-it-works.html" class="text-sm font-medium tracking-widest uppercase transition-all duration-300 border-b-2 pb-1 text-gray-500 dark:text-gray-400 border-transparent hover:text-navy-900 dark:hover:text-white hover:border-gray-200 dark:hover:border-white/20">
+              Methodology
+            </a>
+            <a href="contact.html" class="text-sm font-medium tracking-widest uppercase transition-all duration-300 border-b-2 pb-1 text-gray-500 dark:text-gray-400 border-transparent hover:text-navy-900 dark:hover:text-white hover:border-gray-200 dark:hover:border-white/20">
+              Contact
+            </a>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar">
-        <div class="container text-center">
-            <p class="trust-label">Trusted by leadership at</p>
-            <div class="logos-grid">
-                <span class="partner-logo">Louis Vuitton</span>
-                <span class="partner-logo">Dior</span>
-                <span class="partner-logo">Fendi</span>
-                <span class="partner-logo">Tiffany & Co.</span>
-                <span class="partner-logo">Sephora</span>
-                <span class="partner-logo">Versace</span>
-            </div>
-        </div>
-    </section>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-navy-900 dark:text-white transition-colors" aria-label="Toggle Dark Mode">
+              <i data-lucide="moon" class="w-[18px] h-[18px] dark:hidden"></i>
+              <i data-lucide="sun" class="w-[18px] h-[18px] hidden dark:block"></i>
+            </button>
 
-    <!-- The Problem (Editorial Style) -->
-    <section class="section">
-        <div class="container">
-            <div class="grid grid-2 gap-md">
-                <div>
-                    <h2>The Efficiency Gap in Modern Finance</h2>
-                    <div class="divider"></div>
-                    <p>Despite significant investment in ERPs, finance professionals still spend hours on low-value, repetitive tasks. This "Efficiency Gap" costs enterprises millions in lost productivity and errors.</p>
-                </div>
-                <div>
-                    <p><strong>The Reality:</strong></p>
-                    <ul style="margin-top: 1rem; list-style: square; padding-left: 1.5rem; color: var(--text-muted);">
-                        <li style="margin-bottom: 0.5rem;">Downloading reports from disparate portals</li>
-                        <li style="margin-bottom: 0.5rem;">Manual data entry and copy-pasting</li>
-                        <li style="margin-bottom: 0.5rem;">Line-by-line transaction reconciliation</li>
-                        <li style="margin-bottom: 0.5rem;">Recurring error correction cycles</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+            <a href="contact.html" class="ml-4 px-8 py-3 bg-navy-900 dark:bg-white text-white dark:text-navy-900 text-xs font-bold tracking-widest uppercase hover:bg-navy-800 dark:hover:bg-gray-200 transition-all shadow-subtle hover:shadow-card">
+              Consult Us
+            </a>
+          </div>
 
-    <!-- Impact / Stats -->
-    <section id="impact" class="section" style="background: var(--bg-surface);">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: var(--spacing-md);">
-                <h2>Measurable Impact</h2>
-                <div class="divider divider-center"></div>
-            </div>
-            <div class="grid grid-3 gap-md">
-                <!-- Stat 1: Value -->
-                <div class="stat-item text-center">
-                    <div class="chart-container" style="height: 120px;">
-                        <div class="bar-chart">
-                            <div class="bar" style="height: 30%;"></div>
-                            <div class="bar" style="height: 50%;"></div>
-                            <div class="bar" style="height: 70%;"></div>
-                            <div class="bar highlight" style="height: 100%;"></div>
-                        </div>
-                    </div>
-                    <div class="stat-number">$26k+</div>
-                    <div class="stat-label">Value Delivered Per Project</div>
-                </div>
-                <!-- Stat 2: ROI -->
-                <div class="stat-item text-center">
-                    <div class="donut-chart">
-                        <div class="donut-text">2x</div>
-                    </div>
-                    <div class="stat-number">200%</div>
-                    <div class="stat-label">Average ROI</div>
-                </div>
-                <!-- Stat 3: Payback -->
-                <div class="stat-item text-center">
-                    <div style="height: 120px; display: flex; flex-direction: column; justify-content: center;">
-                        <div class="progress-container">
-                            <div class="progress-bar"></div>
-                            <div class="progress-marker">Target Met</div>
-                        </div>
-                    </div>
-                    <div class="stat-number">&lt;6 Mo</div>
-                    <div class="stat-label">Payback Period</div>
-                </div>
-            </div>
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center mb-1 gap-4">
+            <button id="theme-toggle-mobile" class="p-2 text-navy-900 dark:text-white">
+              <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+              <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+            </button>
+            <button id="mobile-menu-btn" class="text-navy-900 dark:text-white focus:outline-none">
+              <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+              <i data-lucide="x" class="w-6 h-6 hidden" id="close-icon"></i>
+            </button>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Case Studies -->
-    <section class="section">
-        <div class="container">
-            <h2 style="margin-bottom: var(--spacing-md);">Selected Case Studies</h2>
-            <div class="grid grid-3 gap-md">
-                <div class="card">
-                    <span class="card-meta">Chalhoub Group</span>
-                    <h4>Portal Automation Suite</h4>
-                    <p>Automated data extraction for 17 merchant accounts, reducing manual effort by 85% across the finance department.</p>
-                </div>
-                <div class="card">
-                    <span class="card-meta">Chalhoub Group</span>
-                    <h4>BI Reports Automation</h4>
-                    <p>Implemented RPA to generate 46 daily reports across 24 entities, eliminating 160 hours of monthly manual work.</p>
-                </div>
-                <div class="card">
-                    <span class="card-meta">Chalhoub Group</span>
-                    <h4>Reconciliation Engine</h4>
-                    <p>Deployed intelligent matching for bank and vendor reconciliation, achieving 632% ROI with zero errors.</p>
-                </div>
-            </div>
+      <!-- Mobile Nav -->
+      <div id="mobile-menu" class="md:hidden bg-white dark:bg-navy-950 border-t border-gray-100 dark:border-white/10 absolute w-full h-screen left-0 top-24 z-40 hidden animate-fade-up">
+        <div class="px-6 pt-12 space-y-8">
+          <a href="results.html" class="block text-3xl font-serif font-medium text-navy-900 dark:text-white hover:pl-2 transition-all">Impact</a>
+          <a href="how-it-works.html" class="block text-3xl font-serif font-medium text-navy-900 dark:text-white hover:pl-2 transition-all">Methodology</a>
+          <a href="contact.html" class="block text-3xl font-serif font-medium text-navy-900 dark:text-white hover:pl-2 transition-all">Contact</a>
+          <div class="pt-12 border-t border-gray-100 dark:border-white/10">
+            <a href="contact.html" class="block w-full py-4 bg-navy-900 dark:bg-white text-white dark:text-navy-900 text-center text-lg font-serif font-bold">
+              Start Consultation
+            </a>
+          </div>
         </div>
-    </section>
+      </div>
+    </nav>
 
-    <!-- Methodology -->
-    <section id="methodology" class="section">
-        <div class="container">
-            <div class="grid grid-2 gap-md items-center">
-                <div>
-                    <h2>The Methodology</h2>
-                    <div class="divider"></div>
-                    <p>I employ a rigorous, four-stage process to ensure every automation initiative delivers tangible business value.</p>
-                </div>
-                <div class="grid grid-2 gap-md">
-                    <div class="process-step">
-                        <span class="process-number">01</span>
-                        <h4>Discover</h4>
-                        <p style="font-size: 0.9rem;">Audit current workflows to identify high-impact opportunities.</p>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">02</span>
-                        <h4>Design</h4>
-                        <p style="font-size: 0.9rem;">Architect tailored solutions aligned with existing systems.</p>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">03</span>
-                        <h4>Deploy</h4>
-                        <p style="font-size: 0.9rem;">Build, test, and launch with full team training.</p>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">04</span>
-                        <h4>Deliver</h4>
-                        <p style="font-size: 0.9rem;">Measure results against ROI projections.</p>
-                    </div>
-                </div>
-            </div>
+    <main class="flex-grow">
+      <!-- Editorial Hero -->
+      <section class="relative bg-white dark:bg-navy-950 pt-20 pb-32 border-b border-gray-100 dark:border-white/5 overflow-hidden transition-colors duration-500">
+        <!-- Network Background -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-10 dark:opacity-20">
+          <svg width="100%" height="100%" class="absolute inset-0">
+            <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="1" class="fill-navy-900 dark:fill-white" />
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <circle cx="10%" cy="20%" r="3" class="fill-navy-900 dark:fill-white animate-pulse-slow opacity-50" />
+            <circle cx="90%" cy="80%" r="3" class="fill-navy-900 dark:fill-white animate-pulse-slow opacity-50" style="animation-delay: 1s" />
+            <circle cx="50%" cy="50%" r="2" class="fill-navy-900 dark:fill-white animate-pulse-slow opacity-30" style="animation-delay: 2s" />
+            <path d="M100 200 Q 400 100 800 400" class="stroke-navy-900 dark:stroke-white fill-none opacity-20" stroke-width="1" stroke-dasharray="5,5">
+              <animate attributeName="stroke-dashoffset" from="0" to="20" dur="5s" repeatCount="indefinite" />
+            </path>
+            <path d="M200 600 Q 500 500 900 200" class="stroke-navy-900 dark:stroke-white fill-none opacity-20" stroke-width="1" stroke-dasharray="5,5">
+              <animate attributeName="stroke-dashoffset" from="0" to="20" dur="7s" repeatCount="indefinite" />
+            </path>
+          </svg>
+          <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-navy-950 dark:via-transparent dark:to-navy-950"></div>
         </div>
-    </section>
 
-    <!-- Expertise -->
-    <section id="expertise" class="section bg-pattern" style="background-color: #f9f9f9;">
-        <div class="container">
-            <h2 style="margin-bottom: var(--spacing-md);">Core Competencies</h2>
-            <div class="grid grid-4 gap-md">
-                <div>
-                    <div class="icon-box"><i class="ph ph-bank"></i></div>
-                    <h4>Portal Integration</h4>
-                    <p style="font-size: 0.9rem;">Automated extraction from banks & vendors.</p>
-                </div>
-                <div>
-                    <div class="icon-box"><i class="ph ph-file-text"></i></div>
-                    <h4>Report Generation</h4>
-                    <p style="font-size: 0.9rem;">Scheduled reporting from Oracle & SAP.</p>
-                </div>
-                <div>
-                    <div class="icon-box"><i class="ph ph-scales"></i></div>
-                    <h4>Reconciliation</h4>
-                    <p style="font-size: 0.9rem;">Intelligent transaction matching engines.</p>
-                </div>
-                <div>
-                    <div class="icon-box"><i class="ph ph-database"></i></div>
-                    <h4>Data ETL</h4>
-                    <p style="font-size: 0.9rem;">Transforming raw data into actionable insights.</p>
-                </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div class="max-w-4xl">
+            <div class="reveal">
+              <div class="inline-block border-b-2 border-navy-900 dark:border-gold-400 mb-8 pb-1">
+                <span class="text-navy-900 dark:text-gold-400 font-bold uppercase tracking-widest text-xs">
+                  Strategic Automation
+                </span>
+              </div>
+              <h1 class="text-6xl md:text-7xl lg:text-8xl font-serif text-navy-900 dark:text-white leading-[1.05] tracking-tight mb-10">
+                The new operating model for <span class="italic text-gray-400 dark:text-gray-500">finance.</span>
+              </h1>
+              <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed mb-12 font-light font-serif">
+                We eliminate the manual workload that stifles enterprise growth.
+                Precision automation for the MENA region's premier institutions.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-6">
+                <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 bg-navy-900 dark:bg-white text-white dark:text-navy-900 text-sm font-bold tracking-wide uppercase hover:bg-navy-800 dark:hover:bg-gray-200 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                  Schedule Audit
+                </a>
+                <a href="results.html" class="inline-flex justify-center items-center px-8 py-4 bg-transparent border border-gray-200 dark:border-white/20 text-navy-900 dark:text-white text-sm font-bold tracking-wide uppercase hover:border-navy-900 dark:hover:border-white transition-all">
+                  View Impact
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
-        <div class="container grid grid-2 gap-lg">
-            <div>
-                <h2>Start the Conversation</h2>
-                <div class="divider"></div>
-                <p>I work with a select number of enterprise clients to ensure maximum attention and impact. Let's discuss your operational challenges.</p>
-                
-                <div style="margin-top: var(--spacing-md);">
-                    <p><strong>DeyaAldeen AlSoub</strong><br>Founder, Smart Plus Hub</p>
-                    <p>contact@smartplushub.com<br>+962 79 8103323</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Amman, Jordan</p>
-                </div>
+      <!-- Partners - Big & Bold Marquee -->
+      <section class="bg-gray-50 dark:bg-navy-900/30 border-b border-gray-100 dark:border-white/5 transition-colors duration-500 py-24 overflow-hidden">
+        <div class="w-full">
+          <div class="reveal" style="transition-delay: 200ms">
+            <!-- Header -->
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-16">
+              <span class="text-navy-900 dark:text-gold-400 font-bold uppercase tracking-widest text-xs mb-4 block">
+                Transformed Operations For
+              </span>
+              <h2 class="text-3xl md:text-5xl font-serif text-navy-900 dark:text-white leading-tight">
+                Leaders in global luxury.
+              </h2>
             </div>
-            <div class="contact-form">
-                <form>
-                    <input type="text" placeholder="Full Name">
-                    <input type="text" placeholder="Company / Organization">
-                    <input type="email" placeholder="Business Email">
-                    <textarea rows="5" placeholder="Briefly describe your operational challenge..."></textarea>
-                    <button type="submit" class="btn btn-primary">Request Consultation</button>
-                </form>
+
+            <!-- Marquee Row 1 -->
+            <div class="relative flex overflow-hidden w-full group py-8">
+              <div class="flex whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]">
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/louis-vuitton.svg" alt="Louis Vuitton" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/dior.svg" alt="Dior" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/sephora.svg" alt="Sephora" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/fendi.svg" alt="Fendi" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/celine.svg" alt="Celine" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/givenchy.svg" alt="Givenchy" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/louboutin.svg" alt="Louboutin" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/puig.svg" alt="Puig" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/havas.svg" alt="Havas" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/louis-vuitton.svg" alt="Louis Vuitton" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/dior.svg" alt="Dior" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/sephora.svg" alt="Sephora" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/fendi.svg" alt="Fendi" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/celine.svg" alt="Celine" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/givenchy.svg" alt="Givenchy" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/louboutin.svg" alt="Louboutin" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/puig.svg" alt="Puig" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/havas.svg" alt="Havas" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+              </div>
+              <div class="absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-gray-50 dark:from-navy-900/30 to-transparent z-10 pointer-events-none"></div>
+              <div class="absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-gray-50 dark:from-navy-900/30 to-transparent z-10 pointer-events-none"></div>
             </div>
+
+            <!-- Marquee Row 2 (reverse) -->
+            <div class="relative flex overflow-hidden w-full group py-8">
+              <div class="flex whitespace-nowrap animate-marquee-reverse group-hover:[animation-play-state:paused]">
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/otb-group.svg" alt="OTB Group" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/korloff.svg" alt="Korloff" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/saks-fifth-avenue.svg" alt="Saks Fifth Avenue" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/loewe.svg" alt="Loewe" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/carolina-herrera.svg" alt="Carolina Herrera" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/swarovski.svg" alt="Swarovski" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/lacoste.svg" alt="Lacoste" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/michael-kors.svg" alt="Michael Kors" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/loreal.svg" alt="L'Oréal" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/otb-group.svg" alt="OTB Group" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/korloff.svg" alt="Korloff" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/saks-fifth-avenue.svg" alt="Saks Fifth Avenue" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/loewe.svg" alt="Loewe" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/carolina-herrera.svg" alt="Carolina Herrera" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/swarovski.svg" alt="Swarovski" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/lacoste.svg" alt="Lacoste" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/michael-kors.svg" alt="Michael Kors" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+                <div class="flex items-center mx-8 md:mx-16"><img src="assets/images/logos/loreal.svg" alt="L'Oréal" class="partner-logo"><i data-lucide="star" class="w-3 h-3 md:w-4 md:h-4 text-gold-400 ml-8 md:ml-16 opacity-50 fill-current"></i></div>
+              </div>
+              <div class="absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-gray-50 dark:from-navy-900/30 to-transparent z-10 pointer-events-none"></div>
+              <div class="absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-gray-50 dark:from-navy-900/30 to-transparent z-10 pointer-events-none"></div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+
+      <!-- The Insight / Value Prop -->
+      <section class="py-24 bg-white dark:bg-navy-950 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="grid md:grid-cols-3 gap-16">
+
+            <div class="reveal group" style="transition-delay: 100ms">
+              <div class="w-full h-[1px] bg-gray-200 dark:bg-white/10 mb-6 group-hover:bg-navy-900 dark:group-hover:bg-gold-400 transition-colors duration-500"></div>
+              <div class="mb-4 transform group-hover:-translate-y-1 transition-transform duration-300">
+                <i data-lucide="clock" class="text-navy-900 dark:text-white w-7 h-7" stroke-width="1"></i>
+              </div>
+              <h3 class="text-2xl font-serif text-navy-900 dark:text-white mb-4 tracking-tight">Operational Velocity</h3>
+              <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+                We reclaim over <span class="font-semibold text-navy-900 dark:text-white">160 hours per month</span> per department.
+                By automating repetitive extraction and reconciliation, we free your capital for strategic deployment.
+              </p>
+            </div>
+
+            <div class="reveal group" style="transition-delay: 300ms">
+              <div class="w-full h-[1px] bg-gray-200 dark:bg-white/10 mb-6 group-hover:bg-navy-900 dark:group-hover:bg-gold-400 transition-colors duration-500"></div>
+              <div class="mb-4 transform group-hover:-translate-y-1 transition-transform duration-300">
+                <i data-lucide="trending-up" class="text-navy-900 dark:text-white w-7 h-7" stroke-width="1"></i>
+              </div>
+              <h3 class="text-2xl font-serif text-navy-900 dark:text-white mb-4 tracking-tight">Capital Efficiency</h3>
+              <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+                Our solutions deliver immediate ROI, often exceeding <span class="font-semibold text-navy-900 dark:text-white">200%</span> in the first year.
+                We convert operational waste into bottom-line value through algorithmic precision.
+              </p>
+            </div>
+
+            <div class="reveal group" style="transition-delay: 500ms">
+              <div class="w-full h-[1px] bg-gray-200 dark:bg-white/10 mb-6 group-hover:bg-navy-900 dark:group-hover:bg-gold-400 transition-colors duration-500"></div>
+              <div class="mb-4 transform group-hover:-translate-y-1 transition-transform duration-300">
+                <i data-lucide="shield-check" class="text-navy-900 dark:text-white w-7 h-7" stroke-width="1"></i>
+              </div>
+              <h3 class="text-2xl font-serif text-navy-900 dark:text-white mb-4 tracking-tight">Risk Mitigation</h3>
+              <p class="text-gray-500 dark:text-gray-400 leading-relaxed text-sm">
+                Manual processes breed error. We implement <span class="font-semibold text-navy-900 dark:text-white">zero-error</span> automated workflows
+                for reporting and reconciliation, ensuring total data integrity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership Perspective -->
+      <section class="bg-navy-900 dark:bg-black text-white py-24 lg:py-32 overflow-hidden relative transition-colors duration-500">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-white opacity-[0.03] skew-x-12 transform translate-x-24"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div class="reveal">
+            <div class="grid lg:grid-cols-12 gap-16 items-start">
+              <div class="lg:col-span-5">
+                <div class="w-24 h-1 bg-white dark:bg-gold-400 mb-12"></div>
+                <h2 class="text-4xl md:text-5xl font-serif leading-tight mb-8">
+                  "Automation is not about replacing people. It is about elevating the human intellect."
+                </h2>
+              </div>
+              <div class="lg:col-span-6 lg:col-start-7 pt-4">
+                <h6 class="text-gray-400 dark:text-gold-500 font-bold uppercase tracking-widest text-xs mb-6">Our Perspective</h6>
+                <div class="space-y-6 text-gray-300 text-lg font-light font-serif leading-relaxed">
+                  <p>
+                    The finance function is evolving from a transactional back-office into the strategic heart of the enterprise. Yet, too many brilliant minds are trapped in spreadsheets, performing tasks that algorithms can execute in seconds.
+                  </p>
+                  <p>
+                    We don't just write code. We re-architect operations. We combine deep technical rigor with executive-level financial strategy to build systems that are robust, auditable, and immensely powerful.
+                  </p>
+                </div>
+
+                <div class="mt-12 pt-12 border-t border-white/10 flex items-center gap-6">
+                  <div>
+                    <div class="font-serif text-2xl text-white mb-1">DeyaAldeen AlSoub</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-widest">Founder & Principal Consultant</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Study Teaser -->
+      <section class="py-24 bg-white dark:bg-navy-950 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+              <div class="bg-gray-50 dark:bg-navy-900 p-12 lg:p-16 relative overflow-hidden group">
+                <div class="absolute right-0 bottom-0 opacity-10 dark:opacity-5 transform group-hover:scale-110 transition-transform duration-700">
+                  <svg width="200" height="200" viewBox="0 0 100 100">
+                    <path d="M10 90 L 30 70 L 50 80 L 90 20" stroke="currentColor" stroke-width="2" fill="none" />
+                  </svg>
+                </div>
+
+                <div class="text-6xl font-serif text-navy-900 dark:text-white mb-4 opacity-20 dark:opacity-10">01</div>
+                <div class="h-64 border-l border-b border-gray-200 dark:border-white/20 relative">
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <div class="text-sm uppercase tracking-widest text-gray-400 mb-2">Result</div>
+                    <div class="text-4xl font-serif text-navy-900 dark:text-white">160 Hours</div>
+                    <div class="text-gray-500 dark:text-gray-400">Saved Monthly</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal" style="transition-delay: 200ms">
+              <div>
+                <h6 class="text-navy-900 dark:text-gold-400 font-bold uppercase tracking-widest text-xs mb-6">Featured Impact</h6>
+                <h2 class="text-4xl font-serif text-navy-900 dark:text-white mb-6 leading-tight">
+                  Transforming luxury retail finance at scale
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 font-light leading-relaxed">
+                  How we automated daily report extraction for a 24-entity operation, reducing manual effort from 4 hours to 30 minutes daily.
+                </p>
+                <a href="results.html" class="group inline-flex items-center text-navy-900 dark:text-white font-semibold border-b border-navy-900 dark:border-white pb-1 hover:opacity-70 transition-all">
+                  Read the Case Study <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer CTA -->
+      <section class="py-24 bg-gray-50 dark:bg-navy-900 border-t border-gray-200 dark:border-white/5 transition-colors duration-500">
+        <div class="max-w-4xl mx-auto text-center px-6">
+          <div class="reveal">
+            <h2 class="text-3xl md:text-5xl font-serif text-navy-900 dark:text-white mb-8 tracking-tight">
+              Ready to optimize your operations?
+            </h2>
+            <a href="contact.html" class="inline-block px-12 py-5 bg-navy-900 dark:bg-gold-500 text-white dark:text-navy-950 text-sm font-bold tracking-widest uppercase hover:bg-navy-800 dark:hover:bg-gold-400 transition-all shadow-lg hover:shadow-glow">
+              Begin the Conversation
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="container flex justify-between items-center">
-            <div class="logo" style="font-size: 1.2rem;">DeyaAldeen AlSoub</div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">LinkedIn</a>
+    <footer class="bg-white dark:bg-navy-950 border-t border-gray-200 dark:border-white/5 pt-24 pb-12 transition-colors duration-500">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+          <div class="md:col-span-1">
+            <div class="font-serif font-bold text-2xl text-navy-900 dark:text-white tracking-tight mb-6">
+              DA
             </div>
-            <p style="font-size: 0.8rem; margin: 0;">&copy; 2025</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed font-serif">
+              Amman &bull; Dubai &bull; Riyadh
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-navy-900 dark:text-white font-bold mb-6 text-xs uppercase tracking-widest">Practice Areas</h3>
+            <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+              <li><a href="results.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Process Automation</a></li>
+              <li><a href="results.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Financial Transformation</a></li>
+              <li><a href="how-it-works.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Reconciliation Engines</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-navy-900 dark:text-white font-bold mb-6 text-xs uppercase tracking-widest">Firm</h3>
+            <ul class="space-y-3 text-sm text-gray-500 dark:text-gray-400">
+              <li><a href="how-it-works.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Methodology</a></li>
+              <li><a href="results.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Impact Reports</a></li>
+              <li><a href="contact.html" class="hover:text-navy-900 dark:hover:text-white transition-colors">Careers</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-navy-900 dark:text-white font-bold mb-6 text-xs uppercase tracking-widest">Connect</h3>
+            <div class="flex space-x-4 mb-4">
+              <a href="#" class="text-gray-400 dark:text-gray-500 hover:text-navy-900 dark:hover:text-white transition-colors">
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              </a>
+            </div>
+            <div class="text-sm text-gray-500 dark:text-gray-400">
+              <a href="mailto:contact@smartplushub.com" class="hover:text-navy-900 dark:hover:text-white block mb-1">contact@smartplushub.com</a>
+              <a href="tel:+962798103323" class="hover:text-navy-900 dark:hover:text-white block">+962 79 8103323</a>
+            </div>
+          </div>
         </div>
+
+        <div class="border-t border-gray-100 dark:border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 dark:text-gray-600 uppercase tracking-wider">
+          <p>&copy; 2025 DeyaAldeen AlSoub. All rights reserved.</p>
+          <div class="flex space-x-8 mt-4 md:mt-0">
+            <a href="#" class="hover:text-navy-900 dark:hover:text-white transition-colors">Privacy</a>
+            <a href="#" class="hover:text-navy-900 dark:hover:text-white transition-colors">Terms</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Theme toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+
+      function toggleTheme() {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      }
+
+      // Check for saved theme or system preference
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+
+      themeToggle?.addEventListener('click', toggleTheme);
+      themeToggleMobile?.addEventListener('click', toggleTheme);
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      mobileMenuBtn?.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+
+      // Scroll reveal animation
+      const reveals = document.querySelectorAll('.reveal');
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      reveals.forEach(el => revealObserver.observe(el));
+    </script>
 </body>
 </html>
