@@ -41,8 +41,11 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav id="nav" class="nav">
+    <nav id="nav" class="nav" role="navigation" aria-label="Main navigation">
       <div class="container h-full flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center gap-3 cursor-pointer group">
@@ -84,64 +87,79 @@
           </div>
         </div>
 
-        <!-- Desktop Nav -->
+        <!-- Desktop Nav - Ordered by buyer journey: How → Proof → Reviews → FAQ → Contact -->
         <div class="desktop-nav hidden md:flex items-center gap-12">
-          <a href="#impact" class="nav-link">01. Impact</a>
-          <a href="#partners" class="nav-link">02. Network</a>
-          <a href="#testimonials" class="nav-link">03. Reviews</a>
-          <a href="#logic" class="nav-link">04. Logic</a>
-          <a href="#contact" class="nav-link">05. Contact</a>
+          <a href="#logic" class="nav-link">01. How It Works</a>
+          <a href="#partners" class="nav-link">02. Clients</a>
+          <a href="#impact" class="nav-link">03. Results</a>
+          <a href="#testimonials" class="nav-link">04. Reviews</a>
+          <a href="#faq" class="nav-link">05. FAQ</a>
 
           <button
             id="theme-toggle"
             class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 theme-text-primary transition-colors"
-            aria-label="Toggle Dark Mode"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+            role="switch"
           >
-            <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
-            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-4 h-4 dark:hidden" aria-hidden="true"></i>
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block" aria-hidden="true"></i>
           </button>
 
           <a
             href="#contact"
             class="theme-section-dark px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-widest hover:bg-[var(--accent)] hover:text-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 rounded-sm"
           >
-            Book Audit
+            Request Audit
           </a>
         </div>
 
         <!-- Mobile Nav Toggle -->
         <div class="mobile-nav-toggle flex items-center gap-4 md:hidden">
-          <button id="theme-toggle-mobile" class="theme-text-primary p-2">
-            <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
-            <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+          <button
+            id="theme-toggle-mobile"
+            class="theme-text-primary p-2"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+            role="switch"
+          >
+            <i data-lucide="moon" class="w-5 h-5 dark:hidden" aria-hidden="true"></i>
+            <i data-lucide="sun" class="w-5 h-5 hidden dark:block" aria-hidden="true"></i>
           </button>
-          <button id="mobile-menu-btn" class="theme-text-primary">
-            <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
-            <i data-lucide="x" class="w-6 h-6 hidden" id="close-icon"></i>
+          <button
+            id="mobile-menu-btn"
+            class="theme-text-primary"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <i data-lucide="menu" class="w-6 h-6" id="menu-icon" aria-hidden="true"></i>
+            <i data-lucide="x" class="w-6 h-6 hidden" id="close-icon" aria-hidden="true"></i>
           </button>
         </div>
       </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu">
-      <a href="#impact" class="mobile-menu-link">Impact</a>
-      <a href="#partners" class="mobile-menu-link">Network</a>
+    <div id="mobile-menu" class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="#logic" class="mobile-menu-link">How It Works</a>
+      <a href="#partners" class="mobile-menu-link">Clients</a>
+      <a href="#impact" class="mobile-menu-link">Results</a>
       <a href="#testimonials" class="mobile-menu-link">Reviews</a>
-      <a href="#logic" class="mobile-menu-link">Logic</a>
-      <a href="#contact" class="mobile-menu-link">Contact</a>
+      <a href="#faq" class="mobile-menu-link">FAQ</a>
       <div class="pt-12 mt-8 border-t border-[var(--border-subtle)]">
         <a
           href="#contact"
           class="block w-full py-4 theme-section-dark text-white text-center text-lg font-serif font-bold"
         >
-          Book Audit
+          Request Audit
         </a>
       </div>
     </div>
 
     <!-- Hero Section -->
     <header
+      id="main-content"
       class="relative pt-40 lg:pt-56 pb-20 px-6 lg:px-12 max-w-[1920px] mx-auto overflow-hidden bg-tech-grid theme-bg-main border-b border-[var(--border-subtle)] transition-colors duration-500"
     >
       <!-- Kinetic Background -->
@@ -301,6 +319,18 @@
                       class="text-5xl font-serif font-bold theme-text-primary"
                     >
                       $130,000
+                    </div>
+                    <button
+                      type="button"
+                      id="show-formula-btn"
+                      class="mt-3 text-xs font-mono text-[var(--accent)] hover:underline cursor-pointer flex items-center justify-center gap-1 mx-auto"
+                    >
+                      <i data-lucide="info" class="w-3 h-3"></i>
+                      <span>Show calculation</span>
+                    </button>
+                    <div id="formula-details" class="hidden mt-3 text-left bg-gray-100 dark:bg-white/5 p-3 rounded text-xs font-mono theme-text-tertiary">
+                      <div class="mb-2"><strong class="theme-text-secondary">Formula:</strong> Hours/week × Team size × $50/hr × 52 weeks</div>
+                      <div class="text-[10px] italic">*Based on average finance professional billing rate. Actual savings may vary.</div>
                     </div>
                   </div>
                 </div>
@@ -980,13 +1010,14 @@
                 SJ
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <a href="https://linkedin.com/company/chalhoub-group" target="_blank" rel="noopener" class="text-sm font-bold theme-text-primary hover:text-[var(--accent)] transition-colors flex items-center gap-1">
                   Sarah Jenkins
-                </div>
+                  <i data-lucide="linkedin" class="w-3 h-3 opacity-50"></i>
+                </a>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
                 >
-                  Finance Ops @ Chalhoub Group
+                  Finance Ops @ <a href="https://www.chalhoubgroup.com" target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition-colors">Chalhoub Group</a>
                 </div>
               </div>
             </div>
@@ -1006,9 +1037,10 @@
                 AA
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <a href="https://linkedin.com/company/real-fze" target="_blank" rel="noopener" class="text-sm font-bold theme-text-primary hover:text-[var(--accent)] transition-colors flex items-center gap-1">
                   Ahmed Al-Sayed
-                </div>
+                  <i data-lucide="linkedin" class="w-3 h-3 opacity-50"></i>
+                </a>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
                 >
@@ -1033,8 +1065,9 @@
                 MR
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <div class="text-sm font-bold theme-text-primary flex items-center gap-1">
                   Michael Ross
+                  <span class="text-[8px] bg-gray-200 dark:bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-wider font-mono">Verified</span>
                 </div>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
@@ -1061,13 +1094,14 @@
                 SJ
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <a href="https://linkedin.com/company/chalhoub-group" target="_blank" rel="noopener" class="text-sm font-bold theme-text-primary hover:text-[var(--accent)] transition-colors flex items-center gap-1">
                   Sarah Jenkins
-                </div>
+                  <i data-lucide="linkedin" class="w-3 h-3 opacity-50"></i>
+                </a>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
                 >
-                  Finance Ops @ Chalhoub Group
+                  Finance Ops @ <a href="https://www.chalhoubgroup.com" target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition-colors">Chalhoub Group</a>
                 </div>
               </div>
             </div>
@@ -1087,9 +1121,10 @@
                 AA
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <a href="https://linkedin.com/company/real-fze" target="_blank" rel="noopener" class="text-sm font-bold theme-text-primary hover:text-[var(--accent)] transition-colors flex items-center gap-1">
                   Ahmed Al-Sayed
-                </div>
+                  <i data-lucide="linkedin" class="w-3 h-3 opacity-50"></i>
+                </a>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
                 >
@@ -1114,8 +1149,9 @@
                 MR
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <div class="text-sm font-bold theme-text-primary flex items-center gap-1">
                   Michael Ross
+                  <span class="text-[8px] bg-gray-200 dark:bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-wider font-mono">Verified</span>
                 </div>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
@@ -1150,8 +1186,9 @@
                 JC
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <div class="text-sm font-bold theme-text-primary flex items-center gap-1">
                   James Chen
+                  <span class="text-[8px] bg-gray-200 dark:bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-wider font-mono">Verified</span>
                 </div>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
@@ -1176,8 +1213,9 @@
                 LM
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <div class="text-sm font-bold theme-text-primary flex items-center gap-1">
                   Layla Mahmoud
+                  <span class="text-[8px] bg-gray-200 dark:bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-wider font-mono">Verified</span>
                 </div>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
@@ -1202,8 +1240,9 @@
                 TB
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <div class="text-sm font-bold theme-text-primary flex items-center gap-1">
                   Tom Baker
+                  <span class="text-[8px] bg-gray-200 dark:bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-wider font-mono">Verified</span>
                 </div>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
@@ -1230,8 +1269,9 @@
                 JC
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <div class="text-sm font-bold theme-text-primary flex items-center gap-1">
                   James Chen
+                  <span class="text-[8px] bg-gray-200 dark:bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-wider font-mono">Verified</span>
                 </div>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
@@ -1256,8 +1296,9 @@
                 LM
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <div class="text-sm font-bold theme-text-primary flex items-center gap-1">
                   Layla Mahmoud
+                  <span class="text-[8px] bg-gray-200 dark:bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-wider font-mono">Verified</span>
                 </div>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
@@ -1282,8 +1323,9 @@
                 TB
               </div>
               <div>
-                <div class="text-sm font-bold theme-text-primary">
+                <div class="text-sm font-bold theme-text-primary flex items-center gap-1">
                   Tom Baker
+                  <span class="text-[8px] bg-gray-200 dark:bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-wider font-mono">Verified</span>
                 </div>
                 <div
                   class="text-[10px] theme-text-tertiary uppercase tracking-wider"
@@ -1296,6 +1338,97 @@
         </div>
         <div class="marquee-fade-left"></div>
         <div class="marquee-fade-right"></div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="theme-bg-main py-24 border-b border-[var(--border-subtle)] transition-colors duration-500">
+      <div class="max-w-[1920px] mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div class="lg:col-span-4">
+            <div class="flex items-center gap-2 mb-4">
+              <i data-lucide="help-circle" class="w-5 h-5 text-[var(--accent)]"></i>
+              <span class="font-mono text-xs theme-text-tertiary uppercase tracking-widest">Common Questions</span>
+            </div>
+            <h2 class="text-4xl font-serif theme-text-primary mb-6">Before We Talk</h2>
+            <p class="theme-text-secondary font-light leading-relaxed">
+              Answers to the questions enterprise clients ask most frequently.
+            </p>
+          </div>
+
+          <div class="lg:col-span-8 space-y-0">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item border-b border-[var(--border-subtle)]">
+              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="0">
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">What size organizations do you work with?</span>
+                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
+              </button>
+              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
+                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
+                  We work with mid-to-large enterprises with <strong>20+ person finance teams</strong>. Our solutions are designed for organizations processing high transaction volumes where manual work creates significant bottlenecks. Typical clients have 50-500+ retail locations or manage multi-entity portfolios.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item border-b border-[var(--border-subtle)]">
+              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="1">
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Where do you provide services?</span>
+                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
+              </button>
+              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
+                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
+                  <strong>Primary:</strong> MENA region (GCC, Levant, North Africa) with on-site availability.<br>
+                  <strong>Remote:</strong> Global engagements with timezone overlap (Europe, Asia, Americas). Most implementation work is done remotely with scheduled on-site sessions for discovery and training.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item border-b border-[var(--border-subtle)]">
+              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="2">
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">What's the typical engagement cost?</span>
+                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
+              </button>
+              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
+                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
+                  Engagements typically range from <strong>$15,000 - $75,000</strong> depending on complexity, number of systems to integrate, and scope of automation. We offer fixed-price projects with clear deliverables—no open-ended hourly billing. ROI is typically realized within 3-6 months post-implementation.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item border-b border-[var(--border-subtle)]">
+              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="3">
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">How long does implementation take?</span>
+                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
+              </button>
+              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
+                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
+                  <strong>4-8 weeks</strong> for most projects from discovery to go-live. Complex multi-system integrations may extend to 12 weeks. We provide weekly progress updates and you approve each phase before we proceed. Post-launch support is included for 30 days.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="4">
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Which ERP systems do you support?</span>
+                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
+              </button>
+              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
+                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
+                  We are technology-agnostic. Primary experience with <strong>Oracle ERP, SAP, Microsoft Dynamics 365, NetSuite</strong>, and various POS systems (Retail Pro, LS Retail, Lightspeed). We also integrate with banking APIs, payment gateways, and custom legacy systems.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1415,15 +1548,16 @@
               required
             ></textarea>
             <label for="message" class="form-label"
-              >Operational Challenge</label
+              >What's Taking Too Much Time?</label
             >
+            <p class="text-xs theme-text-tertiary mt-2 font-mono">Example: "Our team spends 40 hours/month reconciling bank statements manually"</p>
           </div>
 
           <button
             type="submit"
             class="w-full theme-section-dark text-white py-5 font-mono text-sm uppercase tracking-widest hover:bg-[var(--accent)] hover:text-white transition-colors duration-300 shadow-xl flex items-center justify-between px-8 group"
           >
-            <span>Transmit Request</span>
+            <span>Request Free Audit</span>
             <i
               data-lucide="arrow-right"
               class="w-4 h-4 group-hover:translate-x-2 transition-transform"
@@ -1456,8 +1590,8 @@
             class="hover:text-[#25D366] transition-colors"
             >WhatsApp</a
           >
-          <a href="#" class="hover:text-[var(--accent)] transition-colors"
-            >Privacy Protocol</a
+          <a href="/privacy.html" class="hover:text-[var(--accent)] transition-colors"
+            >Privacy Policy</a
           >
         </div>
       </div>

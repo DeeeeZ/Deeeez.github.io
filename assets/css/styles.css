@@ -20,7 +20,7 @@
   --bg-card: #1E293B;
   --text-primary: #F1F5F9;
   --text-secondary: #CBD5E1;
-  --text-tertiary: #64748B;
+  --text-tertiary: #94A3B8; /* Improved contrast for WCAG 4.5:1 compliance */
   --accent: #FB923C;
   --border-subtle: rgba(255, 255, 255, 0.1);
   --section-dark-bg: #020617;
@@ -729,4 +729,49 @@ input[type="range"]::-moz-range-thumb {
     width: 24px;
     height: 24px;
   }
+}
+
+/* ============================================
+   Skip Link (Accessibility)
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent);
+  color: white;
+  padding: 12px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 0 0 8px 8px;
+  z-index: 9999;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   FAQ Accordion
+   ============================================ */
+.faq-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.faq-content.open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.faq-button:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

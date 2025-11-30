@@ -13,10 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 
+  function updateThemeAriaState() {
+    const isDark = document.documentElement.classList.contains('dark');
+    themeToggle?.setAttribute('aria-pressed', isDark.toString());
+    themeToggleMobile?.setAttribute('aria-pressed', isDark.toString());
+  }
+
   function toggleTheme() {
     document.documentElement.classList.toggle('dark');
     const isDark = document.documentElement.classList.contains('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateThemeAriaState();
   }
 
   // Check for saved theme or system preference
@@ -24,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark');
   }
+  updateThemeAriaState();
 
   themeToggle?.addEventListener('click', toggleTheme);
   themeToggleMobile?.addEventListener('click', toggleTheme);
@@ -37,9 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeIcon = document.getElementById('close-icon');
 
   mobileMenuBtn?.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
+    const isOpen = mobileMenu.classList.toggle('open');
     menuIcon.classList.toggle('hidden');
     closeIcon.classList.toggle('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', isOpen.toString());
+    mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
   });
 
   // Close mobile menu when clicking a link
@@ -48,7 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileMenu.classList.remove('open');
       menuIcon.classList.remove('hidden');
       closeIcon.classList.add('hidden');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn?.setAttribute('aria-label', 'Open navigation menu');
     });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (mobileMenu?.classList.contains('open') &&
+        !mobileMenu.contains(e.target) &&
+        !mobileMenuBtn?.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn?.setAttribute('aria-label', 'Open navigation menu');
+    }
   });
 
   // ============================================
@@ -296,6 +321,48 @@ document.addEventListener('DOMContentLoaded', () => {
     group.addEventListener('mouseleave', () => {
       marquees.forEach(m => m.style.animationPlayState = 'running');
     });
+  });
+
+  // ============================================
+  // FAQ Accordion
+  // ============================================
+  document.querySelectorAll('.faq-button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const plusIcon = button.querySelector('.faq-icon-plus');
+      const minusIcon = button.querySelector('.faq-icon-minus');
+      const isOpen = content.classList.contains('open');
+
+      // Close all FAQ items first
+      document.querySelectorAll('.faq-content').forEach(c => {
+        c.classList.remove('open');
+      });
+      document.querySelectorAll('.faq-icon-plus').forEach(icon => {
+        icon.classList.remove('hidden');
+      });
+      document.querySelectorAll('.faq-icon-minus').forEach(icon => {
+        icon.classList.add('hidden');
+      });
+
+      // Toggle current item if it wasn't open
+      if (!isOpen) {
+        content.classList.add('open');
+        plusIcon?.classList.add('hidden');
+        minusIcon?.classList.remove('hidden');
+      }
+    });
+  });
+
+  // ============================================
+  // ROI Calculator Formula Toggle
+  // ============================================
+  const showFormulaBtn = document.getElementById('show-formula-btn');
+  const formulaDetails = document.getElementById('formula-details');
+
+  showFormulaBtn?.addEventListener('click', () => {
+    const isHidden = formulaDetails.classList.contains('hidden');
+    formulaDetails.classList.toggle('hidden');
+    showFormulaBtn.querySelector('span').textContent = isHidden ? 'Hide calculation' : 'Show calculation';
   });
 
   console.log('DeyaAldeen Portfolio initialized');
