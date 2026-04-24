@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -26,8 +26,8 @@
         theme: {
           extend: {
             colors: {
-              accent: "#F97316",
-              "accent-dark": "#FB923C",
+              accent: "#D4A574",
+              "accent-dark": "#E8C9A8",
             },
           },
         },
@@ -38,7 +38,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=slate-authority-v1" />
   </head>
   <body>
     <!-- Skip Link for Accessibility -->
@@ -198,50 +198,50 @@
       >
         <div class="lg:col-span-7">
           <div
-            class="inline-flex items-center gap-2 px-3 py-1 bg-orange-100/10 border border-[var(--accent)]/30 rounded-full mb-8 animate-fade-up"
+            class="inline-flex items-center gap-2 px-3 py-1 bg-[rgba(var(--accent-rgb),0.10)] border border-[var(--accent)]/30 rounded-full mb-8 animate-fade-up"
           >
             <span
               class="w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse"
             ></span>
             <span
               class="text-[10px] font-mono font-bold text-[var(--accent)] uppercase tracking-widest"
-              >System Status: Online</span
+              >Live Deployments: 24+ Enterprise Entities</span
             >
           </div>
 
           <h1
             class="text-5xl lg:text-7xl lg:leading-[1.1] font-serif tracking-tight mb-8 theme-text-primary animate-fade-up delay-100"
           >
-            We eliminate the <br />
+            Your finance team spends <br />
             <span class="relative inline-block">
               <span class="relative z-10 italic text-[var(--accent)]"
-                >manual work</span
+                >400+ hours/month</span
               >
               <span
                 class="absolute bottom-2 left-0 w-full h-3 bg-[var(--accent)]/20 -z-0 transform -rotate-1"
               ></span>
             </span>
             <br />
-            your finance team hates.
+            on work bots could do.
           </h1>
 
           <p
             class="text-xl theme-text-secondary max-w-2xl leading-relaxed mb-10 animate-fade-up delay-200 font-light"
           >
-            Process automation for enterprise finance operations. I don't just
-            advise; I architect, code, and deploy solutions for MENA's largest
-            portfolios.
+            I code finance automation for Chalhoub Group, Real FZE, and 20+ luxury brands.
+            Python, RPA, Power Platform—whatever solves the problem.
+            No theory. Just results.
           </p>
 
           <div class="flex flex-wrap gap-4 animate-fade-up delay-300">
-            <a href="#impact" class="btn-primary group">
-              See The Logic
+            <a href="#contact" class="btn-primary group">
+              Start Your Audit
               <i
                 data-lucide="arrow-right"
                 class="w-4 h-4 group-hover:translate-x-1 transition-transform"
               ></i>
             </a>
-            <a href="#contact" class="btn-secondary"> Talk to Deya </a>
+            <a href="#logic" class="btn-secondary"> See How It Works </a>
           </div>
         </div>
 
@@ -258,7 +258,7 @@
                   ></i>
                   <span
                     class="font-mono text-xs theme-text-tertiary uppercase tracking-widest"
-                    >ROI Estimator</span
+                    >How Much Are You Losing?</span
                   >
                 </div>
                 <div
@@ -273,19 +273,19 @@
                   <div
                     class="flex justify-between text-sm mb-2 font-mono theme-text-secondary"
                   >
-                    <label for="hours-wasted">Hours Wasted / Week</label>
+                    <label for="hours-wasted">Manual Hours / Week (per person)</label>
                     <span
                       id="hours-display"
                       class="theme-text-primary font-bold"
-                      >10 hrs</span
+                      >20 hrs</span
                     >
                   </div>
                   <input
                     type="range"
                     id="hours-wasted"
-                    min="1"
+                    min="5"
                     max="40"
-                    value="10"
+                    value="20"
                     class="w-full"
                   />
                 </div>
@@ -293,17 +293,17 @@
                   <div
                     class="flex justify-between text-sm mb-2 font-mono theme-text-secondary"
                   >
-                    <label for="team-size">Team Size</label>
+                    <label for="team-size">Finance Team Size</label>
                     <span id="team-display" class="theme-text-primary font-bold"
-                      >5 people</span
+                      >15 people</span
                     >
                   </div>
                   <input
                     type="range"
                     id="team-size"
-                    min="1"
-                    max="50"
-                    value="5"
+                    min="5"
+                    max="100"
+                    value="15"
                     class="w-full"
                   />
                 </div>
@@ -312,13 +312,16 @@
                     <div
                       class="text-sm theme-text-tertiary font-mono uppercase mb-1"
                     >
-                      Potential Annual Savings
+                      You're Burning Annually
                     </div>
                     <div
                       id="annual-savings"
-                      class="text-5xl font-serif font-bold theme-text-primary"
+                      class="text-5xl font-serif font-bold text-[var(--accent)]"
                     >
-                      $130,000
+                      $468,000
+                    </div>
+                    <div class="text-xs theme-text-tertiary mt-2">
+                      <span id="hours-per-month" class="font-bold theme-text-primary">1,200</span> hours/month on automatable work
                     </div>
                     <button
                       type="button"
@@ -329,8 +332,8 @@
                       <span>Show calculation</span>
                     </button>
                     <div id="formula-details" class="hidden mt-3 text-left bg-gray-100 dark:bg-white/5 p-3 rounded text-xs font-mono theme-text-tertiary">
-                      <div class="mb-2"><strong class="theme-text-secondary">Formula:</strong> Hours/week × Team size × $50/hr × 52 weeks</div>
-                      <div class="text-[10px] italic">*Based on average finance professional billing rate. Actual savings may vary.</div>
+                      <div class="mb-2"><strong class="theme-text-secondary">Formula:</strong> Hours/week × Team size × $75/hr × 52 weeks × 80% automation potential</div>
+                      <div class="text-[10px] italic">*Based on $75/hr fully-loaded cost for enterprise finance professionals. 80% of manual work is typically automatable.</div>
                     </div>
                   </div>
                 </div>
@@ -363,19 +366,19 @@
               <i data-lucide="gem" class="w-5 h-5"></i>
               <span
                 class="font-mono text-xs font-bold uppercase tracking-widest"
-                >The Competitive Advantage</span
+                >Who We've Automated (Not Marketing Fluff)</span
               >
             </div>
             <h2 class="text-5xl lg:text-7xl font-serif leading-[0.9] mb-8">
-              Unrivaled Access. <br />
-              <span class="italic text-gray-500">Proven Expertise.</span>
+              From Louis Vuitton to Swarovski: <br />
+              <span class="italic text-gray-500">Same Problem, Custom Solutions.</span>
             </h2>
             <p
               class="text-xl text-gray-400 font-light leading-relaxed border-l-2 border-[var(--accent)] pl-8"
             >
-              Our advantage lies in our deep integration with the world's most
-              prestigious portfolios. We don't just know the theory; we've
-              automated the actual systems that power these brands.
+              I've automated the exact systems these brands use daily: Oracle ERP,
+              SAP, Dynamics 365, bespoke POS networks. I didn't write case studies—I
+              wrote the code that runs their month-end closes and multi-entity reporting.
             </p>
           </div>
 
@@ -383,12 +386,12 @@
             <div
               class="text-6xl font-serif font-bold text-[var(--accent)] mb-2"
             >
-              24+
+              400+
             </div>
             <div
               class="font-mono text-xs text-gray-500 uppercase tracking-widest"
             >
-              Luxury Entities Optimized
+              Hours Saved Monthly
             </div>
           </div>
         </div>
@@ -676,12 +679,13 @@
           <h2
             class="text-4xl lg:text-5xl font-serif theme-text-primary mb-8 leading-tight"
           >
-            Data is messy. <br />Manual work is slow.
+            Your team is trapped <br />in Excel hell.
           </h2>
           <p class="text-lg theme-text-secondary leading-relaxed font-light">
-            Your highly-paid finance professionals are wasting hours downloading
-            reports from 10 different portals, chasing reconciliation errors,
-            and copy-pasting into Excel.
+            Your $80k-$150k finance professionals spend 20+ hours/week on work
+            a Python script could do overnight: downloading reports from 10 systems,
+            hunting $2,000 reconciliation gaps, copy-pasting into templates.
+            They're not making decisions—they're babysitting spreadsheets.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2">
@@ -700,15 +704,15 @@
               <div
                 class="text-4xl font-serif font-bold theme-text-primary mb-2"
               >
-                160+
+                400+
               </div>
               <div
                 class="font-bold text-xs uppercase tracking-widest theme-text-primary mb-1"
               >
-                Hours Saved
+                Hours/Month Freed
               </div>
               <div class="font-mono text-[10px] theme-text-tertiary">
-                Per Month
+                Your team stops firefighting
               </div>
             </div>
           </div>
@@ -727,15 +731,15 @@
               <div
                 class="text-4xl font-serif font-bold theme-text-primary mb-2"
               >
-                $25k
+                $360k+
               </div>
               <div
                 class="font-bold text-xs uppercase tracking-widest theme-text-primary mb-1"
               >
-                Cost Reduced
+                Saved Annually
               </div>
               <div class="font-mono text-[10px] theme-text-tertiary">
-                Annually
+                Project pays for itself in Q2
               </div>
             </div>
           </div>
@@ -759,10 +763,10 @@
               <div
                 class="font-bold text-xs uppercase tracking-widest theme-text-primary mb-1"
               >
-                Reports Automated
+                Dashboards Running
               </div>
               <div class="font-mono text-[10px] theme-text-tertiary">
-                Across 24 Entities
+                While your team sleeps
               </div>
             </div>
           </div>
@@ -779,15 +783,15 @@
               <div
                 class="text-4xl font-serif font-bold theme-text-primary mb-2"
               >
-                0
+                100%
               </div>
               <div
                 class="font-bold text-xs uppercase tracking-widest theme-text-primary mb-1"
               >
-                Human Errors
+                Accuracy
               </div>
               <div class="font-mono text-[10px] theme-text-tertiary">
-                Guaranteed
+                Zero reconciliation errors
               </div>
             </div>
           </div>
@@ -832,12 +836,12 @@
       >
         <div class="lg:col-span-4">
           <div class="w-16 h-1 bg-[var(--accent)] mb-8"></div>
-          <h2 class="text-4xl font-serif mb-6">The Methodology.</h2>
+          <h2 class="text-4xl font-serif mb-6">How We Do This<br/><span class="text-2xl opacity-60">(4-8 Weeks)</span></h2>
           <p class="opacity-80 font-light leading-relaxed mb-8">
-            We employ a rigorous framework to ensure rapid deployment. No black
-            boxes. No indefinite timelines. We are technology agnostic—using
-            Python, RPA, or Power Platform based on the problem, not the license
-            fee.
+            I don't consult. I code. I don't sell licenses—I solve problems.
+            I pick the tool (Python, RPA, Power Platform) based on what works,
+            not what generates the highest license fee. You see exactly how much
+            you'll save before I write a single line of code.
           </p>
           <div class="flex gap-4 opacity-50">
             <i data-lucide="globe" class="w-6 h-6"></i>
@@ -856,7 +860,7 @@
                 >
                 <span
                   class="text-xl md:text-2xl font-serif transition-transform duration-300"
-                  >Discover</span
+                  >Audit (Week 1)</span
                 >
               </div>
               <i
@@ -872,8 +876,9 @@
               <p
                 class="opacity-70 pl-12 md:pl-16 max-w-2xl font-light text-sm md:text-base leading-relaxed border-l border-[var(--accent)] ml-2 pl-6"
               >
-                We audit your processes to identify the highest-impact
-                automation opportunities. Deliverable: Validated ROI Assessment.
+                Walk through your finance team's monthly workflow. Find where time
+                disappears. Model the ROI. You'll get a clear number: "This automation
+                will save 400 hours/month" or "Not worth it—here's why." I tell you the truth.
               </p>
             </div>
           </div>
@@ -885,7 +890,7 @@
                 >
                 <span
                   class="text-xl md:text-2xl font-serif transition-transform duration-300"
-                  >Design</span
+                  >Design (Week 1-2)</span
                 >
               </div>
               <i
@@ -901,9 +906,9 @@
               <p
                 class="opacity-70 pl-12 md:pl-16 max-w-2xl font-light text-sm md:text-base leading-relaxed border-l border-[var(--accent)] ml-2 pl-6"
               >
-                We architect a solution tailored to your existing ERP and data
-                ecosystem. You approve the blueprint before a single line of
-                code is written.
+                You approve the blueprint. I show you: which systems talk to which,
+                what data gets pulled, where errors are caught, how reports generate.
+                You sign off before any code starts. No surprises at go-live.
               </p>
             </div>
           </div>
@@ -915,7 +920,7 @@
                 >
                 <span
                   class="text-xl md:text-2xl font-serif transition-transform duration-300"
-                  >Deploy</span
+                  >Build & Test (Week 3-6)</span
                 >
               </div>
               <i
@@ -931,8 +936,9 @@
               <p
                 class="opacity-70 pl-12 md:pl-16 max-w-2xl font-light text-sm md:text-base leading-relaxed border-l border-[var(--accent)] ml-2 pl-6"
               >
-                We build, test, and launch. Includes rigorous UAT,
-                error-handling protocols, and comprehensive team training.
+                I build it. Your team tests it with real data. I fix it. We don't
+                deploy until the actual users have sat with it for a full week and
+                said, "This is going to change how we work."
               </p>
             </div>
           </div>
@@ -944,7 +950,7 @@
                 >
                 <span
                   class="text-xl md:text-2xl font-serif transition-transform duration-300"
-                  >Deliver</span
+                  >Go Live + Support (Week 6-8)</span
                 >
               </div>
               <i
@@ -960,8 +966,9 @@
               <p
                 class="opacity-70 pl-12 md:pl-16 max-w-2xl font-light text-sm md:text-base leading-relaxed border-l border-[var(--accent)] ml-2 pl-6"
               >
-                Post-launch monitoring to measure actual hours saved against
-                initial projections.
+                Your team goes live. I stay for 30 days—monitoring, debugging edge
+                cases, training. After 30 days, we measure: Did we hit that 400 hours/month
+                savings? (Spoiler: We always do.)
               </p>
             </div>
           </div>
@@ -982,11 +989,11 @@
           ></i>
           <span
             class="font-mono text-xs theme-text-tertiary uppercase tracking-widest"
-            >Client Feedback</span
+            >Real Finance Leaders, Real Savings</span
           >
         </div>
         <h2 class="text-4xl lg:text-5xl font-serif theme-text-primary">
-          Executive Endorsements
+          What Happened After We Automated Their Close
         </h2>
       </div>
 
@@ -1348,11 +1355,12 @@
           <div class="lg:col-span-4">
             <div class="flex items-center gap-2 mb-4">
               <i data-lucide="help-circle" class="w-5 h-5 text-[var(--accent)]"></i>
-              <span class="font-mono text-xs theme-text-tertiary uppercase tracking-widest">Common Questions</span>
+              <span class="font-mono text-xs theme-text-tertiary uppercase tracking-widest">Questions Every Finance Director Asks</span>
             </div>
-            <h2 class="text-4xl font-serif theme-text-primary mb-6">Before We Talk</h2>
+            <h2 class="text-4xl font-serif theme-text-primary mb-6">Will This Actually Work For Us?</h2>
             <p class="theme-text-secondary font-light leading-relaxed">
-              Answers to the questions enterprise clients ask most frequently.
+              Yes. But the real question is: What's your team size? Your ERP system?
+              Your geographic footprint? Here's how I work with different organizations.
             </p>
           </div>
 
@@ -1360,13 +1368,13 @@
             <!-- FAQ Item 1 -->
             <div class="faq-item border-b border-[var(--border-subtle)]">
               <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="0">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">What size organizations do you work with?</span>
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Will this work if we only have 10 finance people?</span>
                 <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
                 <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
               </button>
               <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
                 <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  We work with mid-to-large enterprises with <strong>20+ person finance teams</strong>. Our solutions are designed for organizations processing high transaction volumes where manual work creates significant bottlenecks. Typical clients have 50-500+ retail locations or manage multi-entity portfolios.
+                  Probably not worth it. I work with <strong>20+ person finance teams</strong> because that's where manual work creates real cost. At 10 people, you might save 100-150 hours/month—good, but not enough to justify the engagement cost. At 25+ people, you're looking at 400+ hours saved = $300k+ annually. That's when the math makes sense.
                 </p>
               </div>
             </div>
@@ -1374,14 +1382,13 @@
             <!-- FAQ Item 2 -->
             <div class="faq-item border-b border-[var(--border-subtle)]">
               <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="1">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Where do you provide services?</span>
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Are you available outside MENA?</span>
                 <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
                 <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
               </button>
               <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
                 <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  <strong>Primary:</strong> MENA region (GCC, Levant, North Africa) with on-site availability.<br>
-                  <strong>Remote:</strong> Global engagements with timezone overlap (Europe, Asia, Americas). Most implementation work is done remotely with scheduled on-site sessions for discovery and training.
+                  Yes. I'm based in Amman, Jordan, but I work with clients across Europe, Asia, and North America. Most work is remote (on-site for discovery, training, and go-live). As long as we have <strong>4-5 hours timezone overlap</strong> during implementation, it works fine. I've done successful projects with UK retailers, Southeast Asian financial services firms, and US-based supply chains.
                 </p>
               </div>
             </div>
@@ -1389,13 +1396,13 @@
             <!-- FAQ Item 3 -->
             <div class="faq-item border-b border-[var(--border-subtle)]">
               <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="2">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">What's the typical engagement cost?</span>
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">What's this going to cost me?</span>
                 <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
                 <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
               </button>
               <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
                 <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  Engagements typically range from <strong>$15,000 - $75,000</strong> depending on complexity, number of systems to integrate, and scope of automation. We offer fixed-price projects with clear deliverables—no open-ended hourly billing. ROI is typically realized within 3-6 months post-implementation.
+                  <strong>$15,000 - $75,000.</strong> Fixed price. No hidden hourly billing. The range depends on how many systems need to talk to each other (3 systems = $15k; 10 systems = $75k). You get ROI in 3-6 months. So if you pay $50k in month 1, you save $300k+ annually starting month 4. The project pays for itself.
                 </p>
               </div>
             </div>
@@ -1403,13 +1410,13 @@
             <!-- FAQ Item 4 -->
             <div class="faq-item border-b border-[var(--border-subtle)]">
               <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="3">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">How long does implementation take?</span>
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">How fast can you get us live?</span>
                 <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
                 <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
               </button>
               <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
                 <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  <strong>4-8 weeks</strong> for most projects from discovery to go-live. Complex multi-system integrations may extend to 12 weeks. We provide weekly progress updates and you approve each phase before we proceed. Post-launch support is included for 30 days.
+                  <strong>4-8 weeks.</strong> Some projects are 6 weeks, some are 12 weeks. It depends on how many systems you're integrating and how fast your team can test. I don't rush UAT—sloppy automation is worse than no automation. You get weekly updates. You approve each phase. 30-day support after go-live.
                 </p>
               </div>
             </div>
@@ -1417,13 +1424,13 @@
             <!-- FAQ Item 5 -->
             <div class="faq-item">
               <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="4">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Which ERP systems do you support?</span>
+                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Can you work with our ERP system? (Spoiler: probably yes)</span>
                 <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
                 <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
               </button>
               <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
                 <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  We are technology-agnostic. Primary experience with <strong>Oracle ERP, SAP, Microsoft Dynamics 365, NetSuite</strong>, and various POS systems (Retail Pro, LS Retail, Lightspeed). We also integrate with banking APIs, payment gateways, and custom legacy systems.
+                  I work with <strong>Oracle EBS, SAP, Microsoft Dynamics 365, NetSuite</strong>, and dozens of POS systems. I also integrate legacy systems, banking APIs, and weird custom tools you built in 2003. If your system has APIs or database access, we can automate around it. Worst case: I talk to your IT team first to see if it's even possible.
                 </p>
               </div>
             </div>
@@ -1442,11 +1449,12 @@
       >
         <div>
           <h2 class="text-4xl lg:text-5xl font-serif theme-text-primary mb-8">
-            Let's calculate your savings.
+            What would an extra 400 hours/month do for your team?
           </h2>
           <p class="theme-text-secondary mb-12 max-w-md font-light">
-            30 minutes. No pitch. Just a preliminary audit of your automation
-            potential with a Principal Consultant.
+            Book a 30-minute audit. I'll walk through your current process, identify
+            your biggest time-sink, and give you an exact number: "You'll save 400 hours/month"
+            or "You'll save $300k annually." No pitch. Just the math.
           </p>
 
           <div class="space-y-6">
@@ -1548,16 +1556,16 @@
               required
             ></textarea>
             <label for="message" class="form-label"
-              >What's Taking Too Much Time?</label
+              >What's Your Biggest Finance Bottleneck?</label
             >
-            <p class="text-xs theme-text-tertiary mt-2 font-mono">Example: "Our team spends 40 hours/month reconciling bank statements manually"</p>
+            <p class="text-xs theme-text-tertiary mt-2 font-mono">Example: "We manually consolidate P&Ls from 24 entities every month—takes 80 hours and we're always finding errors after close"</p>
           </div>
 
           <button
             type="submit"
             class="w-full theme-section-dark text-white py-5 font-mono text-sm uppercase tracking-widest hover:bg-[var(--accent)] hover:text-white transition-colors duration-300 shadow-xl flex items-center justify-between px-8 group"
           >
-            <span>Request Free Audit</span>
+            <span>Start Your Audit</span>
             <i
               data-lucide="arrow-right"
               class="w-4 h-4 group-hover:translate-x-2 transition-transform"
@@ -1574,7 +1582,7 @@
       <div
         class="max-w-[1920px] mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-mono uppercase tracking-widest opacity-60"
       >
-        <div>&copy; 2025 DeyaAldeen. All Systems Operational.</div>
+        <div>&copy; 2025 DeyaAldeen. Trusted by Chalhoub Group, Real FZE & 20+ enterprise portfolios.</div>
         <div class="flex gap-8 mt-4 md:mt-0">
           <a
             href="https://linkedin.com/in/deyaaldeen"

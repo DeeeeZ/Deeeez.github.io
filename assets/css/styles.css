@@ -4,26 +4,34 @@
    CSS Variables - Light & Dark Theme
    ============================================ */
 :root {
-  --bg-main: #FDFBF7;
+  --bg-main: #FFFFFF;
   --bg-card: #FFFFFF;
-  --text-primary: #0F172A;
+  --text-primary: #1E293B;
   --text-secondary: #475569;
-  --text-tertiary: #94A3B8;
-  --accent: #F97316;
-  --border-subtle: rgba(15, 23, 42, 0.1);
-  --section-dark-bg: #0F172A;
-  --tech-grid-color: rgba(15, 23, 42, 0.05);
+  --text-tertiary: #64748B;
+  --accent: #D4A574;
+  --accent-dark: #B8864E;
+  --accent-light: #E8C9A8;
+  --accent-rgb: 212, 165, 116;
+  --link-blue: #2563EB;
+  --border-subtle: rgba(15, 23, 42, 0.12);
+  --section-dark-bg: #0A1E42;
+  --tech-grid-color: rgba(15, 23, 42, 0.06);
 }
 
 .dark {
-  --bg-main: #0F172A;
-  --bg-card: #1E293B;
+  --bg-main: #0A1E42;
+  --bg-card: #102A56;
   --text-primary: #F1F5F9;
-  --text-secondary: #CBD5E1;
+  --text-secondary: #E2E8F0;
   --text-tertiary: #94A3B8; /* Improved contrast for WCAG 4.5:1 compliance */
-  --accent: #FB923C;
+  --accent: #E8C9A8;
+  --accent-dark: #D4A574;
+  --accent-light: #F3DEC8;
+  --accent-rgb: 232, 201, 168;
+  --link-blue: #60A5FA;
   --border-subtle: rgba(255, 255, 255, 0.1);
-  --section-dark-bg: #020617;
+  --section-dark-bg: #061633;
   --tech-grid-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -41,7 +49,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-main);
@@ -52,15 +60,15 @@ body {
 }
 
 .dark body {
-  background-color: #0F172A;
+  background-color: #0A1E42;
 }
 
 .font-serif {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Merriweather', Georgia, serif;
 }
 
 .font-mono {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: 'IBM Plex Mono', 'Fira Code', monospace;
 }
 
 /* ============================================
@@ -96,24 +104,34 @@ body {
 }
 
 .nav.scrolled {
-  background-color: rgba(253, 251, 247, 0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   height: 64px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .dark .nav.scrolled {
-  background-color: rgba(15, 23, 42, 0.95);
+  background-color: rgba(10, 30, 66, 0.95);
 }
 
 .nav:not(.scrolled) {
-  background-color: transparent;
+  background-color: rgba(10, 30, 66, 0.95);
+  backdrop-filter: blur(12px);
   height: 96px;
+}
+
+.nav:not(.scrolled) .theme-text-primary {
+  color: #fff;
+}
+
+.nav:not(.scrolled) .theme-text-tertiary,
+.nav:not(.scrolled) .nav-link {
+  color: #CBD5E1;
 }
 
 .nav-link {
   position: relative;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
@@ -142,6 +160,38 @@ body {
   width: 100%;
 }
 
+#main-content {
+  background:
+    radial-gradient(circle at 78% 28%, rgba(var(--accent-rgb), 0.13), transparent 34%),
+    linear-gradient(180deg, #0A1E42 0%, #0C2450 100%);
+}
+
+#main-content .theme-text-primary {
+  color: #fff;
+}
+
+#main-content .theme-text-secondary {
+  color: #E2E8F0;
+}
+
+#main-content .theme-text-tertiary {
+  color: #94A3B8;
+}
+
+#main-content .spotlight-card {
+  background-color: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+}
+
+#main-content .btn-secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+#main-content .btn-secondary:hover {
+  border-color: var(--accent);
+}
+
 /* ============================================
    Buttons
    ============================================ */
@@ -152,7 +202,7 @@ body {
   padding: 16px 32px;
   background-color: var(--section-dark-bg);
   color: #fff;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -166,7 +216,7 @@ body {
 .btn-primary:hover {
   background-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(var(--accent-rgb), 0.28);
 }
 
 .btn-secondary {
@@ -177,7 +227,7 @@ body {
   background-color: transparent;
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -240,7 +290,7 @@ body {
 
 .brand-logo:hover {
   border-color: var(--accent);
-  box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(var(--accent-rgb), 0.18);
 }
 
 .brand-logo .tech-reveal {
@@ -261,7 +311,7 @@ body {
 
 .brand-logo .tech-reveal-text {
   color: white;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -339,7 +389,7 @@ body {
   right: 24px;
   width: 32px;
   height: 32px;
-  color: rgba(249, 115, 22, 0.2);
+  color: rgba(var(--accent-rgb), 0.25);
 }
 
 /* ============================================
@@ -408,7 +458,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
   background: var(--accent);
   margin-top: -8px;
-  box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.45);
   transition: transform 0.2s ease;
 }
 
@@ -429,7 +479,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   background: var(--accent);
   border: none;
-  box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.45);
 }
 
 /* ============================================
@@ -445,7 +495,7 @@ input[type="range"]::-moz-range-thumb {
   border: none;
   border-bottom: 1px solid var(--border-subtle);
   background: transparent;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Merriweather', serif;
   font-size: 18px;
   color: var(--text-primary);
   outline: none;
@@ -460,7 +510,7 @@ input[type="range"]::-moz-range-thumb {
   position: absolute;
   left: 0;
   top: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -574,7 +624,7 @@ input[type="range"]::-moz-range-thumb {
 
 .mobile-menu-link {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Merriweather', serif;
   font-size: 36px;
   font-weight: 500;
   color: var(--text-primary);
@@ -709,7 +759,7 @@ input[type="range"]::-moz-range-thumb {
 .whatsapp-float:hover {
   background-color: var(--accent);
   transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 6px 25px rgba(var(--accent-rgb), 0.38);
 }
 
 .whatsapp-float svg {
@@ -742,7 +792,7 @@ input[type="range"]::-moz-range-thumb {
   background-color: var(--accent);
   color: white;
   padding: 12px 24px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
   text-decoration: none;
   border-radius: 0 0 8px 8px;

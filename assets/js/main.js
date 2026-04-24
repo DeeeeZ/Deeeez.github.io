@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      spotlight.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(249, 115, 22, 0.15), transparent 40%)`;
+      spotlight.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(212, 165, 116, 0.18), transparent 40%)`;
     });
 
     card.addEventListener('mouseenter', () => {
@@ -156,17 +156,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const hoursDisplay = document.getElementById('hours-display');
   const teamDisplay = document.getElementById('team-display');
   const savingsDisplay = document.getElementById('annual-savings');
+  const hoursPerMonthDisplay = document.getElementById('hours-per-month');
 
-  const HOURLY_RATE = 50; // $50/hour assumption
+  const HOURLY_RATE = 75; // $75/hour fully-loaded cost for enterprise finance
+  const AUTOMATION_POTENTIAL = 0.80; // 80% of manual work is automatable
 
   function updateROI() {
-    const hours = parseInt(hoursInput?.value || 10);
-    const team = parseInt(teamInput?.value || 5);
-    const savings = hours * team * HOURLY_RATE * 52;
+    const hours = parseInt(hoursInput?.value || 20);
+    const team = parseInt(teamInput?.value || 15);
+
+    // Formula: Hours/week × Team size × $75/hr × 52 weeks × 80%
+    const totalHoursPerYear = hours * team * 52;
+    const automatableHours = totalHoursPerYear * AUTOMATION_POTENTIAL;
+    const savings = automatableHours * HOURLY_RATE;
+    const hoursPerMonth = Math.round((hours * team * 4) * AUTOMATION_POTENTIAL);
 
     if (hoursDisplay) hoursDisplay.textContent = `${hours} hrs`;
     if (teamDisplay) teamDisplay.textContent = `${team} people`;
-    if (savingsDisplay) savingsDisplay.textContent = `$${savings.toLocaleString()}`;
+    if (savingsDisplay) savingsDisplay.textContent = `$${Math.round(savings).toLocaleString()}`;
+    if (hoursPerMonthDisplay) hoursPerMonthDisplay.textContent = hoursPerMonth.toLocaleString();
   }
 
   hoursInput?.addEventListener('input', updateROI);
