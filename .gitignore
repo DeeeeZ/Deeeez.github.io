@@ -54,3 +54,15 @@ CLAUDE.md
 .gitignore
 archive/*
 codex-mcp-config.toml
+.playwright-mcp/*
+deployed-index-check.png
+*experimental*.html
+*.bat
+HOMEPAGE_BUILD.md
+index-page-deployed.png
+live-after-refactor.png
+live-slate-authority.png
+local-after-refactor.png
+local-privacy-after.png
+index copy.html
+slate-authority-design-system-v1.html
