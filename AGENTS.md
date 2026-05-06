@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository is a static GitHub Pages portfolio for `www.DeyaAldeen.com`. The production entry point is `index.html`; `privacy.html` is linked from the footer. Shared styles live in `assets/css/styles.css`, browser behavior in `assets/js/main.js`, and static assets in `assets/images/` and `assets/downloads/`. Use `assets/design-system.json` as the source of truth for design tokens when updating colors, spacing, or typography.
+This repository is a static GitHub Pages portfolio for `www.DeyaAldeen.com`. The production entry point is `index.html`; `privacy.html` is linked from the footer. Shared styles live in `assets/css/styles.css`, browser behavior in `assets/js/main.js`, and static assets in `assets/images/` and `assets/downloads/`. Design tokens live in `assets/css/styles.css` (`:root` + `.dark`); `assets/design-system.json` and `HOMEPAGE_BUILD.md` describe the archived Slate Authority v1 system and are not authoritative.
 
 Do not edit or deploy scratch files at the repository root, including `experimental.html`, `experimental2.html`, `index copy.html`, `slate-authority-design-system-v1.html`, and `DeyaAldeen PortfolioDeyaAldeen.jsx`. Treat `archive/` as historical reference only.
 

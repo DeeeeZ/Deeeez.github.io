@@ -10,11 +10,11 @@
     />
     <link rel="canonical" href="https://www.deyaaldeen.com/" />
 
-    <!-- Fonts -->
+    <!-- Fonts — Fraunces (display), Instrument Sans (body), JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
 
@@ -30,11 +30,14 @@
               "accent-dark": "#B8864E",
               "accent-light": "#E8C9A8",
               navy: "#0A1E42",
+              paper: "#F5F1EA",
+              ink: "#050D20",
+              rubric: "#A3351A",
             },
             fontFamily: {
-              serif: ['Merriweather', 'Georgia', 'serif'],
-              sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
-              mono: ['"IBM Plex Mono"', 'monospace'],
+              serif: ['Fraunces', 'Georgia', 'serif'],
+              sans: ['"Instrument Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
             },
           },
         },
@@ -45,7 +48,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=slate-authority-v1" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=editorial-v1" />
   </head>
   <body>
     <!-- Skip Link for Accessibility -->
@@ -164,844 +167,452 @@
       </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Masthead -->
     <header
       id="main-content"
-      class="relative pt-40 lg:pt-56 pb-20 px-6 lg:px-12 max-w-[1920px] mx-auto overflow-hidden bg-tech-grid theme-bg-main border-b border-[var(--border-subtle)] transition-colors duration-500"
+      class="relative pt-32 lg:pt-44 pb-20 px-6 lg:px-14 max-w-[1760px] mx-auto overflow-hidden transition-colors duration-500"
     >
       <!-- Kinetic Background -->
       <div
-        class="absolute top-0 right-0 w-[800px] h-[800px] opacity-5 pointer-events-none -mr-40 -mt-20"
+        class="absolute top-10 right-0 w-[780px] h-[780px] opacity-[0.07] pointer-events-none -mr-48 -mt-10"
+        aria-hidden="true"
       >
         <svg
           viewBox="0 0 200 200"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          class="w-full h-full stroke-[var(--text-primary)]"
+          class="w-full h-full stroke-[var(--ink)]"
         >
-          <path
-            class="animate-draw"
-            d="M0 40 C 50 40, 150 40, 150 100 C 150 160, 50 160, 50 200"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-          <path
-            class="animate-draw delay-100"
-            d="M20 40 C 70 40, 170 40, 170 100 C 170 160, 70 160, 70 200"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-          <path
-            class="animate-draw delay-200"
-            d="M40 40 C 90 40, 190 40, 190 100 C 190 160, 90 160, 90 200"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
+          <path class="animate-draw"          d="M0 40 C 50 40, 150 40, 150 100 C 150 160, 50 160, 50 200" stroke-width="1.4" stroke-linecap="round" />
+          <path class="animate-draw delay-100" d="M20 40 C 70 40, 170 40, 170 100 C 170 160, 70 160, 70 200" stroke-width="1.4" stroke-linecap="round" />
+          <path class="animate-draw delay-200" d="M40 40 C 90 40, 190 40, 190 100 C 190 160, 90 160, 90 200" stroke-width="1.4" stroke-linecap="round" />
         </svg>
       </div>
 
-      <div
-        class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
-      >
-        <div class="lg:col-span-7">
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 bg-[rgba(var(--accent-rgb),0.10)] border border-[var(--accent)]/30 rounded-full mb-8 animate-fade-up"
-          >
-            <span
-              class="w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse"
-            ></span>
-            <span
-              class="text-[10px] font-mono font-bold text-[var(--accent)] uppercase tracking-widest"
-              >Live Deployments: 24+ Enterprise Entities</span
-            >
-          </div>
+      <!-- Running head / masthead rule -->
+      <div class="masthead-rule animate-fade-up">
+        <span>Vol. IV · Iss. 01</span>
+        <span class="hidden sm:inline">Amman · MENA</span>
+        <span class="line"></span>
+        <span><span class="live-dot" aria-hidden="true"></span>Live: 24+ Deployments</span>
+        <span class="hidden md:inline">2026</span>
+      </div>
 
-          <h1
-            class="text-5xl lg:text-7xl lg:leading-[1.1] font-serif tracking-tight mb-8 theme-text-primary animate-fade-up delay-100"
-          >
-            Your finance team spends <br />
-            <span class="relative inline-block">
-              <span class="relative z-10 italic text-[var(--accent)]"
-                >400+ hours/month</span
-              >
-              <span
-                class="absolute bottom-2 left-0 w-full h-3 bg-[var(--accent)]/20 -z-0 transform -rotate-1"
-              ></span>
-            </span>
-            <br />
-            on work bots could do.
-          </h1>
+      <!-- Display headline -->
+      <h1 class="hero-display mt-10 lg:mt-16 animate-fade-up delay-100 max-w-[16ch]">
+        <span class="soft">Your finance team spends</span><br />
+        <span class="hero-number-frame italic-wonk" aria-label="400 plus hours per month">
+          <span id="hero-count" data-count-target="400" data-count-duration="1400">400</span><span>+</span>
+        </span>
+        <span class="italic-wonk" style="color: var(--rubric);"> hours</span>/month<br />
+        <span class="soft">on work </span><em class="italic-wonk">bots</em><span class="soft"> could do.</span>
+      </h1>
 
-          <p
-            class="text-xl theme-text-secondary max-w-2xl leading-relaxed mb-10 animate-fade-up delay-200 font-light"
-          >
-            I code finance automation for Chalhoub Group, Real FZE, and 20+ luxury brands.
-            Python, RPA, Power Platform—whatever solves the problem.
-            No theory. Just results.
+      <!-- Deck + actions -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 mt-12 lg:mt-20 items-start">
+        <div class="lg:col-span-7 animate-fade-up delay-200">
+          <p class="hero-deck drop-cap">
+            I code finance automation for Chalhoub Group, Real FZE, and twenty-odd luxury brands.
+            Python, RPA, Power Platform — whatever solves the problem. No theory. No licensing
+            sales pitch. Just the code your team will lean on next Monday morning.
           </p>
 
-          <div class="flex flex-wrap gap-4 animate-fade-up delay-300">
+          <div class="flex flex-wrap gap-4 mt-10 animate-fade-up delay-300">
             <a href="#contact" class="btn-primary group">
               Start Your Audit
-              <i
-                data-lucide="arrow-right"
-                class="w-4 h-4 group-hover:translate-x-1 transition-transform"
-              ></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
             </a>
-            <a href="#logic" class="btn-secondary"> See How It Works </a>
+            <a href="#logic" class="btn-secondary">See How It Works</a>
+          </div>
+
+          <!-- Colophon line under CTAs -->
+          <div class="mt-10 flex items-center gap-4 font-mono text-[11px] tracking-[0.22em] uppercase text-[var(--ink-mute)] animate-fade-up delay-400">
+            <span class="h-px w-10 bg-[var(--rule)]"></span>
+            <span>Filed from Amman · Delivered worldwide</span>
           </div>
         </div>
 
-        <!-- ROI Calculator -->
-        <div class="lg:col-span-5 animate-fade-up delay-300">
-          <div class="spotlight-card p-8 shadow-2xl">
+        <!-- ROI Ledger -->
+        <aside class="lg:col-span-5 animate-fade-up delay-300" aria-labelledby="roi-head">
+          <div class="ledger-card spotlight-card">
             <div class="spotlight-effect"></div>
             <div class="relative">
-              <div class="flex justify-between items-center mb-6">
-                <div class="flex items-center gap-2">
-                  <i
-                    data-lucide="calculator"
-                    class="w-5 h-5 text-[var(--accent)]"
-                  ></i>
-                  <span
-                    class="font-mono text-xs theme-text-tertiary uppercase tracking-widest"
-                    >How Much Are You Losing?</span
-                  >
-                </div>
-                <div
-                  class="text-[10px] theme-text-tertiary bg-gray-100 dark:bg-white/10 px-2 py-1 rounded"
-                >
-                  Live Calculation
-                </div>
+              <div class="ledger-head">
+                <span id="roi-head">
+                  <span class="italic" style="font-family:var(--font-display);text-transform:none;letter-spacing:0;font-size:14px;color:var(--rubric);">No.I —</span>
+                  The Cost of Manual
+                </span>
+                <span>Live Calc.</span>
               </div>
 
-              <div class="space-y-8">
+              <div class="space-y-7">
                 <div>
-                  <div
-                    class="flex justify-between text-sm mb-2 font-mono theme-text-secondary"
-                  >
-                    <label for="hours-wasted">Manual Hours / Week (per person)</label>
-                    <span
-                      id="hours-display"
-                      class="theme-text-primary font-bold"
-                      >20 hrs</span
-                    >
+                  <div class="flex justify-between items-baseline text-[11px] mb-3 font-mono tracking-[0.22em] uppercase text-[var(--ink-mute)]">
+                    <label for="hours-wasted">Manual hrs / week · per person</label>
+                    <span id="hours-display" class="font-mono text-[13px] text-[var(--ink)] dark:text-[var(--paper)] tracking-normal normal-case">20 hrs</span>
                   </div>
-                  <input
-                    type="range"
-                    id="hours-wasted"
-                    min="5"
-                    max="40"
-                    value="20"
-                    class="w-full"
-                  />
+                  <input type="range" id="hours-wasted" min="5" max="40" value="20" class="w-full" />
                 </div>
+
                 <div>
-                  <div
-                    class="flex justify-between text-sm mb-2 font-mono theme-text-secondary"
-                  >
-                    <label for="team-size">Finance Team Size</label>
-                    <span id="team-display" class="theme-text-primary font-bold"
-                      >15 people</span
-                    >
+                  <div class="flex justify-between items-baseline text-[11px] mb-3 font-mono tracking-[0.22em] uppercase text-[var(--ink-mute)]">
+                    <label for="team-size">Finance team size</label>
+                    <span id="team-display" class="font-mono text-[13px] text-[var(--ink)] dark:text-[var(--paper)] tracking-normal normal-case">15 people</span>
                   </div>
-                  <input
-                    type="range"
-                    id="team-size"
-                    min="5"
-                    max="100"
-                    value="15"
-                    class="w-full"
-                  />
+                  <input type="range" id="team-size" min="5" max="100" value="15" class="w-full" />
                 </div>
-                <div class="pt-6 border-t border-[var(--border-subtle)]">
-                  <div class="text-center">
-                    <div
-                      class="text-sm theme-text-tertiary font-mono uppercase mb-1"
-                    >
-                      You're Burning Annually
-                    </div>
-                    <div
-                      id="annual-savings"
-                      class="text-5xl font-serif font-bold text-[var(--accent)]"
-                    >
-                      $468,000
-                    </div>
-                    <div class="text-xs theme-text-tertiary mt-2">
-                      <span id="hours-per-month" class="font-bold theme-text-primary">1,200</span> hours/month on automatable work
-                    </div>
-                    <button
-                      type="button"
-                      id="show-formula-btn"
-                      class="mt-3 text-xs font-mono text-[var(--accent)] hover:underline cursor-pointer flex items-center justify-center gap-1 mx-auto"
-                    >
-                      <i data-lucide="info" class="w-3 h-3"></i>
-                      <span>Show calculation</span>
-                    </button>
-                    <div id="formula-details" class="hidden mt-3 text-left bg-gray-100 dark:bg-white/5 p-3 rounded text-xs font-mono theme-text-tertiary">
-                      <div class="mb-2"><strong class="theme-text-secondary">Formula:</strong> Hours/week × Team size × $75/hr × 52 weeks × 80% automation potential</div>
-                      <div class="text-[10px] italic">*Based on $75/hr fully-loaded cost for enterprise finance professionals. 80% of manual work is typically automatable.</div>
+
+                <div class="pt-7 border-t border-[var(--rule)]">
+                  <div class="flex items-baseline justify-between mb-3">
+                    <span class="font-mono text-[10px] tracking-[0.28em] uppercase text-[var(--ink-mute)]">You're burning annually</span>
+                    <span class="font-mono text-[10px] tracking-[0.28em] uppercase text-[var(--rubric)]">USD</span>
+                  </div>
+                  <div id="annual-savings" class="ledger-total">$468,000</div>
+                  <div class="text-[12px] text-[var(--ink-mute)] mt-3 font-mono">
+                    <span id="hours-per-month" class="text-[var(--ink)] dark:text-[var(--paper)]">1,200</span> hours/month on automatable work
+                  </div>
+
+                  <button
+                    type="button"
+                    id="show-formula-btn"
+                    class="mt-4 text-[11px] font-mono tracking-[0.22em] uppercase text-[var(--rubric)] hover:opacity-70 transition-opacity flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <i data-lucide="info" class="w-3 h-3" aria-hidden="true"></i>
+                    <span>Show calculation</span>
+                  </button>
+                  <div id="formula-details" class="hidden mt-4 text-left border-l-2 border-[var(--rubric)] pl-4 text-[12px] font-mono text-[var(--ink-mute)]">
+                    <div class="mb-2"><strong class="text-[var(--ink)] dark:text-[var(--paper)]">Formula ·</strong> Hours/wk × Team × $75/hr × 52 × 0.80</div>
+                    <div class="text-[10px] italic font-sans" style="font-family:var(--font-display);font-style:italic;">
+                      *$75/hr fully-loaded cost for enterprise finance professionals; 80% of manual work is typically automatable.
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </header>
 
-    <!-- Partners Section -->
+    <!-- Section II — Index of Engagements -->
     <section
       id="partners"
-      class="theme-section-dark border-b border-[var(--border-subtle)] transition-colors duration-500 py-32 overflow-hidden relative"
+      class="theme-section-dark transition-colors duration-500 py-28 lg:py-36 overflow-hidden relative"
     >
       <!-- Background Grid -->
       <div
-        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none"
+        class="absolute inset-0 bg-[linear-gradient(rgba(245,241,234,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(245,241,234,0.035)_1px,transparent_1px)] bg-[size:120px_120px] pointer-events-none"
+        aria-hidden="true"
       ></div>
 
-      <div class="max-w-[1920px] mx-auto px-6 lg:px-12 relative z-10">
-        <!-- Header -->
-        <div
-          class="flex flex-col md:flex-row items-end justify-between mb-24 gap-8"
-        >
-          <div class="max-w-2xl">
-            <div
-              class="flex items-center gap-2 mb-6 text-[var(--accent)] animate-pulse"
-            >
-              <i data-lucide="gem" class="w-5 h-5"></i>
-              <span
-                class="font-mono text-xs font-bold uppercase tracking-widest"
-                >Who We've Automated (Not Marketing Fluff)</span
-              >
-            </div>
-            <h2 class="text-5xl lg:text-7xl font-serif leading-[0.9] mb-8">
-              From Louis Vuitton to Swarovski: <br />
-              <span class="italic text-gray-500">Same Problem, Custom Solutions.</span>
+      <div class="max-w-[1760px] mx-auto px-6 lg:px-14 relative z-10">
+        <!-- Section head -->
+        <div class="flex items-center gap-4 mb-10">
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--gold)]">§ II</span>
+          <span class="h-px bg-white/20 w-10"></span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-white/55">Index of Engagements</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-end mb-20">
+          <div class="lg:col-span-8">
+            <h2 class="font-serif leading-[0.92] text-[clamp(44px,7vw,112px)] text-white" style="letter-spacing:-0.035em;font-variation-settings:'opsz' 144, 'SOFT' 0, 'WONK' 0;">
+              From <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--gold);">Louis&nbsp;Vuitton</em><br />
+              to <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--gold);">Swarovski</em> &mdash;<br />
+              <span class="text-white/55">same problem,<br />bespoke code.</span>
             </h2>
-            <p
-              class="text-xl text-gray-400 font-light leading-relaxed border-l-2 border-[var(--accent)] pl-8"
-            >
-              I've automated the exact systems these brands use daily: Oracle ERP,
-              SAP, Dynamics 365, bespoke POS networks. I didn't write case studies—I
-              wrote the code that runs their month-end closes and multi-entity reporting.
+          </div>
+          <div class="lg:col-span-4">
+            <p class="font-serif italic text-lg lg:text-xl leading-relaxed text-white/75 max-w-md border-l-2 border-[var(--gold)] pl-6" style="font-variation-settings:'opsz' 40,'SOFT' 30,'WONK' 0;">
+              Oracle ERP, SAP, Dynamics 365, bespoke POS networks. I didn't write
+              case studies&mdash;I wrote the code that runs their month-end close.
             </p>
-          </div>
-
-          <div class="flex flex-col items-end text-right">
-            <div
-              class="text-6xl font-serif font-bold text-[var(--accent)] mb-2"
-            >
-              400+
-            </div>
-            <div
-              class="font-mono text-xs text-gray-500 uppercase tracking-widest"
-            >
-              Hours Saved Monthly
+            <div class="mt-8 flex items-baseline gap-4">
+              <span class="font-serif text-[64px] leading-none text-[var(--gold)]" style="font-feature-settings:'tnum','lnum';font-variation-settings:'opsz' 144,'SOFT' 0,'WONK' 1;letter-spacing:-0.04em;">400+</span>
+              <span class="font-mono text-[10px] tracking-[0.28em] uppercase text-white/55 max-w-[10ch] leading-tight">Hours saved monthly</span>
             </div>
           </div>
         </div>
 
-        <!-- Joint Ventures Grid -->
-        <div class="mb-24">
-          <div
-            class="flex items-center justify-between mb-8 border-b border-white/10 pb-4"
-          >
-            <span
-              class="font-mono text-xs text-gray-500 uppercase tracking-widest"
-              >Strategic Joint Ventures</span
-            >
-            <span
-              class="font-mono text-xs text-[var(--accent)] uppercase tracking-widest"
-              >Stack per engagement</span
-            >
+        <!-- Engagement ledger -->
+        <div class="engagement-index" role="list">
+          <div class="engagement-row" role="listitem">
+            <span class="idx">No. 01</span>
+            <span class="brand">Louis Vuitton</span>
+            <span class="stack">Oracle ERP · Py · RPA</span>
+            <span class="metric">— 220 h/mo</span>
           </div>
-
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10"
-          >
-            <!-- Brand Cards -->
-            <div class="brand-logo">
-              <div class="tech-reveal">
-                <div class="tech-reveal-text">
-                  <i
-                    data-lucide="code-2"
-                    class="w-6 h-6 mx-auto mb-2 opacity-80"
-                  ></i
-                  >Oracle ERP Automation
-                </div>
-              </div>
-              <div
-                class="logo-text font-serif text-3xl md:text-4xl font-bold tracking-tight theme-text-primary"
-              >
-                Louis Vuitton
-              </div>
-              <div class="corner-accent top-left"></div>
-              <div class="corner-accent bottom-right"></div>
-            </div>
-            <div class="brand-logo">
-              <div class="tech-reveal">
-                <div class="tech-reveal-text">
-                  <i
-                    data-lucide="code-2"
-                    class="w-6 h-6 mx-auto mb-2 opacity-80"
-                  ></i
-                  >Reconciliation Engine
-                </div>
-              </div>
-              <div
-                class="logo-text font-serif text-3xl md:text-4xl font-bold tracking-tight theme-text-primary"
-              >
-                Dior
-              </div>
-              <div class="corner-accent top-left"></div>
-              <div class="corner-accent bottom-right"></div>
-            </div>
-            <div class="brand-logo">
-              <div class="tech-reveal">
-                <div class="tech-reveal-text">
-                  <i
-                    data-lucide="code-2"
-                    class="w-6 h-6 mx-auto mb-2 opacity-80"
-                  ></i
-                  >POS Data Integration
-                </div>
-              </div>
-              <div
-                class="logo-text font-sans text-2xl md:text-3xl font-black uppercase tracking-widest theme-text-primary"
-              >
-                Sephora
-              </div>
-              <div class="corner-accent top-left"></div>
-              <div class="corner-accent bottom-right"></div>
-            </div>
-            <div class="brand-logo">
-              <div class="tech-reveal">
-                <div class="tech-reveal-text">
-                  <i
-                    data-lucide="code-2"
-                    class="w-6 h-6 mx-auto mb-2 opacity-80"
-                  ></i
-                  >Payment Gateway API
-                </div>
-              </div>
-              <div
-                class="logo-text font-serif text-3xl md:text-4xl font-bold tracking-tight theme-text-primary"
-              >
-                Fendi
-              </div>
-              <div class="corner-accent top-left"></div>
-              <div class="corner-accent bottom-right"></div>
-            </div>
-            <div class="brand-logo">
-              <div class="tech-reveal">
-                <div class="tech-reveal-text">
-                  <i
-                    data-lucide="code-2"
-                    class="w-6 h-6 mx-auto mb-2 opacity-80"
-                  ></i
-                  >Inventory Sync Bot
-                </div>
-              </div>
-              <div
-                class="logo-text font-serif text-3xl md:text-4xl font-bold tracking-tight theme-text-primary"
-              >
-                Celine
-              </div>
-              <div class="corner-accent top-left"></div>
-              <div class="corner-accent bottom-right"></div>
-            </div>
-            <div class="brand-logo">
-              <div class="tech-reveal">
-                <div class="tech-reveal-text">
-                  <i
-                    data-lucide="code-2"
-                    class="w-6 h-6 mx-auto mb-2 opacity-80"
-                  ></i
-                  >Payroll Automation
-                </div>
-              </div>
-              <div
-                class="logo-text font-serif text-3xl md:text-4xl font-bold tracking-tight theme-text-primary"
-              >
-                Givenchy
-              </div>
-              <div class="corner-accent top-left"></div>
-              <div class="corner-accent bottom-right"></div>
-            </div>
-            <div class="brand-logo">
-              <div class="tech-reveal">
-                <div class="tech-reveal-text">
-                  <i
-                    data-lucide="code-2"
-                    class="w-6 h-6 mx-auto mb-2 opacity-80"
-                  ></i
-                  >Sales Reporting RPA
-                </div>
-              </div>
-              <div
-                class="logo-text font-serif text-3xl md:text-4xl font-bold tracking-tight theme-text-primary"
-              >
-                Louboutin
-              </div>
-              <div class="corner-accent top-left"></div>
-              <div class="corner-accent bottom-right"></div>
-            </div>
-            <div class="brand-logo">
-              <div class="tech-reveal">
-                <div class="tech-reveal-text">
-                  <i
-                    data-lucide="code-2"
-                    class="w-6 h-6 mx-auto mb-2 opacity-80"
-                  ></i
-                  >Supply Chain Analytics
-                </div>
-              </div>
-              <div
-                class="logo-text font-sans text-2xl md:text-3xl font-black uppercase tracking-widest theme-text-primary"
-              >
-                Puig
-              </div>
-              <div class="corner-accent top-left"></div>
-              <div class="corner-accent bottom-right"></div>
-            </div>
+          <div class="engagement-row" role="listitem">
+            <span class="idx">No. 02</span>
+            <span class="brand">Dior</span>
+            <span class="stack">Recon Engine · SAP</span>
+            <span class="metric">— 180 h/mo</span>
+          </div>
+          <div class="engagement-row" role="listitem">
+            <span class="idx">No. 03</span>
+            <span class="brand">Sephora</span>
+            <span class="stack">POS Integration · Py</span>
+            <span class="metric">— 160 h/mo</span>
+          </div>
+          <div class="engagement-row" role="listitem">
+            <span class="idx">No. 04</span>
+            <span class="brand">Fendi</span>
+            <span class="stack">Payment API · D365</span>
+            <span class="metric">— 140 h/mo</span>
+          </div>
+          <div class="engagement-row" role="listitem">
+            <span class="idx">No. 05</span>
+            <span class="brand">Celine</span>
+            <span class="stack">Inventory Sync · RPA</span>
+            <span class="metric">— 120 h/mo</span>
+          </div>
+          <div class="engagement-row" role="listitem">
+            <span class="idx">No. 06</span>
+            <span class="brand">Givenchy</span>
+            <span class="stack">Payroll · Power Auto.</span>
+            <span class="metric">— 110 h/mo</span>
+          </div>
+          <div class="engagement-row" role="listitem">
+            <span class="idx">No. 07</span>
+            <span class="brand">Louboutin</span>
+            <span class="stack">Sales Report RPA</span>
+            <span class="metric">— 95 h/mo</span>
+          </div>
+          <div class="engagement-row" role="listitem">
+            <span class="idx">No. 08</span>
+            <span class="brand">Puig</span>
+            <span class="stack">Supply Chain Analytics</span>
+            <span class="metric">— 85 h/mo</span>
           </div>
         </div>
 
-        <!-- Franchises Marquee -->
-        <div class="relative">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="h-px bg-white/10 flex-grow"></div>
-            <span
-              class="font-mono text-xs text-gray-500 uppercase tracking-widest"
-              >Global Franchises & Portfolios</span
-            >
-            <div class="h-px bg-white/10 flex-grow"></div>
+        <!-- Franchises — editorial ticker -->
+        <div class="relative mt-28">
+          <div class="fleuron mb-10">
+            <span class="line"></span>
+            <span class="glyph">§</span>
+            <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-white/55">Global Franchises &amp; Portfolios</span>
+            <span class="glyph">§</span>
+            <span class="line"></span>
           </div>
 
+          <!-- LOCKED: overflow-hidden (not overflow-x-hidden) to prevent vertical scrollbar shift -->
           <div class="relative flex overflow-hidden group">
-            <div class="animate-marquee whitespace-nowrap flex gap-24">
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Saks Fifth Avenue</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Loewe</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Carolina Herrera</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Swarovski</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Lacoste</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Michael Kors</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >L'Oreal Luxury</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Maison Margiela</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Jil Sander</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Marni</span
-              >
+            <div class="animate-marquee whitespace-nowrap flex items-center gap-12">
+              <span class="franchise-word">Saks Fifth Avenue</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Loewe</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Carolina Herrera</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Swarovski</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Lacoste</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Michael Kors</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">L'Oreal Luxury</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Maison Margiela</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Jil Sander</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Marni</span><span class="franchise-sep">·</span>
               <!-- Duplicate for seamless loop -->
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Saks Fifth Avenue</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Loewe</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Carolina Herrera</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Swarovski</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Lacoste</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Michael Kors</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >L'Oreal Luxury</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Maison Margiela</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Jil Sander</span
-              >
-              <span
-                class="text-4xl lg:text-6xl font-serif text-white/10 uppercase tracking-tighter hover:text-[var(--accent)] transition-colors cursor-default duration-300"
-                >Marni</span
-              >
+              <span class="franchise-word">Saks Fifth Avenue</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Loewe</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Carolina Herrera</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Swarovski</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Lacoste</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Michael Kors</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">L'Oreal Luxury</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Maison Margiela</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Jil Sander</span><span class="franchise-sep">·</span>
+              <span class="franchise-word">Marni</span><span class="franchise-sep">·</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Impact / Stats Section -->
+    <!-- Section III — The Ledger (Impact) -->
     <section
       id="impact"
-      class="theme-bg-main border-b border-[var(--border-subtle)] transition-colors duration-500"
+      class="theme-bg-main transition-colors duration-500 py-24 lg:py-32 relative"
     >
-      <div class="max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-2">
-        <div
-          class="p-12 lg:p-24 border-b lg:border-b-0 lg:border-r border-[var(--border-subtle)]"
-        >
-          <div
-            class="w-12 h-12 bg-[var(--accent)]/10 rounded-full flex items-center justify-center mb-8"
-          >
-            <i data-lucide="database" class="w-6 h-6 text-[var(--accent)]"></i>
-          </div>
-          <h2
-            class="text-4xl lg:text-5xl font-serif theme-text-primary mb-8 leading-tight"
-          >
-            Your team is trapped <br />in Excel hell.
-          </h2>
-          <p class="text-lg theme-text-secondary leading-relaxed font-light">
-            Your $80k-$150k finance professionals spend 20+ hours/week on work
-            a Python script could do overnight: downloading reports from 10 systems,
-            hunting $2,000 reconciliation gaps, copy-pasting into templates.
-            They're not making decisions—they're babysitting spreadsheets.
-          </p>
+      <div class="max-w-[1760px] mx-auto px-6 lg:px-14">
+        <!-- Section eyebrow -->
+        <div class="flex items-center gap-4 mb-12">
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--rubric)]">§ III</span>
+          <span class="h-px bg-[var(--rule)] w-10"></span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">The Ledger of Results</span>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2">
-          <!-- Stat 1 -->
-          <div
-            class="spotlight-card p-12 border-0 border-b border-r border-[var(--border-subtle)] rounded-none"
-          >
-            <div class="spotlight-effect"></div>
-            <div class="relative">
-              <div
-                class="flex justify-between items-start mb-4 theme-text-tertiary"
-              >
-                <i data-lucide="terminal" class="w-5 h-5"></i>
-                <span class="font-mono text-xs">01</span>
-              </div>
-              <div
-                class="text-4xl font-serif font-bold theme-text-primary mb-2"
-              >
-                400+
-              </div>
-              <div
-                class="font-bold text-xs uppercase tracking-widest theme-text-primary mb-1"
-              >
-                Hours/Month Freed
-              </div>
-              <div class="font-mono text-[10px] theme-text-tertiary">
-                Your team stops firefighting
-              </div>
-            </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-end mb-16">
+          <div class="lg:col-span-6">
+            <h2 class="font-serif text-[clamp(44px,6.5vw,96px)] leading-[0.95] mb-8" style="letter-spacing:-0.03em;">
+              Your team is trapped<br />
+              <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--rubric);">in Excel hell.</em>
+            </h2>
           </div>
-          <!-- Stat 2 -->
-          <div
-            class="spotlight-card p-12 border-0 border-b border-[var(--border-subtle)] rounded-none"
-          >
-            <div class="spotlight-effect"></div>
-            <div class="relative">
-              <div
-                class="flex justify-between items-start mb-4 theme-text-tertiary"
-              >
-                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                <span class="font-mono text-xs">02</span>
-              </div>
-              <div
-                class="text-4xl font-serif font-bold theme-text-primary mb-2"
-              >
-                $360k+
-              </div>
-              <div
-                class="font-bold text-xs uppercase tracking-widest theme-text-primary mb-1"
-              >
-                Saved Annually
-              </div>
-              <div class="font-mono text-[10px] theme-text-tertiary">
-                Project pays for itself in Q2
-              </div>
-            </div>
+          <div class="lg:col-span-6">
+            <p class="hero-deck drop-cap">
+              Your $80k&ndash;$150k finance professionals spend twenty-plus hours a week
+              on work a Python script could do overnight: downloading reports from ten
+              systems, hunting $2,000 reconciliation gaps, copy-pasting into templates.
+              They're not making decisions &mdash; they're babysitting spreadsheets.
+            </p>
           </div>
-          <!-- Stat 3 -->
-          <div
-            class="spotlight-card p-12 border-0 border-r border-[var(--border-subtle)] rounded-none"
-          >
-            <div class="spotlight-effect"></div>
-            <div class="relative">
-              <div
-                class="flex justify-between items-start mb-4 theme-text-tertiary"
-              >
-                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
-                <span class="font-mono text-xs">03</span>
-              </div>
-              <div
-                class="text-4xl font-serif font-bold theme-text-primary mb-2"
-              >
-                46
-              </div>
-              <div
-                class="font-bold text-xs uppercase tracking-widest theme-text-primary mb-1"
-              >
-                Dashboards Running
-              </div>
-              <div class="font-mono text-[10px] theme-text-tertiary">
-                While your team sleeps
-              </div>
-            </div>
+        </div>
+
+        <!-- Ledger table of results -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style="border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);">
+          <div class="ledger-stat">
+            <div class="stat-idx"><span>01 · Time</span><i data-lucide="terminal" class="w-4 h-4" aria-hidden="true"></i></div>
+            <div class="stat-figure">400<span class="unit">h/mo</span></div>
+            <div class="stat-label">Hours freed</div>
+            <div class="stat-note">Your team stops firefighting, starts thinking.</div>
           </div>
-          <!-- Stat 4 -->
-          <div class="spotlight-card p-12 border-0 rounded-none">
-            <div class="spotlight-effect"></div>
-            <div class="relative">
-              <div
-                class="flex justify-between items-start mb-4 theme-text-tertiary"
-              >
-                <i data-lucide="lock" class="w-5 h-5"></i>
-                <span class="font-mono text-xs">04</span>
-              </div>
-              <div
-                class="text-4xl font-serif font-bold theme-text-primary mb-2"
-              >
-                100%
-              </div>
-              <div
-                class="font-bold text-xs uppercase tracking-widest theme-text-primary mb-1"
-              >
-                Accuracy
-              </div>
-              <div class="font-mono text-[10px] theme-text-tertiary">
-                Zero reconciliation errors
-              </div>
-            </div>
+          <div class="ledger-stat">
+            <div class="stat-idx"><span>02 · Cost</span><i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i></div>
+            <div class="stat-figure">$360<span class="unit">k+</span></div>
+            <div class="stat-label">Saved annually</div>
+            <div class="stat-note">Project pays for itself inside the second quarter.</div>
+          </div>
+          <div class="ledger-stat">
+            <div class="stat-idx"><span>03 · Scope</span><i data-lucide="bar-chart-3" class="w-4 h-4" aria-hidden="true"></i></div>
+            <div class="stat-figure">46<span class="unit">live</span></div>
+            <div class="stat-label">Dashboards running</div>
+            <div class="stat-note">Pipelines that ship while your team sleeps.</div>
+          </div>
+          <div class="ledger-stat">
+            <div class="stat-idx"><span>04 · Truth</span><i data-lucide="lock" class="w-4 h-4" aria-hidden="true"></i></div>
+            <div class="stat-figure">100<span class="unit">%</span></div>
+            <div class="stat-label">Accuracy</div>
+            <div class="stat-note">Zero reconciliation errors across 24 entities.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Methodology Section -->
+    <!-- Section IV — How This Works (TOC / Methodology) -->
     <section
       id="logic"
-      class="theme-section-dark py-24 relative overflow-hidden transition-colors duration-500"
+      class="theme-section-dark py-24 lg:py-32 relative overflow-hidden transition-colors duration-500"
     >
-      <!-- Background Circles -->
-      <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-10 pointer-events-none"
-      >
+      <!-- Background Circles (dialed down) -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-[0.06] pointer-events-none" aria-hidden="true">
         <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-          <circle
-            cx="500"
-            cy="500"
-            r="400"
-            stroke="currentColor"
-            stroke-width="1"
-            fill="none"
-            stroke-dasharray="10 10"
-            class="animate-spin-slow"
-          />
-          <circle
-            cx="500"
-            cy="500"
-            r="300"
-            stroke="currentColor"
-            stroke-width="1"
-            fill="none"
-            class="opacity-50"
-          />
+          <circle cx="500" cy="500" r="400" stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="6 14" class="animate-spin-slow" />
+          <circle cx="500" cy="500" r="300" stroke="currentColor" stroke-width="1" fill="none" class="opacity-50" />
         </svg>
       </div>
 
-      <div
-        class="max-w-[1920px] mx-auto px-6 lg:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16"
-      >
-        <div class="lg:col-span-4">
-          <div class="w-16 h-1 bg-[var(--accent)] mb-8"></div>
-          <h2 class="text-4xl font-serif mb-6">How We Do This<br/><span class="text-2xl opacity-60">(4-8 Weeks)</span></h2>
-          <p class="opacity-80 font-light leading-relaxed mb-8">
-            I don't consult. I code. I don't sell licenses—I solve problems.
-            I pick the tool (Python, RPA, Power Platform) based on what works,
-            not what generates the highest license fee. You see exactly how much
-            you'll save before I write a single line of code.
-          </p>
-          <div class="flex gap-4 opacity-50">
-            <i data-lucide="globe" class="w-6 h-6"></i>
-            <i data-lucide="cpu" class="w-6 h-6"></i>
-            <i data-lucide="terminal" class="w-6 h-6"></i>
-          </div>
+      <div class="max-w-[1760px] mx-auto px-6 lg:px-14 relative z-10">
+        <div class="flex items-center gap-4 mb-12">
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--gold)]">§ IV</span>
+          <span class="h-px bg-white/20 w-10"></span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-white/55">Table of Contents</span>
         </div>
 
-        <div class="lg:col-span-8">
-          <!-- Accordion -->
-          <div class="accordion-item">
-            <button class="accordion-button" data-accordion="0">
-              <div class="flex items-center gap-6 md:gap-8">
-                <span class="font-mono text-[var(--accent)] text-sm font-bold"
-                  >01</span
-                >
-                <span
-                  class="text-xl md:text-2xl font-serif transition-transform duration-300"
-                  >Audit (Week 1)</span
-                >
-              </div>
-              <i
-                data-lucide="minus"
-                class="w-5 h-5 text-[var(--accent)] accordion-icon-minus"
-              ></i>
-              <i
-                data-lucide="plus"
-                class="w-5 h-5 opacity-50 accordion-icon-plus hidden"
-              ></i>
-            </button>
-            <div class="accordion-content open">
-              <p
-                class="opacity-70 pl-12 md:pl-16 max-w-2xl font-light text-sm md:text-base leading-relaxed border-l border-[var(--accent)] ml-2 pl-6"
-              >
-                Walk through your finance team's monthly workflow. Find where time
-                disappears. Model the ROI. You'll get a clear number: "This automation
-                will save 400 hours/month" or "Not worth it—here's why." I tell you the truth.
-              </p>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          <div class="lg:col-span-4">
+            <h2 class="font-serif text-[clamp(38px,4.8vw,72px)] leading-[0.98] mb-8 text-white" style="letter-spacing:-0.03em;">
+              How we<br />
+              <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--gold);">do this.</em>
+            </h2>
+            <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-white/55 mb-8">
+              4 &ndash; 8 weeks · four acts
             </div>
+            <p class="font-serif italic text-lg leading-relaxed text-white/75 max-w-md" style="font-variation-settings:'opsz' 40,'SOFT' 30,'WONK' 0;">
+              I don't consult. I code. I don't sell licenses &mdash; I solve problems.
+              The tool (Python, RPA, Power Platform) is chosen for what works,
+              not what generates the highest license fee.
+            </p>
           </div>
-          <div class="accordion-item">
-            <button class="accordion-button" data-accordion="1">
-              <div class="flex items-center gap-6 md:gap-8">
-                <span class="font-mono text-[var(--accent)] text-sm font-bold"
-                  >02</span
-                >
-                <span
-                  class="text-xl md:text-2xl font-serif transition-transform duration-300"
-                  >Design (Week 1-2)</span
-                >
+
+          <div class="lg:col-span-8">
+            <div class="accordion-item">
+              <button class="accordion-button" data-accordion="0" aria-expanded="true">
+                <span data-accordion-roman>I</span>
+                <span data-accordion-title>Audit</span>
+                <span data-accordion-week>Week 01</span>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--gold)] accordion-icon-minus" aria-hidden="true"></i>
+                <i data-lucide="plus"  class="w-5 h-5 opacity-50 accordion-icon-plus hidden" aria-hidden="true"></i>
+              </button>
+              <div class="accordion-content open">
+                <p>
+                  Walk through your finance team's monthly workflow. Find where time
+                  disappears. Model the ROI. You'll get a clear number: "This automation
+                  will save 400 hours/month" &mdash; or "Not worth it, here's why." I tell
+                  you the truth, not the pitch.
+                </p>
               </div>
-              <i
-                data-lucide="minus"
-                class="w-5 h-5 text-[var(--accent)] accordion-icon-minus hidden"
-              ></i>
-              <i
-                data-lucide="plus"
-                class="w-5 h-5 opacity-50 accordion-icon-plus"
-              ></i>
-            </button>
-            <div class="accordion-content">
-              <p
-                class="opacity-70 pl-12 md:pl-16 max-w-2xl font-light text-sm md:text-base leading-relaxed border-l border-[var(--accent)] ml-2 pl-6"
-              >
-                You approve the blueprint. I show you: which systems talk to which,
-                what data gets pulled, where errors are caught, how reports generate.
-                You sign off before any code starts. No surprises at go-live.
-              </p>
             </div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-button" data-accordion="2">
-              <div class="flex items-center gap-6 md:gap-8">
-                <span class="font-mono text-[var(--accent)] text-sm font-bold"
-                  >03</span
-                >
-                <span
-                  class="text-xl md:text-2xl font-serif transition-transform duration-300"
-                  >Build & Test (Week 3-6)</span
-                >
+
+            <div class="accordion-item">
+              <button class="accordion-button" data-accordion="1" aria-expanded="false">
+                <span data-accordion-roman>II</span>
+                <span data-accordion-title>Design</span>
+                <span data-accordion-week>Week 01&ndash;02</span>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--gold)] accordion-icon-minus hidden" aria-hidden="true"></i>
+                <i data-lucide="plus"  class="w-5 h-5 opacity-50 accordion-icon-plus" aria-hidden="true"></i>
+              </button>
+              <div class="accordion-content">
+                <p>
+                  You approve the blueprint. I show which systems talk to which,
+                  what data gets pulled, where errors are caught, how reports generate.
+                  You sign off before any code starts. No surprises at go-live.
+                </p>
               </div>
-              <i
-                data-lucide="minus"
-                class="w-5 h-5 text-[var(--accent)] accordion-icon-minus hidden"
-              ></i>
-              <i
-                data-lucide="plus"
-                class="w-5 h-5 opacity-50 accordion-icon-plus"
-              ></i>
-            </button>
-            <div class="accordion-content">
-              <p
-                class="opacity-70 pl-12 md:pl-16 max-w-2xl font-light text-sm md:text-base leading-relaxed border-l border-[var(--accent)] ml-2 pl-6"
-              >
-                I build it. Your team tests it with real data. I fix it. We don't
-                deploy until the actual users have sat with it for a full week and
-                said, "This is going to change how we work."
-              </p>
             </div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-button" data-accordion="3">
-              <div class="flex items-center gap-6 md:gap-8">
-                <span class="font-mono text-[var(--accent)] text-sm font-bold"
-                  >04</span
-                >
-                <span
-                  class="text-xl md:text-2xl font-serif transition-transform duration-300"
-                  >Go Live + Support (Week 6-8)</span
-                >
+
+            <div class="accordion-item">
+              <button class="accordion-button" data-accordion="2" aria-expanded="false">
+                <span data-accordion-roman>III</span>
+                <span data-accordion-title>Build &amp; Test</span>
+                <span data-accordion-week>Week 03&ndash;06</span>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--gold)] accordion-icon-minus hidden" aria-hidden="true"></i>
+                <i data-lucide="plus"  class="w-5 h-5 opacity-50 accordion-icon-plus" aria-hidden="true"></i>
+              </button>
+              <div class="accordion-content">
+                <p>
+                  I build it. Your team tests it with real data. I fix it. We don't
+                  deploy until the actual users have sat with it for a full week and
+                  said, "This is going to change how we work."
+                </p>
               </div>
-              <i
-                data-lucide="minus"
-                class="w-5 h-5 text-[var(--accent)] accordion-icon-minus hidden"
-              ></i>
-              <i
-                data-lucide="plus"
-                class="w-5 h-5 opacity-50 accordion-icon-plus"
-              ></i>
-            </button>
-            <div class="accordion-content">
-              <p
-                class="opacity-70 pl-12 md:pl-16 max-w-2xl font-light text-sm md:text-base leading-relaxed border-l border-[var(--accent)] ml-2 pl-6"
-              >
-                Your team goes live. I stay for 30 days—monitoring, debugging edge
-                cases, training. After 30 days, we measure: Did we hit that 400 hours/month
-                savings? (Spoiler: We always do.)
-              </p>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button" data-accordion="3" aria-expanded="false">
+                <span data-accordion-roman>IV</span>
+                <span data-accordion-title>Go Live &amp; Support</span>
+                <span data-accordion-week>Week 06&ndash;08</span>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--gold)] accordion-icon-minus hidden" aria-hidden="true"></i>
+                <i data-lucide="plus"  class="w-5 h-5 opacity-50 accordion-icon-plus" aria-hidden="true"></i>
+              </button>
+              <div class="accordion-content">
+                <p>
+                  Your team goes live. I stay for 30 days &mdash; monitoring, debugging
+                  edge cases, training. After 30 days we measure: did we hit that
+                  400&nbsp;hours/month? (We always do.)
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Section V — Correspondence (Testimonials) -->
     <section
       id="testimonials"
-      class="testimonials-section py-24 theme-bg-main border-b border-[var(--border-subtle)] overflow-hidden transition-colors duration-500"
+      class="testimonials-section py-24 lg:py-32 theme-bg-main overflow-hidden transition-colors duration-500"
     >
-      <div class="max-w-[1920px] mx-auto px-6 lg:px-12 mb-16">
-        <div class="flex items-center gap-2 mb-4">
-          <i
-            data-lucide="star"
-            class="w-5 h-5 text-[var(--accent)] fill-[var(--accent)]"
-          ></i>
-          <span
-            class="font-mono text-xs theme-text-tertiary uppercase tracking-widest"
-            >Real Finance Leaders, Real Savings</span
-          >
+      <div class="max-w-[1760px] mx-auto px-6 lg:px-14 mb-16">
+        <div class="flex items-center gap-4 mb-10">
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--rubric)]">§ V</span>
+          <span class="h-px bg-[var(--rule)] w-10"></span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Correspondence</span>
         </div>
-        <h2 class="text-4xl lg:text-5xl font-serif theme-text-primary">
-          What Happened After We Automated Their Close
+        <h2 class="font-serif text-[clamp(40px,5.5vw,84px)] leading-[0.95] mb-6 theme-text-primary" style="letter-spacing:-0.03em;">
+          What happened after we<br />
+          <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--rubric);">automated their close.</em>
         </h2>
+        <p class="font-serif italic text-lg text-[var(--ink-mute)] max-w-2xl" style="font-variation-settings:'opsz' 40,'SOFT' 30,'WONK' 0;">
+          Letters &amp; notes from the finance leaders whose month-end we rewired.
+        </p>
       </div>
 
       <!-- Row 1: Scrolling Left -->
@@ -1355,89 +966,117 @@
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="theme-bg-main py-24 border-b border-[var(--border-subtle)] transition-colors duration-500">
-      <div class="max-w-[1920px] mx-auto px-6 lg:px-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+    <!-- Section VI — Frequently Telegraphed Questions -->
+    <section id="faq" class="theme-bg-main py-24 lg:py-32 transition-colors duration-500">
+      <div class="max-w-[1760px] mx-auto px-6 lg:px-14">
+        <div class="flex items-center gap-4 mb-12">
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--rubric)]">§ VI</span>
+          <span class="h-px bg-[var(--rule)] w-10"></span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Frequently Telegraphed Questions</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           <div class="lg:col-span-4">
-            <div class="flex items-center gap-2 mb-4">
-              <i data-lucide="help-circle" class="w-5 h-5 text-[var(--accent)]"></i>
-              <span class="font-mono text-xs theme-text-tertiary uppercase tracking-widest">Questions Every Finance Director Asks</span>
-            </div>
-            <h2 class="text-4xl font-serif theme-text-primary mb-6">Will This Actually Work For Us?</h2>
-            <p class="theme-text-secondary font-light leading-relaxed">
-              Yes. But the real question is: What's your team size? Your ERP system?
-              Your geographic footprint? Here's how I work with different organizations.
+            <h2 class="font-serif text-[clamp(40px,5vw,72px)] leading-[0.95] mb-6 theme-text-primary" style="letter-spacing:-0.03em;">
+              Will this<br />
+              <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--rubric);">actually work</em><br />
+              for us?
+            </h2>
+            <p class="font-serif italic text-lg leading-relaxed text-[var(--ink-mute)] max-w-md" style="font-variation-settings:'opsz' 40,'SOFT' 30,'WONK' 0;">
+              Yes &mdash; but the real questions are team size, ERP stack, and
+              geographic footprint. Here is how I work with different organizations.
             </p>
           </div>
 
           <div class="lg:col-span-8 space-y-0">
-            <!-- FAQ Item 1 -->
-            <div class="faq-item border-b border-[var(--border-subtle)]">
-              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="0">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Will this work if we only have 10 finance people?</span>
-                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
-                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
-              </button>
-              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
-                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  Probably not worth it. I work with <strong>20+ person finance teams</strong> because that's where manual work creates real cost. At 10 people, you might save 100-150 hours/month—good, but not enough to justify the engagement cost. At 25+ people, you're looking at 400+ hours saved = $300k+ annually. That's when the math makes sense.
-                </p>
-              </div>
-            </div>
-
-            <!-- FAQ Item 2 -->
-            <div class="faq-item border-b border-[var(--border-subtle)]">
-              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="1">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Are you available outside MENA?</span>
-                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
-                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
-              </button>
-              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
-                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  Yes. I'm based in Amman, Jordan, but I work with clients across Europe, Asia, and North America. Most work is remote (on-site for discovery, training, and go-live). As long as we have <strong>4-5 hours timezone overlap</strong> during implementation, it works fine. I've done successful projects with UK retailers, Southeast Asian financial services firms, and US-based supply chains.
-                </p>
-              </div>
-            </div>
-
-            <!-- FAQ Item 3 -->
-            <div class="faq-item border-b border-[var(--border-subtle)]">
-              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="2">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">What's this going to cost me?</span>
-                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
-                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
-              </button>
-              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
-                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  <strong>$15,000 - $75,000.</strong> Fixed price. No hidden hourly billing. The range depends on how many systems need to talk to each other (3 systems = $15k; 10 systems = $75k). You get ROI in 3-6 months. So if you pay $50k in month 1, you save $300k+ annually starting month 4. The project pays for itself.
-                </p>
-              </div>
-            </div>
-
-            <!-- FAQ Item 4 -->
-            <div class="faq-item border-b border-[var(--border-subtle)]">
-              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="3">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">How fast can you get us live?</span>
-                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
-                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
-              </button>
-              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
-                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  <strong>4-8 weeks.</strong> Some projects are 6 weeks, some are 12 weeks. It depends on how many systems you're integrating and how fast your team can test. I don't rush UAT—sloppy automation is worse than no automation. You get weekly updates. You approve each phase. 30-day support after go-live.
-                </p>
-              </div>
-            </div>
-
-            <!-- FAQ Item 5 -->
             <div class="faq-item">
-              <button class="faq-button w-full py-6 flex items-center justify-between text-left group" data-faq="4">
-                <span class="text-lg font-serif theme-text-primary group-hover:text-[var(--accent)] transition-colors">Can you work with our ERP system? (Spoiler: probably yes)</span>
-                <i data-lucide="plus" class="w-5 h-5 theme-text-tertiary faq-icon-plus"></i>
-                <i data-lucide="minus" class="w-5 h-5 text-[var(--accent)] faq-icon-minus hidden"></i>
+              <button class="faq-button" data-faq="0" aria-expanded="false">
+                <span>
+                  <em class="italic mr-3 text-[var(--gold-deep)]" style="font-style:italic;font-variation-settings:'opsz' 40,'SOFT' 50,'WONK' 0;">i.</em>
+                  Will this work if we only have 10 finance people?
+                </span>
+                <i data-lucide="plus"  class="w-5 h-5 text-[var(--ink-mute)] faq-icon-plus" aria-hidden="true"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--rubric)] faq-icon-minus hidden" aria-hidden="true"></i>
               </button>
-              <div class="faq-content overflow-hidden max-h-0 opacity-0 transition-all duration-300">
-                <p class="pb-6 theme-text-secondary font-light leading-relaxed">
-                  I work with <strong>Oracle EBS, SAP, Microsoft Dynamics 365, NetSuite</strong>, and dozens of POS systems. I also integrate legacy systems, banking APIs, and weird custom tools you built in 2003. If your system has APIs or database access, we can automate around it. Worst case: I talk to your IT team first to see if it's even possible.
+              <div class="faq-content">
+                <p class="pb-6">
+                  Probably not worth it. I work with <strong>20+ person finance teams</strong> &mdash; that's
+                  where manual work creates real cost. At 10 people you might save 100&ndash;150 hours/month,
+                  not enough to justify the engagement cost. At 25+ people you are looking at 400+ hours
+                  saved = $300k+ annually. That is when the math makes sense.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-button" data-faq="1" aria-expanded="false">
+                <span>
+                  <em class="italic mr-3 text-[var(--gold-deep)]" style="font-style:italic;">ii.</em>
+                  Are you available outside MENA?
+                </span>
+                <i data-lucide="plus"  class="w-5 h-5 text-[var(--ink-mute)] faq-icon-plus" aria-hidden="true"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--rubric)] faq-icon-minus hidden" aria-hidden="true"></i>
+              </button>
+              <div class="faq-content">
+                <p class="pb-6">
+                  Yes. Based in Amman, Jordan; clients across Europe, Asia, and North America.
+                  Most work is remote (on-site for discovery, training, go-live). As long as we have
+                  <strong>4&ndash;5 hours timezone overlap</strong> during implementation, it works fine.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-button" data-faq="2" aria-expanded="false">
+                <span>
+                  <em class="italic mr-3 text-[var(--gold-deep)]" style="font-style:italic;">iii.</em>
+                  What's this going to cost me?
+                </span>
+                <i data-lucide="plus"  class="w-5 h-5 text-[var(--ink-mute)] faq-icon-plus" aria-hidden="true"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--rubric)] faq-icon-minus hidden" aria-hidden="true"></i>
+              </button>
+              <div class="faq-content">
+                <p class="pb-6">
+                  <strong>$15,000 &ndash; $75,000.</strong> Fixed price. No hidden hourly billing.
+                  Range depends on how many systems need to talk (3 systems = $15k; 10 systems = $75k).
+                  ROI lands in 3&ndash;6 months. Pay $50k in month&nbsp;1, save $300k+ annually from month&nbsp;4.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-button" data-faq="3" aria-expanded="false">
+                <span>
+                  <em class="italic mr-3 text-[var(--gold-deep)]" style="font-style:italic;">iv.</em>
+                  How fast can you get us live?
+                </span>
+                <i data-lucide="plus"  class="w-5 h-5 text-[var(--ink-mute)] faq-icon-plus" aria-hidden="true"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--rubric)] faq-icon-minus hidden" aria-hidden="true"></i>
+              </button>
+              <div class="faq-content">
+                <p class="pb-6">
+                  <strong>4&ndash;8 weeks</strong> &mdash; some projects six, some twelve. Depends on
+                  how many systems you're integrating and how fast your team can test. I don't rush UAT;
+                  sloppy automation is worse than none. Weekly updates, phase sign-off, 30-day post-launch support.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-button" data-faq="4" aria-expanded="false">
+                <span>
+                  <em class="italic mr-3 text-[var(--gold-deep)]" style="font-style:italic;">v.</em>
+                  Can you work with our ERP system? <em class="italic opacity-70">(Probably yes.)</em>
+                </span>
+                <i data-lucide="plus"  class="w-5 h-5 text-[var(--ink-mute)] faq-icon-plus" aria-hidden="true"></i>
+                <i data-lucide="minus" class="w-5 h-5 text-[var(--rubric)] faq-icon-minus hidden" aria-hidden="true"></i>
+              </button>
+              <div class="faq-content">
+                <p class="pb-6">
+                  Oracle EBS, SAP, Dynamics 365, NetSuite, and dozens of POS systems. Also legacy
+                  systems, banking APIs, and the custom tools your team built in 2003. If your system
+                  has APIs or database access, we can automate around it. Worst case: I check with your
+                  IT team first.
                 </p>
               </div>
             </div>
@@ -1446,168 +1085,143 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Section VII — Letter to the Editor (Contact) -->
     <section
       id="contact"
-      class="grid grid-cols-1 lg:grid-cols-2 min-h-[600px] border-t border-[var(--border-subtle)]"
+      class="grid grid-cols-1 lg:grid-cols-2 min-h-[640px] border-t border-[var(--rule)]"
     >
       <div
-        class="theme-bg-main p-12 lg:p-24 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--border-subtle)] transition-colors duration-500"
+        class="theme-bg-main p-12 lg:p-24 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--rule)] transition-colors duration-500"
       >
         <div>
-          <h2 class="text-4xl lg:text-5xl font-serif theme-text-primary mb-8">
-            What would an extra 400 hours/month do for your team?
+          <div class="flex items-center gap-4 mb-10">
+            <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--rubric)]">§ VII</span>
+            <span class="h-px bg-[var(--rule)] w-10"></span>
+            <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Letter to the Editor</span>
+          </div>
+
+          <h2 class="font-serif text-[clamp(40px,5.2vw,80px)] leading-[0.95] theme-text-primary mb-8" style="letter-spacing:-0.03em;">
+            What would an extra<br />
+            <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--rubric);">400 hours/month</em><br />
+            do for your team?
           </h2>
-          <p class="theme-text-secondary mb-12 max-w-md font-light">
-            Book a 30-minute audit. I'll walk through your current process, identify
-            your biggest time-sink, and give you an exact number: "You'll save 400 hours/month"
-            or "You'll save $300k annually." No pitch. Just the math.
+
+          <p class="hero-deck mb-12 max-w-md">
+            Book a 30-minute audit. I'll walk your current process, identify the biggest
+            time-sink, and give you an exact number: "you'll save 400 hours/month" or
+            "you'll save $300k annually." No pitch &mdash; just the math.
           </p>
 
-          <div class="space-y-6">
-            <div class="flex items-center gap-4 group cursor-pointer">
-              <div
-                class="w-10 h-10 rounded-full border border-[var(--border-subtle)] flex items-center justify-center group-hover:bg-[var(--section-dark-bg)] group-hover:text-white transition-all theme-text-primary"
-              >
-                <i data-lucide="globe" class="w-4 h-4"></i>
+          <div class="space-y-5">
+            <div class="flex items-center gap-4 group">
+              <div class="w-10 h-10 border border-[var(--rule)] flex items-center justify-center group-hover:bg-[var(--ink)] group-hover:text-[var(--paper)] group-hover:border-[var(--ink)] transition-all theme-text-primary">
+                <i data-lucide="globe" class="w-4 h-4" aria-hidden="true"></i>
               </div>
-              <span class="font-mono text-sm theme-text-primary"
-                >Amman, Jordan (MENA)</span
-              >
+              <span class="font-mono text-[13px] tracking-[0.12em] theme-text-primary">Amman · Jordan · MENA</span>
             </div>
-            <div class="flex items-center gap-4 group cursor-pointer">
-              <div
-                class="w-10 h-10 rounded-full border border-[var(--border-subtle)] flex items-center justify-center group-hover:bg-[var(--section-dark-bg)] group-hover:text-white transition-all theme-text-primary"
-              >
-                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            <a href="mailto:contact@deyaaldeen.com" class="flex items-center gap-4 group">
+              <div class="w-10 h-10 border border-[var(--rule)] flex items-center justify-center group-hover:bg-[var(--ink)] group-hover:text-[var(--paper)] group-hover:border-[var(--ink)] transition-all theme-text-primary">
+                <i data-lucide="at-sign" class="w-4 h-4" aria-hidden="true"></i>
               </div>
-              <a
-                href="mailto:contact@deyaaldeen.com"
-                class="font-mono text-sm theme-text-primary hover:underline"
-                >contact@deyaaldeen.com</a
-              >
-            </div>
-            <a
-              href="https://wa.me/962798103323"
-              target="_blank"
-              rel="noopener"
-              class="flex items-center gap-4 group cursor-pointer"
-            >
-              <div
-                class="w-10 h-10 rounded-full border border-[var(--border-subtle)] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-all theme-text-primary"
-              >
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <span class="font-mono text-[13px] tracking-[0.04em] theme-text-primary group-hover:text-[var(--rubric)] transition-colors">contact@deyaaldeen.com</span>
+            </a>
+            <a href="https://wa.me/962798103323" target="_blank" rel="noopener" class="flex items-center gap-4 group">
+              <div class="w-10 h-10 border border-[var(--rule)] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-[var(--paper)] group-hover:border-[#25D366] transition-all theme-text-primary">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
               </div>
-              <span class="font-mono text-sm theme-text-primary group-hover:text-[#25D366] transition-colors">+962 79 810 3323</span>
+              <span class="font-mono text-[13px] tracking-[0.04em] theme-text-primary group-hover:text-[#25D366] transition-colors">+962 79 810 3323</span>
             </a>
           </div>
         </div>
 
-        <div class="mt-12 flex items-center gap-4">
-          <div
-            class="w-12 h-12 theme-section-dark text-white flex items-center justify-center font-serif font-bold text-xl"
-          >
+        <div class="mt-16 pt-8 border-t border-[var(--rule)] flex items-center gap-4">
+          <div class="w-14 h-14 theme-section-dark text-white flex items-center justify-center font-serif text-2xl" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;font-style:italic;">
             DA
           </div>
           <div>
-            <div class="font-bold theme-text-primary">DeyaAldeen AlSoub</div>
-            <div
-              class="text-xs font-mono theme-text-tertiary uppercase tracking-widest"
-            >
-              Founder
+            <div class="font-serif text-lg theme-text-primary" style="font-variation-settings:'opsz' 40,'SOFT' 0,'WONK' 0;">DeyaAldeen AlSoub</div>
+            <div class="font-mono text-[10.5px] theme-text-tertiary uppercase tracking-[0.3em] mt-1">
+              Editor &amp; Process Architect
             </div>
           </div>
         </div>
       </div>
 
       <div
-        class="theme-bg-card p-12 lg:p-24 flex flex-col justify-center transition-colors duration-500"
+        class="theme-bg-main p-12 lg:p-24 flex flex-col justify-center transition-colors duration-500 relative"
       >
+        <div class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)] mb-10">
+          — Dispatch Form —
+        </div>
+
         <form
           id="contact-form"
           action="https://formspree.io/f/mldyypje"
           method="POST"
-          class="space-y-8"
+          class="space-y-10"
         >
           <div class="form-group">
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder=" "
-              class="form-input"
-              required
-            />
-            <label for="name" class="form-label">Full Name</label>
+            <input type="text" name="name" id="name" placeholder=" " class="form-input" required />
+            <label for="name" class="form-label">Full name</label>
           </div>
           <div class="form-group">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder=" "
-              class="form-input"
-              required
-            />
-            <label for="email" class="form-label">Business Email</label>
+            <input type="email" name="email" id="email" placeholder=" " class="form-input" required />
+            <label for="email" class="form-label">Business email</label>
           </div>
           <div class="form-group">
-            <textarea
-              name="message"
-              id="message"
-              rows="3"
-              placeholder=" "
-              class="form-input resize-none"
-              required
-            ></textarea>
-            <label for="message" class="form-label"
-              >What's Your Biggest Finance Bottleneck?</label
-            >
-            <p class="text-xs theme-text-tertiary mt-2 font-mono">Example: "We manually consolidate P&Ls from 24 entities every month—takes 80 hours and we're always finding errors after close"</p>
+            <textarea name="message" id="message" rows="3" placeholder=" " class="form-input resize-none" required></textarea>
+            <label for="message" class="form-label">Your biggest finance bottleneck</label>
+            <p class="text-xs text-[var(--ink-mute)] mt-3 font-serif italic" style="font-variation-settings:'opsz' 20,'SOFT' 20,'WONK' 0;">
+              e.g. "We manually consolidate P&amp;Ls from 24 entities every month — takes 80 hours and we always find errors after close."
+            </p>
           </div>
 
           <button
             type="submit"
-            class="w-full theme-section-dark text-white py-5 font-mono text-sm uppercase tracking-widest hover:bg-[var(--accent)] hover:text-white transition-colors duration-300 shadow-xl flex items-center justify-between px-8 group"
+            class="btn-primary w-full justify-between group"
+            style="padding:22px 28px;"
           >
             <span>Start Your Audit</span>
-            <i
-              data-lucide="arrow-right"
-              class="w-4 h-4 group-hover:translate-x-2 transition-transform"
-            ></i>
+            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
           </button>
         </form>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer
-      class="theme-section-dark py-12 px-6 lg:px-12 border-t border-[var(--border-subtle)] transition-colors duration-500"
-    >
-      <div
-        class="max-w-[1920px] mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-mono uppercase tracking-widest opacity-60"
-      >
-        <div>&copy; 2025 DeyaAldeen. Trusted by Chalhoub Group, Real FZE & 20+ enterprise portfolios.</div>
-        <div class="flex gap-8 mt-4 md:mt-0">
-          <a
-            href="https://linkedin.com/in/deyaaldeen"
-            target="_blank"
-            rel="noopener"
-            class="hover:text-[var(--accent)] transition-colors"
-            >LinkedIn</a
-          >
-          <a
-            href="https://wa.me/962798103323"
-            target="_blank"
-            rel="noopener"
-            class="hover:text-[#25D366] transition-colors"
-            >WhatsApp</a
-          >
-          <a href="/privacy.html" class="hover:text-[var(--accent)] transition-colors"
-            >Privacy Policy</a
-          >
+    <!-- Colophon -->
+    <footer class="theme-section-dark py-16 px-6 lg:px-14 border-t border-[var(--rule)] transition-colors duration-500 relative overflow-hidden">
+      <div class="max-w-[1760px] mx-auto relative z-10">
+        <div class="fleuron mb-10" style="color:rgba(245,241,234,0.5);">
+          <span class="line" style="background:rgba(245,241,234,0.18);"></span>
+          <span class="glyph" style="color:var(--gold);">§</span>
+          <span class="font-serif italic text-sm" style="font-variation-settings:'opsz' 20,'SOFT' 40,'WONK' 0;color:rgba(245,241,234,0.6);">— colophon —</span>
+          <span class="glyph" style="color:var(--gold);">§</span>
+          <span class="line" style="background:rgba(245,241,234,0.18);"></span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
+          <div class="md:col-span-6">
+            <div class="font-serif text-2xl md:text-3xl text-white leading-tight" style="font-variation-settings:'opsz' 144,'SOFT' 0,'WONK' 0;letter-spacing:-0.02em;">
+              <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--gold);">The Quarterly Ledger</em>
+            </div>
+            <div class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-white/55 mt-3">
+              A journal of enterprise automation · Amman · MENA
+            </div>
+          </div>
+
+          <div class="md:col-span-6 flex flex-wrap gap-x-10 gap-y-4 md:justify-end font-mono text-[10.5px] uppercase tracking-[0.28em] text-white/60">
+            <a href="https://linkedin.com/in/deyaaldeen" target="_blank" rel="noopener" class="hover:text-[var(--gold)] transition-colors">LinkedIn</a>
+            <a href="https://wa.me/962798103323" target="_blank" rel="noopener" class="hover:text-[#25D366] transition-colors">WhatsApp</a>
+            <a href="mailto:contact@deyaaldeen.com" class="hover:text-[var(--gold)] transition-colors">Mail</a>
+            <a href="/privacy.html" class="hover:text-[var(--gold)] transition-colors">Privacy</a>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-mono text-[10px] tracking-[0.28em] uppercase text-white/45">
+          <div>&copy; 2025 DeyaAldeen AlSoub &mdash; set in Fraunces &amp; Instrument Sans</div>
+          <div>Trusted by Chalhoub Group · Real FZE · 20+ enterprise portfolios</div>
         </div>
       </div>
     </footer>

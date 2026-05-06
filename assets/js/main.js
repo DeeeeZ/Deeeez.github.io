@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Lucide icons
   lucide.createIcons();
 
+  // Respect OS-level reduced-motion preference
+  const PREFERS_REDUCED_MOTION = window.matchMedia('(prefers-motion-reduce: reduce)').matches
+    || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ============================================
   // Theme Toggle
   // ============================================
@@ -121,8 +125,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Run decrypt animation on page load
   const decryptElement = document.getElementById('decrypt-text');
-  if (decryptElement) {
+  if (decryptElement && !PREFERS_REDUCED_MOTION) {
     decryptText(decryptElement, "DEYA ALDEEN");
+  }
+
+  // ============================================
+  // Hero number count-up (IntersectionObserver)
+  // ============================================
+  const heroCount = document.getElementById('hero-count');
+  if (heroCount) {
+    const target = parseInt(heroCount.dataset.countTarget || heroCount.textContent, 10);
+    const duration = parseInt(heroCount.dataset.countDuration || '1400', 10);
+
+    const runCount = () => {
+      if (PREFERS_REDUCED_MOTION) {
+        heroCount.textContent = target.toLocaleString();
+        return;
+      }
+      const startTs = performance.now();
+      const tick = (now) => {
+        const t = Math.min(1, (now - startTs) / duration);
+        const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+        heroCount.textContent = Math.round(target * eased).toLocaleString();
+        if (t < 1) requestAnimationFrame(tick);
+        else heroCount.textContent = target.toLocaleString();
+      };
+      requestAnimationFrame(tick);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            runCount();
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      io.observe(heroCount);
+    } else {
+      runCount();
+    }
   }
 
   // ============================================
