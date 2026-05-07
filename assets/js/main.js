@@ -416,5 +416,137 @@ document.addEventListener('DOMContentLoaded', () => {
     showFormulaBtn.querySelector('span').textContent = isHidden ? 'Hide calculation' : 'Show calculation';
   });
 
+  // ============================================
+  // Wire Clock — Amman live time
+  // ============================================
+  (function wireClock() {
+    const el = document.getElementById('wire-clock-time');
+    if (!el) return;
+    const fmt = (n) => String(n).padStart(2, '0');
+    const tick = () => {
+      const now = new Date();
+      // Amman is UTC+3 (no DST since 2022)
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const amman = new Date(utc + 3 * 3600000);
+      el.textContent = `AMM · ${fmt(amman.getHours())}:${fmt(amman.getMinutes())}:${fmt(amman.getSeconds())}`;
+    };
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ============================================
+  // Reading Progress
+  // ============================================
+  (function readingProgress() {
+    const bar = document.getElementById('read-progress');
+    if (!bar) return;
+    let raf = null;
+    const update = () => {
+      raf = null;
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      const pct = max > 0 ? Math.min(100, (h.scrollTop / max) * 100) : 0;
+      bar.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  })();
+
+  // ============================================
+  // Section Indicator — current section glow
+  // ============================================
+  (function sectionIndicator() {
+    const links = document.querySelectorAll('.section-indicator a');
+    if (!links.length) return;
+    const map = new Map();
+    links.forEach(a => {
+      const id = a.getAttribute('data-section-link');
+      const el = document.getElementById(id);
+      if (el) map.set(el, a);
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('is-current'));
+          const a = map.get(entry.target);
+          if (a) a.classList.add('is-current');
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+    map.forEach((_, el) => io.observe(el));
+  })();
+
+  // ============================================
+  // Reveal-on-scroll observer (.reveal, .reveal-stagger)
+  // ============================================
+  (function revealOnScroll() {
+    if (PREFERS_REDUCED_MOTION) {
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+  })();
+
+  // ============================================
+  // Process plate — animate "live" path on scroll-into-view
+  // ============================================
+  (function processPlate() {
+    const path = document.getElementById('rail-live-path');
+    if (!path) return;
+    const plate = path.closest('.process-plate');
+    if (!plate) return;
+    const animate = () => {
+      if (PREFERS_REDUCED_MOTION) {
+        path.style.strokeDashoffset = '0';
+        return;
+      }
+      const dur = 2200;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - t, 3);
+        path.style.strokeDashoffset = (100 - eased * 100).toString();
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animate();
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    io.observe(plate);
+  })();
+
+  // ============================================
+  // Engagement row — click to toggle expanded info on touch
+  // ============================================
+  (function engagementToggle() {
+    document.querySelectorAll('.engagement-row').forEach(row => {
+      row.addEventListener('click', (e) => {
+        // Only toggle on touch / coarse pointer; desktop uses hover
+        if (window.matchMedia('(pointer: coarse)').matches) {
+          row.classList.toggle('is-open');
+        }
+      });
+    });
+  })();
+
   console.log('DeyaAldeen Portfolio initialized');
 });
