@@ -425,7 +425,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const fmt = (n) => String(n).padStart(2, '0');
     const tick = () => {
       const now = new Date();
-      // Amman is UTC+3 (no DST since 2022)
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
       const amman = new Date(utc + 3 * 3600000);
       el.textContent = `AMM · ${fmt(amman.getHours())}:${fmt(amman.getMinutes())}:${fmt(amman.getSeconds())}`;

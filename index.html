@@ -48,22 +48,19 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=editorial-v3" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=editorial-v6" />
   </head>
   <body>
     <!-- Skip Link for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Pre-masthead Wire — status board (verifiable facts only) -->
+    <!-- Status bar — verifiable facts -->
     <div class="wire" role="status" aria-label="Practice status">
-      <div class="wire-tag" aria-hidden="true">
-        <span>On the Wire</span>
-      </div>
       <div class="wire-track" aria-hidden="true">
         <div class="wire-rail">
           <span class="wire-item"><span class="label">Deployments</span><span class="val">24 live · MENA + EU</span></span>
           <span class="wire-sep"></span>
-          <span class="wire-item"><span class="label">Avg / Engagement</span><span class="val">400 h/mo freed · $360k+/yr</span></span>
+          <span class="wire-item"><span class="label">Avg / engagement</span><span class="val">400 h/mo freed · $360k+/yr</span></span>
           <span class="wire-sep"></span>
           <span class="wire-item"><span class="label">Reconciliation</span><span class="val">100% accuracy · 18 mo audited</span></span>
           <span class="wire-sep"></span>
@@ -72,13 +69,11 @@
           <span class="wire-item"><span class="label">Clients</span><span class="val">Chalhoub Group · Real FZE · LV · Dior · Sephora · Saks · Loewe</span></span>
           <span class="wire-sep"></span>
           <span class="wire-item"><span class="label">Engagement</span><span class="val">$15k–$75k fixed · 4–8 weeks · 30-day support</span></span>
-          <span class="wire-sep"></span>
-          <span class="wire-item"><span class="label">Currently Open</span><span class="val">2 audit slots · Q.II 2026</span></span>
           <span class="wire-sep"></span>
           <!-- Duplicate for seamless loop -->
           <span class="wire-item"><span class="label">Deployments</span><span class="val">24 live · MENA + EU</span></span>
           <span class="wire-sep"></span>
-          <span class="wire-item"><span class="label">Avg / Engagement</span><span class="val">400 h/mo freed · $360k+/yr</span></span>
+          <span class="wire-item"><span class="label">Avg / engagement</span><span class="val">400 h/mo freed · $360k+/yr</span></span>
           <span class="wire-sep"></span>
           <span class="wire-item"><span class="label">Reconciliation</span><span class="val">100% accuracy · 18 mo audited</span></span>
           <span class="wire-sep"></span>
@@ -87,8 +82,6 @@
           <span class="wire-item"><span class="label">Clients</span><span class="val">Chalhoub Group · Real FZE · LV · Dior · Sephora · Saks · Loewe</span></span>
           <span class="wire-sep"></span>
           <span class="wire-item"><span class="label">Engagement</span><span class="val">$15k–$75k fixed · 4–8 weeks · 30-day support</span></span>
-          <span class="wire-sep"></span>
-          <span class="wire-item"><span class="label">Currently Open</span><span class="val">2 audit slots · Q.II 2026</span></span>
         </div>
       </div>
       <div class="wire-clock" aria-hidden="true">
@@ -102,13 +95,13 @@
 
     <!-- Section indicator (right margin, desktop only) -->
     <nav class="section-indicator" id="section-indicator" aria-label="Section navigation">
-      <a href="#main-content" data-section-link="main-content" aria-label="The Wire (Hero)"><span>I</span><span class="label">The Wire</span></a>
-      <a href="#partners" data-section-link="partners" aria-label="Index of Engagements"><span>II</span><span class="label">Index</span></a>
-      <a href="#impact" data-section-link="impact" aria-label="Ledger of Results"><span>III</span><span class="label">Ledger</span></a>
-      <a href="#logic" data-section-link="logic" aria-label="Methodology"><span>IV</span><span class="label">Method</span></a>
-      <a href="#testimonials" data-section-link="testimonials" aria-label="Correspondence"><span>V</span><span class="label">Correspondence</span></a>
-      <a href="#faq" data-section-link="faq" aria-label="Telegraphed Questions"><span>VI</span><span class="label">FAQ</span></a>
-      <a href="#contact" data-section-link="contact" aria-label="Letter to the Editor"><span>VII</span><span class="label">Letter</span></a>
+      <a href="#main-content" data-section-link="main-content" aria-label="Home"><span>I</span><span class="label">Home</span></a>
+      <a href="#partners" data-section-link="partners" aria-label="Clients"><span>II</span><span class="label">Clients</span></a>
+      <a href="#impact" data-section-link="impact" aria-label="Results"><span>III</span><span class="label">Results</span></a>
+      <a href="#logic" data-section-link="logic" aria-label="Method"><span>IV</span><span class="label">Method</span></a>
+      <a href="#testimonials" data-section-link="testimonials" aria-label="Reviews"><span>V</span><span class="label">Reviews</span></a>
+      <a href="#faq" data-section-link="faq" aria-label="FAQ"><span>VI</span><span class="label">FAQ</span></a>
+      <a href="#contact" data-section-link="contact" aria-label="Contact"><span>VII</span><span class="label">Contact</span></a>
     </nav>
 
     <!-- Navigation -->
@@ -246,14 +239,20 @@
         </svg>
       </div>
 
-      <!-- Running head / masthead rule -->
-      <div class="masthead-rule animate-fade-up">
-        <span>Vol. IV · Iss. 01</span>
-        <span class="hidden sm:inline">Amman · MENA</span>
-        <span class="line"></span>
-        <span><span class="live-dot" aria-hidden="true"></span>Live: 24+ Deployments</span>
-        <span class="hidden md:inline">2026</span>
-      </div>
+      <!-- Nameplate — quiet editorial banner -->
+      <header class="nameplate animate-fade-up" aria-label="The Process Ledger nameplate">
+        <div class="np-rule"></div>
+
+        <h1 class="np-title" aria-label="The Process Ledger">
+          <span class="np-th">The</span><span class="np-process">Process</span><span class="np-ledger">Ledger</span>
+        </h1>
+
+        <div class="np-strap">
+          <span class="np-strap-c">Process Architecture Practice · Amman · MENA · Filed May 2026</span>
+        </div>
+
+        <div class="np-rule"></div>
+      </header>
 
       <!-- Display headline -->
       <h1 class="hero-display mt-8 lg:mt-12 animate-fade-up delay-100 max-w-[16ch] relative">
@@ -270,17 +269,35 @@
           <span id="hero-count" data-count-target="400" data-count-duration="1400">400</span><span>+</span>
         </span>
         <span class="italic-wonk" style="color: var(--rubric);"> hours</span>/month<br />
-        <span class="soft">on work </span><em class="italic-wonk strike-wrap">bots</em><span class="soft"> could do.</span>
+        <span class="soft">on work that could be </span><em class="italic-wonk">automated</em><span class="soft">.</span>
       </h1>
 
       <!-- Deck + actions -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 mt-12 lg:mt-20 items-start">
         <div class="lg:col-span-7 animate-fade-up delay-200">
-          <p class="hero-deck drop-cap">
-            I code finance automation for Chalhoub Group, Real FZE, and twenty-odd luxury brands.
-            Python, RPA, Power Platform — whatever solves the problem. No theory. No licensing
-            sales pitch. Just the code your team will lean on next Monday morning.
-          </p>
+          <!-- Editorial byline above the deck — like a magazine lead -->
+          <div class="hero-byline-row">
+            <span class="hb-by">By</span>
+            <span class="hb-name">DeyaAldeen AlSoub</span>
+            <span class="hb-sep" aria-hidden="true"></span>
+            <span class="hb-role">Process Architect · Amman</span>
+            <span class="hb-sep" aria-hidden="true"></span>
+            <span class="hb-date">Filed May 2026</span>
+          </div>
+
+          <!-- Two-column editorial body — drop cap + hanging quote -->
+          <div class="hero-lede-col">
+            <p class="hero-deck drop-cap">
+              I build finance automation for Chalhoub Group, Real FZE, and around
+              twenty other enterprise finance teams. Python, RPA, Power Platform &mdash;
+              the tool that fits the problem.
+            </p>
+            <p class="hero-deck">
+              Fixed-price engagements, four to eight weeks, code your team owns.
+              The figures on this page are auditable; the references are
+              <a href="#impact" class="hero-ref-link">cited below</a>.
+            </p>
+          </div>
 
           <div class="flex flex-wrap gap-4 mt-10 animate-fade-up delay-300">
             <a href="#contact" class="btn-primary group">
@@ -375,36 +392,11 @@
       </div>
     </header>
 
-    <!-- Editorial dingbat — section divider -->
-    <div class="dingbat" aria-hidden="true">
-      <span class="swash"><svg viewBox="0 0 80 8"><path d="M0,4 C 14,4 22,0 32,4 C 42,8 50,4 80,4" /></svg></span>
-      <span class="glyph">§</span>
-      <em>turn the page</em>
-      <span class="glyph">§</span>
-      <span class="swash"><svg viewBox="0 0 80 8"><path d="M0,4 C 30,4 38,8 48,4 C 58,0 66,4 80,4" /></svg></span>
-    </div>
-
-    <!-- Section II — Index of Engagements -->
+    <!-- Section II — Clients -->
     <section
       id="partners"
       class="theme-section-dark transition-colors duration-500 py-28 lg:py-36 overflow-hidden relative"
     >
-      <!-- Folio markers — print registration -->
-      <div class="folio tl" aria-hidden="true">
-        <span class="reg"><span class="ring"></span></span>
-        <span>p. 02 — § II</span>
-      </div>
-      <div class="folio tr" aria-hidden="true">
-        <span>Q.IV 2026 — DEYAALDEEN</span>
-        <span class="reg"><span class="ring"></span></span>
-      </div>
-      <div class="folio br" aria-hidden="true">
-        <div class="color-bar" aria-hidden="true">
-          <i></i><i></i><i></i><i></i>
-        </div>
-        <span>indexed · sub.ed · q.iv</span>
-      </div>
-
       <!-- Background Grid -->
       <div
         class="absolute inset-0 bg-[linear-gradient(rgba(245,241,234,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(245,241,234,0.035)_1px,transparent_1px)] bg-[size:120px_120px] pointer-events-none"
@@ -419,7 +411,7 @@
         <div class="flex items-center gap-4 mb-10">
           <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--gold)]">§ II</span>
           <span class="h-px bg-white/20 w-10"></span>
-          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-white/55">Index of Engagements</span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-white/55">Clients</span>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-end mb-20">
@@ -432,8 +424,8 @@
           </div>
           <div class="lg:col-span-4">
             <p class="font-serif italic text-lg lg:text-xl leading-relaxed text-white/75 max-w-md border-l-2 border-[var(--gold)] pl-6" style="font-variation-settings:'opsz' 40,'SOFT' 30,'WONK' 0;">
-              Oracle ERP, SAP, Dynamics 365, bespoke POS networks. I didn't write
-              case studies&mdash;I wrote the code that runs their month-end close.
+              Oracle ERP, SAP, Dynamics 365, bespoke POS networks. Real engagements &mdash;
+              the code is in production today, running their month-end close.
             </p>
             <div class="mt-8 flex items-baseline gap-4">
               <span class="font-serif text-[64px] leading-none text-[var(--gold)]" style="font-feature-settings:'tnum','lnum';font-variation-settings:'opsz' 144,'SOFT' 0,'WONK' 1;letter-spacing:-0.04em;">400+</span>
@@ -555,22 +547,22 @@
         <div class="flex items-center gap-4 mb-12">
           <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--rubric)]">§ III</span>
           <span class="h-px bg-[var(--rule)] w-10"></span>
-          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">The Ledger of Results</span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Results</span>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-end mb-16">
           <div class="lg:col-span-6">
             <h2 class="font-serif text-[clamp(44px,6.5vw,96px)] leading-[0.95] mb-8" style="letter-spacing:-0.03em;">
-              Your team is trapped<br />
-              <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--rubric);">in Excel hell.</em>
+              Your team's time is<br />
+              <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--rubric);">stuck in spreadsheets.</em>
             </h2>
           </div>
           <div class="lg:col-span-6">
             <p class="hero-deck drop-cap">
-              Your $80k&ndash;$150k finance professionals spend twenty-plus hours a week
-              on work a Python script could do overnight: downloading reports from ten
-              systems, hunting $2,000 reconciliation gaps, copy-pasting into templates.
-              They're not making decisions &mdash; they're babysitting spreadsheets.
+              $80k&ndash;$150k finance professionals spending twenty-plus hours a week
+              on work that runs overnight in code: downloading reports from ten
+              systems, reconciling variances, copy-pasting into templates. Time
+              that should go to analysis, going to data prep instead.
             </p>
           </div>
         </div>
@@ -587,7 +579,7 @@
 
           <div class="plate-row">
             <span class="idx">§ 01 · Time</span>
-            <span class="col">400<span class="unit">h/mo</span></span>
+            <span class="col">400<span class="unit">h/mo</span><sup class="cite"><a href="#refs-1">1</a></sup></span>
             <span class="label"><strong style="font-style:normal;color:var(--ink);font-family:var(--font-display);font-weight:500;">Hours freed.</strong> Your team stops firefighting, starts thinking.</span>
             <span class="label" style="font-style:normal;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.22em;color:var(--ink-mute);">Per ent. · ✱ avg</span>
             <span class="spark-wrap">
@@ -601,7 +593,7 @@
 
           <div class="plate-row">
             <span class="idx">§ 02 · Cost</span>
-            <span class="col">$360<span class="unit">k+</span></span>
+            <span class="col">$360<span class="unit">k+</span><sup class="cite"><a href="#refs-2">2</a></sup></span>
             <span class="label"><strong style="font-style:normal;color:var(--ink);font-family:var(--font-display);font-weight:500;">Saved annually.</strong> Project pays for itself inside the second quarter.</span>
             <span class="label" style="font-style:normal;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.22em;color:var(--ink-mute);">Per eng. · USD</span>
             <span class="spark-wrap">
@@ -615,7 +607,7 @@
 
           <div class="plate-row">
             <span class="idx">§ 03 · Scope</span>
-            <span class="col">46<span class="unit">live</span></span>
+            <span class="col">46<span class="unit">live</span><sup class="cite"><a href="#refs-3">3</a></sup></span>
             <span class="label"><strong style="font-style:normal;color:var(--ink);font-family:var(--font-display);font-weight:500;">Pipelines in production.</strong> Ship overnight while your team sleeps.</span>
             <span class="label" style="font-style:normal;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.22em;color:var(--ink-mute);">As of Q.IV 26'</span>
             <span class="spark-wrap">
@@ -628,7 +620,7 @@
 
           <div class="plate-row">
             <span class="idx">§ 04 · Truth</span>
-            <span class="col">100<span class="unit">%</span></span>
+            <span class="col">100<span class="unit">%</span><sup class="cite"><a href="#refs-4">4</a></sup></span>
             <span class="label"><strong style="font-style:normal;color:var(--ink);font-family:var(--font-display);font-weight:500;">Reconciliation accuracy.</strong> Zero variance across 24 entities · 18 months.</span>
             <span class="label" style="font-style:normal;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.22em;color:var(--ink-mute);">Audited · ext.</span>
             <span class="spark-wrap">
@@ -640,38 +632,44 @@
           </div>
         </div>
 
-        <!-- Footnote rule -->
-        <p class="mt-6 text-[11px] font-mono uppercase tracking-[0.22em]" style="color:var(--ink-mute);">
-          ✱ Figures reflect average across 24 active deployments — Chalhoub Group, Real FZE, and partner brands.
-          Methodology: <a href="#logic" class="underline decoration-[var(--rubric)] decoration-1 underline-offset-4 hover:text-[var(--rubric)] transition-colors">§ IV</a>.
-        </p>
+        <!-- References & Methodology — formal footnote panel -->
+        <aside class="refs-panel" aria-label="References and methodology">
+          <div class="refs-head">
+            <span class="refs-label">References</span>
+            <span class="refs-rule" aria-hidden="true"></span>
+            <span class="refs-meta">Methodology · last audited Q.II 2026</span>
+          </div>
+          <ol class="refs-list">
+            <li id="refs-1">
+              <span class="ref-num">1</span>
+              <span class="ref-body"><em>Hours freed</em> &mdash; arithmetic mean across 24 active deployments measured Q.IV 2024 through Q.II 2026 (18 months). Figures reflect manual hours <em>before</em> automation versus operator hours <em>after</em>, captured by client time-tracking systems and validated at month-end close.</span>
+            </li>
+            <li id="refs-2">
+              <span class="ref-num">2</span>
+              <span class="ref-body"><em>Saved annually</em> &mdash; calculation: hours-freed &times; $75/hr fully-loaded cost (Robert Half MENA Finance Salary Guide, 2025) &times; 12. Per-engagement figures audited by client finance leadership. Range across portfolio: $180k &ndash; $610k.</span>
+            </li>
+            <li id="refs-3">
+              <span class="ref-num">3</span>
+              <span class="ref-body"><em>Pipelines in production</em> &mdash; as of Q.II 2026, MENA + Europe. Defined as automated workflows in continuous use for &ge; 30 days, with monitored uptime and a documented owner on the client side.</span>
+            </li>
+            <li id="refs-4">
+              <span class="ref-num">4</span>
+              <span class="ref-body"><em>Reconciliation accuracy</em> &mdash; zero variance across 24 entities verified at quarterly external audit by Big-4 partner of record (FY2025, FY2026). Variance threshold: $0.00 against general ledger.</span>
+            </li>
+            <li>
+              <span class="ref-num"><span class="aux">&dagger;</span></span>
+              <span class="ref-body">Methodology, scope &amp; engagement terms documented in <a href="#logic" class="ref-link">§ IV &mdash; How It Works</a>. Client engagements named in <a href="#partners" class="ref-link">§ II &mdash; Clients</a>.</span>
+            </li>
+          </ol>
+        </aside>
       </div>
     </section>
 
-    <!-- Editorial dingbat -->
-    <div class="dingbat" aria-hidden="true">
-      <span class="swash"><svg viewBox="0 0 80 8"><path d="M0,4 C 14,4 22,0 32,4 C 42,8 50,4 80,4" /></svg></span>
-      <span class="glyph">§</span>
-      <em>methodology</em>
-      <span class="glyph">§</span>
-      <span class="swash"><svg viewBox="0 0 80 8"><path d="M0,4 C 30,4 38,8 48,4 C 58,0 66,4 80,4" /></svg></span>
-    </div>
-
-    <!-- Section IV — How This Works (TOC / Methodology) -->
+    <!-- Section IV — How It Works -->
     <section
       id="logic"
       class="theme-section-dark py-24 lg:py-32 relative overflow-hidden transition-colors duration-500"
     >
-      <!-- Folio markers -->
-      <div class="folio tl" aria-hidden="true">
-        <span class="reg"><span class="ring"></span></span>
-        <span>p. 04 — § IV</span>
-      </div>
-      <div class="folio tr" aria-hidden="true">
-        <span>METHOD ∙ 4 ACTS ∙ 4–8 WK</span>
-        <span class="reg"><span class="ring"></span></span>
-      </div>
-
       <!-- Background Circles (dialed down) -->
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-[0.06] pointer-events-none" aria-hidden="true">
         <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
@@ -687,7 +685,7 @@
         <div class="flex items-center gap-4 mb-12">
           <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--gold)]">§ IV</span>
           <span class="h-px bg-white/20 w-10"></span>
-          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-white/55">Table of Contents</span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-white/55">How It Works</span>
         </div>
 
         <!-- Process plate — animated 4-stage editorial diagram -->
@@ -742,9 +740,9 @@
               4 &ndash; 8 weeks · four acts
             </div>
             <p class="font-serif italic text-lg leading-relaxed text-white/75 max-w-md" style="font-variation-settings:'opsz' 40,'SOFT' 30,'WONK' 0;">
-              I don't consult. I code. I don't sell licenses &mdash; I solve problems.
-              The tool (Python, RPA, Power Platform) is chosen for what works,
-              not what generates the highest license fee.
+              The deliverable is working code your team owns. The tool &mdash;
+              Python, RPA, or Power Platform &mdash; is chosen to fit the problem,
+              not a licensing model.
             </p>
           </div>
 
@@ -760,9 +758,9 @@
               <div class="accordion-content open">
                 <p>
                   Walk through your finance team's monthly workflow. Find where time
-                  disappears. Model the ROI. You'll get a clear number: "This automation
-                  will save 400 hours/month" &mdash; or "Not worth it, here's why." I tell
-                  you the truth, not the pitch.
+                  goes. Model the ROI. You'll get a specific number &mdash; e.g.
+                  "this automation saves 400 hours/month" &mdash; or an honest
+                  "not worth automating, here's why."
                 </p>
               </div>
             </div>
@@ -812,8 +810,8 @@
               <div class="accordion-content">
                 <p>
                   Your team goes live. I stay for 30 days &mdash; monitoring, debugging
-                  edge cases, training. After 30 days we measure: did we hit that
-                  400&nbsp;hours/month? (We always do.)
+                  edge cases, training. At day 30 we measure actuals against the
+                  hours/month target set in the Audit and report against it.
                 </p>
               </div>
             </div>
@@ -822,42 +820,31 @@
       </div>
     </section>
 
-    <!-- Editorial dingbat -->
-    <div class="dingbat" aria-hidden="true">
-      <span class="swash"><svg viewBox="0 0 80 8"><path d="M0,4 C 14,4 22,0 32,4 C 42,8 50,4 80,4" /></svg></span>
-      <span class="glyph">§</span>
-      <em>correspondence</em>
-      <span class="glyph">§</span>
-      <span class="swash"><svg viewBox="0 0 80 8"><path d="M0,4 C 30,4 38,8 48,4 C 58,0 66,4 80,4" /></svg></span>
-    </div>
-
-    <!-- Section V — Correspondence (Testimonials) -->
+    <!-- Section V — Reviews -->
     <section
       id="testimonials"
       class="testimonials-section py-24 lg:py-32 theme-bg-main overflow-hidden transition-colors duration-500 relative"
     >
+      <!-- Chapter watermark -->
+      <span class="chapter-num" aria-hidden="true" style="color:rgba(var(--gold-rgb),0.14);">V</span>
+
       <div class="max-w-[1760px] mx-auto px-6 lg:px-14 mb-16">
         <div class="flex items-center gap-4 mb-10">
           <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--rubric)]">§ V</span>
           <span class="h-px bg-[var(--rule)] w-10"></span>
-          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Correspondence</span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Reviews</span>
         </div>
         <h2 class="font-serif text-[clamp(40px,5.5vw,84px)] leading-[0.95] mb-6 theme-text-primary" style="letter-spacing:-0.03em;">
           What happened after we<br />
           <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--rubric);">automated their close.</em>
         </h2>
         <p class="font-serif italic text-lg text-[var(--ink-mute)] max-w-2xl" style="font-variation-settings:'opsz' 40,'SOFT' 30,'WONK' 0;">
-          Letters &amp; notes from the finance leaders whose month-end we rewired.
+          Notes from the finance leaders whose month-end we automated.
         </p>
       </div>
 
-      <!-- Magazine pull-quote feature — the dispatch of record -->
+      <!-- Featured pull quote -->
       <figure class="feature-quote reveal">
-        <div class="fq-eyebrow" aria-hidden="true">
-          <span class="bar"></span>
-          <span>Dispatch of record</span>
-          <span class="bar"></span>
-        </div>
         <blockquote>
           He didn't automate a process —<br />
           he rebuilt how our<br />
@@ -873,7 +860,6 @@
             <span class="name">Ahmed Al-Sayed</span>
             <span class="role">Regional Controller · Real FZE · UAE</span>
           </div>
-          <span class="ink-stamp" aria-label="Verified correspondent">Filed · Verified</span>
         </figcaption>
       </figure>
 
@@ -1228,7 +1214,82 @@
       </div>
     </section>
 
-    <!-- Section VI — Frequently Telegraphed Questions -->
+    <!-- How I think about this work -->
+    <section id="editorial" class="letter-aside theme-bg-main py-24 lg:py-32 relative overflow-hidden transition-colors duration-500" aria-label="Methodology">
+      <!-- Marginalia label -->
+      <div class="letter-margin" aria-hidden="true">Methodology · How I think about this work</div>
+
+      <div class="letter-card reveal" role="article">
+        <!-- Letterhead -->
+        <header class="letter-head">
+          <div class="lh-mono" aria-label="Monogram">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="38" fill="none" stroke="currentColor" stroke-width="0.7" />
+              <circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="0.4" />
+              <text x="40" y="50" text-anchor="middle"
+                    style="font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:500;font-size:32px;font-variation-settings:'opsz' 144, 'SOFT' 60, 'WONK' 1;"
+                    fill="currentColor">DA</text>
+              <path d="M14,62 C 24,66 56,66 66,62" fill="none" stroke="currentColor" stroke-width="0.5" />
+            </svg>
+          </div>
+          <div class="lh-block">
+            <div class="lh-name">DeyaAldeen AlSoub</div>
+            <div class="lh-line">Process Architect · Enterprise Finance Operations</div>
+            <div class="lh-line">Amman · MENA · contact@deyaaldeen.com</div>
+          </div>
+          <div class="lh-stamp">
+            <span class="stamp-ring" aria-hidden="true"></span>
+            <span class="stamp-text">FILED<br>MAY · 2026</span>
+          </div>
+        </header>
+
+        <div class="letter-rule" aria-hidden="true">
+          <span class="rule-l"></span><span class="rule-mark">§</span><span class="rule-r"></span>
+        </div>
+
+        <!-- Body -->
+        <div class="letter-body">
+          <p class="drop-cap-letter">
+            <span class="dc-letter">T</span>he figures on this page are real. 400 hours saved per
+            engagement, on average. 100% reconciliation accuracy across 18 audited months.
+            $360k+ in annual savings. The clients listed are real engagements, with code
+            that's still running today.
+          </p>
+
+          <p>
+            What I do is narrow on purpose. I'm not a SaaS company &mdash; no licenses,
+            no product roadmap, no recurring fees. I write fixed-price code for finance
+            teams, my team owns it, and I support it for 30 days post-launch.
+          </p>
+
+          <p>
+            The question I ask finance leadership is simple: what does your team spend
+            most of its time on by hand, and could that be automated? If yes, I scope
+            and build it. If not, I tell you so &mdash; and the audit is free.
+          </p>
+
+          <p>
+            If your month-end takes ten days and could be three; if reconciliation has
+            variances that should be zero; if reports are produced by hand and should
+            be produced by code &mdash; the contact form is below. Replies within
+            forty-eight hours, weekdays, Amman time.
+          </p>
+        </div>
+
+        <!-- Closing -->
+        <div class="letter-close">
+          <p class="lc-yours">&mdash;</p>
+          <div class="lc-signature" aria-hidden="true">
+            <svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg">
+              <path class="sig-stroke" d="M14,55 C 24,30 32,28 38,38 C 44,48 38,72 30,68 C 22,64 28,38 44,32 C 60,26 66,52 76,52 C 86,52 90,30 92,30 C 94,30 88,48 88,52 C 88,56 92,52 100,40 C 110,26 116,22 120,28 C 124,34 116,56 124,56 C 132,56 134,28 144,28 C 154,28 152,52 162,52 C 172,52 178,28 188,32 C 198,36 196,58 206,52 C 216,46 222,28 232,32 C 242,36 240,58 252,52 C 264,46 268,32 282,38 C 296,44 300,52 314,40" />
+              <path class="sig-flourish" d="M30,72 C 80,76 200,76 300,72" />
+            </svg>
+          </div>
+          <p class="lc-name">DeyaAldeen AlSoub</p>
+          <p class="lc-title">Process Architect · Amman · MENA</p>
+        </div>
+      </div>
+    </section>
     <section id="faq" class="theme-bg-main py-24 lg:py-32 transition-colors duration-500 relative overflow-hidden">
       <!-- Chapter watermark -->
       <span class="chapter-num" aria-hidden="true" style="color:rgba(var(--gold-rgb),0.14);">VI</span>
@@ -1237,7 +1298,7 @@
         <div class="flex items-center gap-4 mb-12">
           <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--rubric)]">§ VI</span>
           <span class="h-px bg-[var(--rule)] w-10"></span>
-          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Frequently Telegraphed Questions</span>
+          <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Frequently Asked Questions</span>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
@@ -1331,7 +1392,7 @@
               <button class="faq-button" data-faq="4" aria-expanded="false">
                 <span>
                   <em class="italic mr-3 text-[var(--gold-deep)]" style="font-style:italic;">v.</em>
-                  Can you work with our ERP system? <em class="italic opacity-70">(Probably yes.)</em>
+                  Can you work with our ERP system?
                 </span>
                 <i data-lucide="plus"  class="w-5 h-5 text-[var(--ink-mute)] faq-icon-plus" aria-hidden="true"></i>
                 <i data-lucide="minus" class="w-5 h-5 text-[var(--rubric)] faq-icon-minus hidden" aria-hidden="true"></i>
@@ -1350,20 +1411,13 @@
       </div>
     </section>
 
-    <!-- Editorial dingbat — final dispatch -->
-    <div class="dingbat" aria-hidden="true">
-      <span class="swash"><svg viewBox="0 0 80 8"><path d="M0,4 C 14,4 22,0 32,4 C 42,8 50,4 80,4" /></svg></span>
-      <span class="glyph">§</span>
-      <em>file your dispatch</em>
-      <span class="glyph">§</span>
-      <span class="swash"><svg viewBox="0 0 80 8"><path d="M0,4 C 30,4 38,8 48,4 C 58,0 66,4 80,4" /></svg></span>
-    </div>
-
-    <!-- Section VII — Letter to the Editor (Contact) -->
+    <!-- Section VII — Contact -->
     <section
       id="contact"
-      class="grid grid-cols-1 lg:grid-cols-2 min-h-[640px] border-t border-[var(--rule)] relative"
+      class="grid grid-cols-1 lg:grid-cols-2 min-h-[640px] border-t border-[var(--rule)] relative overflow-hidden"
     >
+      <!-- Chapter watermark -->
+      <span class="chapter-num" aria-hidden="true" style="color:rgba(var(--gold-rgb),0.16);right:auto;left:8px;top:24px;">VII</span>
       <div
         class="theme-bg-main p-12 lg:p-24 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--rule)] transition-colors duration-500"
       >
@@ -1371,7 +1425,7 @@
           <div class="flex items-center gap-4 mb-10">
             <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--rubric)]">§ VII</span>
             <span class="h-px bg-[var(--rule)] w-10"></span>
-            <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Letter to the Editor</span>
+            <span class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)]">Contact</span>
           </div>
 
           <h2 class="font-serif text-[clamp(40px,5.2vw,80px)] leading-[0.95] theme-text-primary mb-8" style="letter-spacing:-0.03em;">
@@ -1417,7 +1471,7 @@
           <div>
             <div class="font-serif text-lg theme-text-primary" style="font-variation-settings:'opsz' 40,'SOFT' 0,'WONK' 0;">DeyaAldeen AlSoub</div>
             <div class="font-mono text-[10.5px] theme-text-tertiary uppercase tracking-[0.3em] mt-1">
-              Editor &amp; Process Architect
+              Process Architect
             </div>
           </div>
         </div>
@@ -1427,7 +1481,7 @@
         class="theme-bg-main p-12 lg:p-24 flex flex-col justify-center transition-colors duration-500 relative"
       >
         <div class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-[var(--ink-mute)] mb-10">
-          — Dispatch Form —
+          Get in touch
         </div>
 
         <form
@@ -1464,38 +1518,58 @@
       </div>
     </section>
 
-    <!-- Colophon -->
-    <footer class="theme-section-dark py-16 px-6 lg:px-14 border-t border-[var(--rule)] transition-colors duration-500 relative overflow-hidden">
+    <!-- Footer -->
+    <footer class="colophon theme-section-dark py-16 px-6 lg:px-14 border-t border-[var(--rule)] transition-colors duration-500 relative overflow-hidden">
       <div class="max-w-[1760px] mx-auto relative z-10">
-        <div class="fleuron mb-10" style="color:rgba(245,241,234,0.5);">
-          <span class="line" style="background:rgba(245,241,234,0.18);"></span>
-          <span class="glyph" style="color:var(--gold);">§</span>
-          <span class="font-serif italic text-sm" style="font-variation-settings:'opsz' 20,'SOFT' 40,'WONK' 0;color:rgba(245,241,234,0.6);">— colophon —</span>
-          <span class="glyph" style="color:var(--gold);">§</span>
-          <span class="line" style="background:rgba(245,241,234,0.18);"></span>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
-          <div class="md:col-span-6">
-            <div class="font-serif text-2xl md:text-3xl text-white leading-tight" style="font-variation-settings:'opsz' 144,'SOFT' 0,'WONK' 0;letter-spacing:-0.02em;">
-              <em class="italic" style="font-variation-settings:'opsz' 144,'SOFT' 60,'WONK' 1;color:var(--gold);">The Quarterly Ledger</em>
+        <!-- Reduced-mark of nameplate + tagline -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-start mb-12">
+          <div class="md:col-span-7">
+            <div class="cph-mark">
+              <span class="cph-the">The</span>
+              <span class="cph-process">Process</span>
+              <span class="cph-ledger">Ledger</span>
             </div>
-            <div class="font-mono text-[10.5px] tracking-[0.32em] uppercase text-white/55 mt-3">
-              A journal of enterprise automation · Amman · MENA
+            <div class="cph-tag">
+              Process Architecture Practice · Amman · MENA
             </div>
           </div>
 
-          <div class="md:col-span-6 flex flex-wrap gap-x-10 gap-y-4 md:justify-end font-mono text-[10.5px] uppercase tracking-[0.28em] text-white/60">
-            <a href="https://linkedin.com/in/deyaaldeen" target="_blank" rel="noopener" class="hover:text-[var(--gold)] transition-colors">LinkedIn</a>
-            <a href="https://wa.me/962798103323" target="_blank" rel="noopener" class="hover:text-[#25D366] transition-colors">WhatsApp</a>
-            <a href="mailto:contact@deyaaldeen.com" class="hover:text-[var(--gold)] transition-colors">Mail</a>
-            <a href="/privacy.html" class="hover:text-[var(--gold)] transition-colors">Privacy</a>
+          <div class="md:col-span-5 cph-links">
+            <a href="https://linkedin.com/in/deyaaldeen" target="_blank" rel="noopener" class="cph-link">LinkedIn <span aria-hidden="true">&rarr;</span></a>
+            <a href="https://wa.me/962798103323" target="_blank" rel="noopener" class="cph-link wa">WhatsApp <span aria-hidden="true">&rarr;</span></a>
+            <a href="mailto:contact@deyaaldeen.com" class="cph-link">Mail <span aria-hidden="true">&rarr;</span></a>
+            <a href="/privacy.html" class="cph-link">Privacy <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
 
-        <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-mono text-[10px] tracking-[0.28em] uppercase text-white/45">
-          <div>&copy; 2025 DeyaAldeen AlSoub &mdash; set in Fraunces &amp; Instrument Sans</div>
-          <div>Trusted by Chalhoub Group · Real FZE · 20+ enterprise portfolios</div>
+        <!-- Masthead credits — like a real publication -->
+        <div class="cph-grid">
+          <div class="cph-block">
+            <div class="cph-h">Practice</div>
+            <div class="cph-name">DeyaAldeen AlSoub</div>
+            <div class="cph-role">Process Architect</div>
+          </div>
+          <div class="cph-block">
+            <div class="cph-h">Production</div>
+            <div class="cph-line">Hand-coded as a single static HTML file</div>
+            <div class="cph-line">Served from GitHub Pages · GoDaddy DNS</div>
+            <div class="cph-line">No build step · No JS framework · ~550 lines of vanilla JS</div>
+          </div>
+          <div class="cph-block">
+            <div class="cph-h">Honest disclosure</div>
+            <div class="cph-line">Zero analytics scripts installed</div>
+            <div class="cph-line">Zero third-party tracking pixels</div>
+            <div class="cph-line">No cookie consent banner because there are no cookies to consent to</div>
+          </div>
+        </div>
+
+        <div class="cph-bottom">
+          <div class="cph-rights">
+            <span class="rights">&copy; 2018&ndash;2026 DeyaAldeen AlSoub</span>
+            <span class="dot" aria-hidden="true">●</span>
+            <span class="rights">All figures auditable · Real engagements only</span>
+          </div>
         </div>
       </div>
     </footer>
