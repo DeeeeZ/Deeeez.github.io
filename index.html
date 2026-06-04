@@ -1,655 +1,608 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeyaAldeen | Enterprise Process Architecture</title>
-  
-  <!-- Geist Fonts -->
+  <title>Deya Aldeen Alsoub — Finance Automation</title>
+  <meta name="description" content="Finance automation in Python, RPA and the Power Platform. I move manual hours off the books — deployed inside enterprise finance teams across the MENA region.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,200;1,6..72,300;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.classList.add('js');</script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Geist"', 'sans-serif'],
-            mono: ['"Geist Mono"', 'monospace'],
-          },
-          colors: {
-            bg: '#000000',
-            surface: '#0A0A0A',
-            panel: '#111111',
-            border: 'rgba(255, 255, 255, 0.1)',
-            primary: '#EDEDED',
-            secondary: '#A1A1AA',
-            accent: '#0070F3',
-            glow: '#F81CE5',
-          },
-          animation: {
-            'marquee': 'marquee 40s linear infinite',
-            'marquee-reverse': 'marquee-reverse 40s linear infinite',
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-          },
-          keyframes: {
-            marquee: {
-              '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(-50%)' },
-            },
-            'marquee-reverse': {
-              '0%': { transform: 'translateX(-50%)' },
-              '100%': { transform: 'translateX(0%)' },
-            }
-          }
-        }
-      }
+      theme: { extend: {
+        fontFamily: { serif:['Newsreader','Georgia','serif'], mono:['"IBM Plex Mono"','monospace'] },
+        colors: {
+          paper:'#F2ECDF', 'paper-2':'#FAF6ED', 'paper-3':'#ECE4D3',
+          ink:'#171310', 'ink-soft':'#52493D', 'ink-faint':'#6B6253',
+          rule:'rgba(23,19,16,0.14)', 'rule-strong':'rgba(23,19,16,0.30)',
+          gain:'#1E6B47', loss:'#9B2D20', gold:'#94762B',
+        },
+      } }
     }
   </script>
-
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    body {
-      background-color: var(--bg);
-      color: var(--primary);
-      overflow-x: hidden;
-      font-feature-settings: "ss01", "ss02", "cv01";
+    :root{
+      --paper:#F2ECDF; --paper-2:#FAF6ED; --paper-3:#ECE4D3;
+      --ink:#171310; --ink-soft:#52493D; --ink-faint:#6B6253;
+      --rule:rgba(23,19,16,0.14); --rule-strong:rgba(23,19,16,0.30);
+      --gain:#1E6B47; --loss:#9B2D20; --gold:#94762B;
+      --ease:cubic-bezier(.2,.7,.2,1);
     }
+    *{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    html,body{ background:var(--paper); color:var(--ink); }
+    body{ font-family:'Newsreader',Georgia,serif; overflow-x:hidden; font-feature-settings:"liga" 1,"calt" 1; position:relative; }
+    ::selection{ background:rgba(30,107,71,0.18); }
+    @media (hover:hover) and (pointer:fine){ body{ cursor:none; } a,button,input,textarea,label{ cursor:none; } }
 
-    /* Ambient WebGL Canvas Background */
-    #ambient-canvas {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      width: 100vw;
-      height: 100vh;
-      opacity: 0.6;
-      pointer-events: none;
-    }
+    .tnum{ font-variant-numeric:tabular-nums lining-nums; font-feature-settings:"tnum" 1,"lnum" 1; }
+    .font-mono{ font-family:'IBM Plex Mono',monospace; }
 
-    /* Noise Overlay */
-    .noise {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      opacity: 0.04;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
+    /* ---------- Atmosphere ---------- */
+    .grain{ position:fixed; inset:0; z-index:2; pointer-events:none; opacity:.045; mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .vignette{ position:fixed; inset:0; z-index:2; pointer-events:none;
+      background:radial-gradient(130% 90% at 50% -15%, rgba(255,253,247,.55), transparent 55%),
+                 radial-gradient(120% 120% at 50% 120%, rgba(23,19,16,.06), transparent 50%); }
+    /* faint ledger column rules behind everything */
+    .ledger-bg{ position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+      background-image:linear-gradient(90deg, transparent 0, transparent calc(100% - 1px), var(--rule) calc(100% - 1px));
+      background-size:25vw 100%; }
 
-    /* Glassmorphism Panels */
-    .glass-panel {
-      background: rgba(10, 10, 10, 0.6);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.4s ease, transform 0.4s ease;
-    }
-    
-    .glass-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06) 0%, transparent 50%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
+    /* crop marks */
+    .crop{ position:fixed; width:18px; height:18px; z-index:30; pointer-events:none; opacity:.5; }
+    .crop::before,.crop::after{ content:""; position:absolute; background:var(--ink); }
+    .crop::before{ width:100%; height:1px; top:0; } .crop::after{ height:100%; width:1px; left:0; }
+    .crop.tl{ top:14px; left:14px; } .crop.tr{ top:14px; right:14px; transform:scaleX(-1); }
+    .crop.bl{ bottom:14px; left:14px; transform:scaleY(-1); } .crop.br{ bottom:14px; right:14px; transform:scale(-1); }
 
-    .glass-panel:hover::before {
-      opacity: 1;
-    }
-    .glass-panel:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
+    /* custom cursor (registration mark) */
+    .cursor{ position:fixed; top:0; left:0; z-index:60; width:30px; height:30px; margin:-15px 0 0 -15px; pointer-events:none;
+      mix-blend-mode:multiply; transition:width .25s var(--ease),height .25s var(--ease),opacity .3s; }
+    .cursor::before,.cursor::after{ content:""; position:absolute; background:var(--ink); }
+    .cursor::before{ left:50%; top:0; width:1px; height:100%; transform:translateX(-50%); }
+    .cursor::after{ top:50%; left:0; height:1px; width:100%; transform:translateY(-50%); }
+    .cursor .ring{ position:absolute; inset:9px; border:1px solid var(--ink); border-radius:50%; transition:inset .25s var(--ease); }
+    .cursor.is-hot{ width:54px; height:54px; margin:-27px 0 0 -27px; }
+    .cursor.is-hot .ring{ inset:4px; }
+    @media (hover:none),(pointer:coarse){ .cursor{ display:none; } }
 
-    /* Premium Typography */
-    .text-gradient {
-      background: linear-gradient(135deg, #FFFFFF 0%, #A1A1AA 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .text-glow {
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    }
-    .text-gradient-accent {
-      background: linear-gradient(135deg, #0070F3 0%, #F81CE5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    /* ---------- Type ---------- */
+    .label{ font-family:'IBM Plex Mono',monospace; font-size:.6875rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-faint); }
+    .display{ font-family:'Newsreader',serif; font-weight:300; line-height:.98; letter-spacing:-.02em; }
+    .display em{ font-style:italic; font-weight:300; }
+    .rule-hr{ height:1px; background:var(--rule); border:0; }
+    .double-rule{ border-top:1px solid var(--rule-strong); box-shadow:0 3px 0 -2px var(--rule); }
+    .sec-no{ font-family:'IBM Plex Mono',monospace; font-weight:500; color:var(--gold); }
+    .letterpress{ text-shadow:0 1px 0 rgba(255,255,255,.5); }
 
-    /* Premium Sliders */
-    input[type=range] {
-      -webkit-appearance: none;
-      width: 100%;
-      background: transparent;
-    }
-    input[type=range]::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 4px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 2px;
-    }
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      background: #fff;
-      margin-top: -8px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.5);
-      cursor: grab;
-      transition: transform 0.1s;
-    }
-    input[type=range]::-webkit-slider-thumb:active {
-      transform: scale(1.2);
-      cursor: grabbing;
-    }
+    /* word reveal */
+    .reveal-line{ overflow:hidden; display:block; }
+    .reveal-word{ display:inline-block; will-change:transform; }
 
-    /* Reveals */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px) scale(0.98);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+    /* ---------- Running head ---------- */
+    .runhead{ background:rgba(242,236,223,.78); backdrop-filter:saturate(140%) blur(9px); -webkit-backdrop-filter:saturate(140%) blur(9px); }
+    .navlink{ position:relative; color:var(--ink-soft); transition:color .25s; }
+    .navlink:hover{ color:var(--ink); }
+    .navlink::after{ content:""; position:absolute; left:0; right:100%; bottom:-3px; height:1px; background:var(--ink); transition:right .35s var(--ease); }
+    .navlink:hover::after{ right:0; }
 
-    /* Status Bar */
-    .status-bar {
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
+    /* ---------- Buttons ---------- */
+    .btn-ink{ display:inline-flex; align-items:center; gap:.6rem; background:var(--ink); color:var(--paper);
+      font-family:'IBM Plex Mono',monospace; font-size:.75rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500;
+      padding:.95rem 1.5rem; border:1px solid var(--ink); position:relative; overflow:hidden;
+      transition:transform .4s var(--ease), color .4s; }
+    .btn-ink span{ position:relative; z-index:1; display:inline-flex; align-items:center; gap:.6rem; }
+    .btn-ink::before{ content:""; position:absolute; inset:0; background:var(--paper); transform:translateY(101%); transition:transform .45s var(--ease); }
+    .btn-ink:hover{ color:var(--ink); } .btn-ink:hover::before{ transform:translateY(0); }
+    .btn-ink .arr{ transition:transform .4s var(--ease); } .btn-ink:hover .arr{ transform:translate(3px,-3px); }
+    .btn-ghost{ display:inline-flex; align-items:center; gap:.5rem; color:var(--ink-soft);
+      font-family:'IBM Plex Mono',monospace; font-size:.75rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500;
+      padding:.95rem 0; border-bottom:1px solid transparent; transition:color .25s,border-color .25s; }
+    .btn-ghost:hover{ color:var(--ink); border-color:var(--ink); }
 
-    /* Accordion */
-    .faq-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* ---------- Journal entry ---------- */
+    .journal{ background:var(--paper-2); border:1px solid var(--rule-strong);
+      box-shadow:0 1px 0 var(--rule), 0 40px 80px -60px rgba(23,19,16,.6); }
+    .jrow{ position:relative; }
+    .strike{ position:relative; display:inline-block; }
+    .strike::after{ content:""; position:absolute; left:-2%; right:102%; top:54%; height:2px; background:var(--loss); }
+
+    /* statement leader rows */
+    .stmt-row{ display:flex; align-items:baseline; gap:.6rem; }
+    .stmt-row .lead{ flex:1; border-bottom:1px dotted var(--rule-strong); transform:translateY(-4px); }
+    .stmt-amt{ font-family:'IBM Plex Mono',monospace; font-weight:500; }
+
+    /* range inputs */
+    input[type=range]{ -webkit-appearance:none; width:100%; height:2px; background:var(--rule-strong); outline:none; }
+    input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; height:20px; width:20px; border-radius:50%;
+      background:var(--paper-2); border:1.5px solid var(--ink); box-shadow:0 1px 0 var(--rule); transition:transform .12s,background .2s; }
+    input[type=range]::-webkit-slider-thumb:hover{ background:var(--ink); }
+    input[type=range]::-webkit-slider-thumb:active{ transform:scale(1.2); }
+    input[type=range]::-moz-range-thumb{ height:18px; width:18px; border-radius:50%; background:var(--paper-2); border:1.5px solid var(--ink); }
+
+    /* logo register */
+    .register{ border-top:1px solid var(--rule); border-left:1px solid var(--rule); }
+    .reg-cell{ border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+    .reg-cell{ overflow:hidden; }
+    .reg-cell img{ max-height:24px; max-width:80%; width:auto; height:auto; object-fit:contain; opacity:.4; filter:saturate(0); transition:opacity .45s,transform .45s; }
+    .reg-cell:hover img{ opacity:.9; transform:scale(1.05); }
+
+    /* method notes + engine */
+    .note-num{ font-family:'IBM Plex Mono',monospace; font-size:2.6rem; line-height:1; color:var(--rule-strong); }
+    .flow{ stroke-dasharray:5 7; animation:flow 1.6s linear infinite; }
+    @keyframes flow{ to{ stroke-dashoffset:-24; } }
+    .engine-node{ transition:fill .3s; }
+    .pulse{ animation:pulse 3s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+    @keyframes pulse{ 0%,100%{ opacity:.5 } 50%{ opacity:1 } }
+
+    /* FAQ */
+    .faq-q{ width:100%; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; text-align:left; padding:1.5rem 0; }
+    .faq-content{ max-height:0; overflow:hidden; transition:max-height .5s var(--ease); }
+    .faq-plus{ position:relative; width:16px; height:16px; flex:none; transition:transform .45s var(--ease); }
+    .faq-plus::before,.faq-plus::after{ content:""; position:absolute; background:var(--ink); }
+    .faq-plus::before{ left:50%; top:0; width:1.5px; height:100%; transform:translateX(-50%); }
+    .faq-plus::after{ top:50%; left:0; height:1.5px; width:100%; transform:translateY(-50%); }
+    .faq-item.open .faq-plus{ transform:rotate(135deg); }
+
+    /* form */
+    .field{ background:transparent; border:0; border-bottom:1px solid var(--rule-strong); padding:.7rem 0; width:100%; color:var(--ink); font-family:'Newsreader',serif; font-size:1.05rem; transition:border-color .3s; }
+    .field::placeholder{ color:var(--ink-faint); opacity:.7; } .field:focus{ outline:none; border-color:var(--ink); }
+    textarea.field{ resize:none; }
+
+    /* whatsapp float */
+    .wa-float{ position:fixed; right:1.25rem; bottom:1.5rem; z-index:40; width:52px; height:52px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center; background:var(--ink); color:var(--paper);
+      box-shadow:0 16px 34px -14px rgba(23,19,16,.7); transition:transform .35s var(--ease),background .35s; }
+    .wa-float:hover{ transform:translateY(-3px) scale(1.05); background:var(--gain); }
+
+    /* FOUC guard — opacity ONLY (CSS transforms here would fight GSAP's transform ownership) */
+    .js [data-fade]{ opacity:0; }
+    .js .reveal-word{ opacity:0; }
+    .js [data-draw]{ opacity:0; }
+    @media (prefers-reduced-motion: reduce){
+      .js [data-fade], .js .reveal-word, .js [data-draw]{ opacity:1 !important; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition-duration:.01ms !important; }
+      .reveal{ opacity:1 !important; transform:none !important; }
+      .draw-x{ transform:none !important; }
+      .strike::after{ right:-2% !important; }
+      .cursor{ display:none !important; } body{ cursor:auto !important; }
     }
   </style>
 </head>
-<body class="bg-bg text-primary relative">
 
-  <canvas id="ambient-canvas"></canvas>
-  <div class="noise"></div>
+<body class="bg-paper text-ink">
+  <div class="ledger-bg"></div>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="cursor" id="cursor"><span class="ring"></span></div>
 
-  <!-- Status Bar -->
-  <div class="status-bar fixed top-0 w-full z-50 py-2 px-6 flex justify-between items-center font-mono text-[10px] tracking-widest text-secondary">
-    <div class="flex items-center gap-6">
-      <span class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-green-500 animate-pulse-slow"></div> SYS.ONLINE</span>
-      <span class="hidden md:inline-block">PROCESS ARCHITECT // AMMAN</span>
+  <!-- ============ RUNNING HEAD ============ -->
+  <header class="runhead fixed top-0 inset-x-0 z-50 border-b border-rule">
+    <div class="max-w-[1180px] mx-auto px-6 md:px-10 h-14 flex items-center justify-between">
+      <a href="#top" class="flex items-baseline gap-3" data-hot>
+        <span class="font-serif text-lg leading-none tracking-tight">Deya Aldeen Alsoub</span>
+        <span class="hidden sm:inline label !tracking-[0.18em] !text-[0.6rem]">Finance Automation</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 label !text-[0.65rem] !tracking-[0.18em]">
+        <a href="#method" class="navlink" data-hot>How it works</a>
+        <a href="#clients" class="navlink" data-hot>Clients</a>
+        <a href="#statement" class="navlink" data-hot>Results</a>
+        <a href="#reviews" class="navlink" data-hot>Reviews</a>
+        <a href="#faq" class="navlink" data-hot>FAQ</a>
+      </nav>
+      <a href="#audit" class="btn-ink !py-2.5 !px-4 !text-[0.65rem]" data-hot><span>Request audit</span></a>
     </div>
-    <div class="flex gap-6">
-      <a href="#audit" class="hover:text-white transition-colors">INITIALIZE AUDIT</a>
-    </div>
-  </div>
+  </header>
 
-  <main class="relative z-10 pt-32 pb-24 px-6 max-w-7xl mx-auto flex flex-col gap-32">
+  <main id="top" class="relative z-10">
 
-    <!-- HERO -->
-    <section class="min-h-[80vh] flex flex-col justify-center reveal">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 w-fit">
-        <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-        <span class="font-mono text-[10px] tracking-widest uppercase">Enterprise Automation</span>
+    <!-- ============ HERO ============ -->
+    <section class="max-w-[1180px] mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-16">
+      <div class="flex items-center gap-4 mb-10" data-fade>
+        <span class="label">Statement of reconciled time</span>
+        <span class="rule-hr flex-1 draw-x" data-draw></span>
+        <span class="label">MMXXVI · Amman</span>
       </div>
-      
-      <h1 class="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[1.05] mb-8 text-glow">
-        Your finance team<br>
-        <span class="text-gradient">spends <span class="text-gradient-accent">400+ hours</span></span><br>
-        on manual logic.
+
+      <h1 class="display text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[5.6rem] max-w-[15ch]" id="headline">
+        <span class="reveal-line"><span class="reveal-word">Your</span> <span class="reveal-word">finance</span> <span class="reveal-word">team</span></span>
+        <span class="reveal-line"><span class="reveal-word">posts</span> <span class="reveal-word"><em class="text-loss">four&nbsp;hundred</em></span></span>
+        <span class="reveal-line"><span class="reveal-word"><em class="text-loss">hours</em></span> <span class="reveal-word">a</span> <span class="reveal-word">month</span></span>
+        <span class="reveal-line"><span class="reveal-word">to</span> <span class="reveal-word">manual</span> <span class="reveal-word">work.</span></span>
       </h1>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
-        <p class="text-xl text-secondary leading-relaxed font-light">
-          I build finance automation for Chalhoub Group, Real FZE, and 20+ enterprise teams. Python, RPA, Power Platform — flawless code that reclaims thousands of hours.
+      <div class="grid md:grid-cols-12 gap-x-10 gap-y-8 mt-12 items-end">
+        <p class="md:col-span-7 lg:col-span-6 text-lg md:text-xl text-ink-soft leading-relaxed" data-fade>
+          I build the automation that moves those hours off the books — Python, RPA and the Power&nbsp;Platform,
+          deployed inside finance teams at <span class="text-ink">Chalhoub&nbsp;Group</span>, <span class="text-ink">Real&nbsp;FZE</span>,
+          and twenty other enterprises. The code is exact, tested against live data, and reconciled to the figure.
         </p>
-        <div class="flex flex-col gap-6 justify-center md:items-end">
-          <div class="flex items-center gap-8">
-            <div>
-              <div class="font-mono text-xs text-secondary mb-1">AVG. IMPACT</div>
-              <div class="text-3xl font-bold">400 <span class="text-lg text-secondary">hrs/mo</span></div>
+        <div class="md:col-span-5 lg:col-start-8 lg:col-span-5" data-fade>
+          <div class="flex flex-wrap gap-4">
+            <a href="#audit" class="btn-ink" data-hot><span>Request an audit <i data-lucide="arrow-up-right" class="arr w-4 h-4"></i></span></a>
+            <a href="#method" class="btn-ghost" data-hot>How it works</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journal entry -->
+      <figure class="journal mt-16" id="journal" data-fade>
+        <figcaption class="flex items-center justify-between px-5 md:px-7 py-3 border-b border-rule">
+          <span class="label !text-ink-soft">Journal Entry — Reconciliation of Time</span>
+          <span class="label">per finance hire · monthly</span>
+        </figcaption>
+        <div class="grid grid-cols-2">
+          <div class="p-5 md:p-7 border-r border-rule-strong">
+            <div class="flex items-baseline justify-between mb-5">
+              <span class="label !text-loss">Debit · Manual</span><span class="label">Dr</span>
             </div>
-            <div class="w-px h-10 bg-white/10"></div>
-            <div>
-              <div class="font-mono text-xs text-secondary mb-1">ACCURACY</div>
-              <div class="text-3xl font-bold text-gradient-accent">100%</div>
+            <p class="text-ink-soft text-[0.95rem] leading-relaxed mb-6">Reconciliations, exports, re-keying between ERP, POS and the banks.</p>
+            <div class="strike text-4xl md:text-5xl tnum text-loss font-serif" id="debitFig">400<span class="text-lg md:text-xl ml-1 text-ink-faint">hrs</span></div>
+          </div>
+          <div class="p-5 md:p-7">
+            <div class="flex items-baseline justify-between mb-5">
+              <span class="label !text-gain">Credit · Automated</span><span class="label">Cr</span>
+            </div>
+            <p class="text-ink-soft text-[0.95rem] leading-relaxed mb-6">Same work, posted by code on a schedule — verified to the cent.</p>
+            <div class="text-4xl md:text-5xl tnum text-gain font-serif"><span id="credit-count">0</span><span class="text-lg md:text-xl ml-1 text-ink-faint">hrs</span></div>
+          </div>
+        </div>
+        <div class="double-rule"></div>
+        <div class="flex items-center justify-between px-5 md:px-7 py-3">
+          <span class="label">Entry balanced</span><span class="label !text-gain">▸ hours moved off the books</span>
+        </div>
+      </figure>
+
+      <!-- Stat strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 mt-12 border-t border-rule">
+        <div class="py-6 pr-4 border-b md:border-b-0 border-rule"><div class="label mb-2">Average impact</div><div class="text-3xl tnum font-serif" data-count="400" data-suffix=" hrs/mo">400<span class="text-base text-ink-faint ml-1">hrs/mo</span></div></div>
+        <div class="py-6 md:px-6 border-b md:border-b-0 md:border-l border-rule"><div class="label mb-2">Accuracy</div><div class="text-3xl tnum font-serif text-gain">100<span class="text-base text-ink-faint ml-0.5">%</span></div></div>
+        <div class="py-6 pr-4 md:px-6 md:border-l border-rule"><div class="label mb-2">Engagements</div><div class="text-3xl tnum font-serif">20<span class="text-base text-ink-faint ml-0.5">+</span></div></div>
+        <div class="py-6 md:px-6 md:border-l border-rule"><div class="label mb-2">Basis</div><div class="text-3xl font-serif">Fixed&nbsp;price</div></div>
+      </div>
+    </section>
+
+    <!-- ============ §01 CLIENTS ============ -->
+    <section id="clients" class="max-w-[1180px] mx-auto px-6 md:px-10 py-16 md:py-24">
+      <div class="flex items-center gap-4 mb-10" data-fade>
+        <span class="sec-no">§01</span><span class="label">Group houses served</span><span class="rule-hr flex-1 draw-x" data-draw></span>
+      </div>
+      <p class="font-serif text-2xl md:text-3xl max-w-[24ch] mb-10" data-fade>Built and running inside the finance functions of luxury houses and group holdings:</p>
+
+      <div class="register grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6" id="register" data-fade></div>
+      <p class="label mt-6" data-fade>Luxury, retail &amp; group holdings — engagements under NDA where named.</p>
+    </section>
+
+    <!-- ============ §02 STATEMENT (interactive) ============ -->
+    <section id="statement" class="max-w-[1180px] mx-auto px-6 md:px-10 py-16 md:py-24">
+      <div class="flex items-center gap-4 mb-10" data-fade>
+        <span class="sec-no">§02</span><span class="label">The arithmetic</span><span class="rule-hr flex-1 draw-x" data-draw></span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-x-12 gap-y-12 items-start">
+        <div class="lg:col-span-5">
+          <h2 class="display text-4xl md:text-5xl mb-5" data-fade>What the manual hours actually&nbsp;cost.</h2>
+          <p class="text-ink-soft text-lg leading-relaxed mb-10" data-fade>Set your two figures. The statement recalculates the capital trapped in manual work — and what automation returns at an observed 80% reduction.</p>
+          <div class="space-y-9">
+            <div data-fade>
+              <div class="flex justify-between items-baseline mb-3"><span class="label">Manual hrs / week · per person</span><span class="tnum font-mono text-xl" id="hours-display">20</span></div>
+              <input type="range" id="hours-wasted" min="5" max="40" value="20" aria-label="Manual hours per week per person" data-hot>
+            </div>
+            <div data-fade>
+              <div class="flex justify-between items-baseline mb-3"><span class="label">Finance team size</span><span class="tnum font-mono text-xl" id="team-display">15</span></div>
+              <input type="range" id="team-size" min="5" max="100" value="15" aria-label="Finance team size" data-hot>
             </div>
           </div>
-          <a href="#audit" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition-colors mt-2">
-            Start Your Audit <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
+
+          <!-- drawing chart -->
+          <div class="mt-10" data-fade>
+            <div class="label mb-3">Cumulative hours reclaimed · six-week engagement</div>
+            <svg id="chart" viewBox="0 0 460 150" class="w-full h-auto" preserveAspectRatio="none" aria-hidden="true">
+              <line x1="0" y1="149" x2="460" y2="149" stroke="var(--rule-strong)" stroke-width="1"/>
+              <path id="chartArea" d="" fill="var(--gain)" opacity="0.08"/>
+              <path id="chartLine" d="" fill="none" stroke="var(--gain)" stroke-width="2" stroke-linejoin="round"/>
+              <circle id="chartDot" r="3.5" fill="var(--gain)" stroke="var(--paper-2)" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7" data-fade>
+          <div class="journal p-6 md:p-9">
+            <div class="flex items-center justify-between pb-4 mb-6 border-b border-rule-strong">
+              <span class="label !text-ink-soft">Statement of Reclaimed Capital</span><span class="label">USD · annualized</span>
+            </div>
+            <div class="space-y-4 text-[0.98rem]">
+              <div class="stmt-row"><span class="text-ink-soft">Hours lost to manual work / yr</span><span class="lead"></span><span class="stmt-amt tnum" id="line-hours">0</span></div>
+              <div class="stmt-row"><span class="text-ink-soft">Recoverable via automation <span class="text-ink-faint">(80%)</span></span><span class="lead"></span><span class="stmt-amt tnum text-gain" id="line-recover">0</span></div>
+              <div class="stmt-row"><span class="text-ink-soft">Blended loaded rate</span><span class="lead"></span><span class="stmt-amt tnum">$75<span class="text-ink-faint">/hr</span></span></div>
+            </div>
+            <div class="double-rule my-6"></div>
+            <div class="flex items-end justify-between gap-4">
+              <div><div class="label !text-gain mb-2">Capital reclaimed / yr</div><div class="text-ink-faint text-sm tnum"><span id="hours-per-month">0</span> hours returned each month</div></div>
+              <div class="display text-5xl md:text-6xl tnum text-gain" id="annual-savings">$0</div>
+            </div>
+          </div>
+          <p class="label mt-4">Estimate only — your real number is fixed in the audit, against live data.</p>
         </div>
       </div>
     </section>
 
-    <!-- CLIENTS MARQUEE -->
-    <section class="reveal">
-      <div class="font-mono text-[10px] tracking-widest text-secondary uppercase mb-8 border-b border-white/10 pb-4">
-        Deployments in Production
+    <!-- ============ §03 METHOD + ENGINE ============ -->
+    <section id="method" class="max-w-[1180px] mx-auto px-6 md:px-10 py-16 md:py-24">
+      <div class="flex items-center gap-4 mb-10" data-fade>
+        <span class="sec-no">§03</span><span class="label">Method — the unseen engine</span><span class="rule-hr flex-1 draw-x" data-draw></span>
       </div>
-      <div class="relative overflow-hidden flex whitespace-nowrap">
-        <div class="animate-marquee flex items-center gap-16 text-3xl md:text-5xl font-bold text-white/20">
-          <span class="hover:text-white transition-colors cursor-default">Louis Vuitton</span>
-          <span class="hover:text-white transition-colors cursor-default">Dior</span>
-          <span class="hover:text-white transition-colors cursor-default">Sephora</span>
-          <span class="hover:text-white transition-colors cursor-default">Saks Fifth Avenue</span>
-          <span class="hover:text-white transition-colors cursor-default">Givenchy</span>
-          <span class="hover:text-white transition-colors cursor-default">Fendi</span>
-          <span class="hover:text-white transition-colors cursor-default">Swarovski</span>
-          
-          <!-- Duplicates for loop -->
-          <span class="hover:text-white transition-colors cursor-default">Louis Vuitton</span>
-          <span class="hover:text-white transition-colors cursor-default">Dior</span>
-          <span class="hover:text-white transition-colors cursor-default">Sephora</span>
-          <span class="hover:text-white transition-colors cursor-default">Saks Fifth Avenue</span>
-          <span class="hover:text-white transition-colors cursor-default">Givenchy</span>
-          <span class="hover:text-white transition-colors cursor-default">Fendi</span>
-          <span class="hover:text-white transition-colors cursor-default">Swarovski</span>
-        </div>
-        <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-bg to-transparent"></div>
-        <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-bg to-transparent"></div>
-      </div>
-    </section>
+      <h2 class="display text-4xl md:text-5xl mb-12 max-w-[18ch]" data-fade>How the work is done.</h2>
 
-    <!-- ROI ENGINE -->
-    <section class="reveal">
-      <div class="glass-panel p-8 md:p-16">
-        <div class="flex items-center gap-4 mb-12">
-          <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-            <i data-lucide="calculator" class="w-5 h-5 text-accent"></i>
-          </div>
-          <h2 class="text-3xl font-bold">The ROI Engine</h2>
-        </div>
+      <!-- Engine schematic -->
+      <figure class="journal p-6 md:p-9 mb-14" data-fade>
+        <figcaption class="label !text-ink-soft mb-6">Schematic — data flows, reconciled by code</figcaption>
+        <svg viewBox="0 0 900 220" class="w-full h-auto" role="img" aria-label="Data flows from ERP, POS and bank systems through an automation engine into reconciled output">
+          <g font-family="'IBM Plex Mono',monospace" font-size="13" fill="var(--ink)" letter-spacing="1">
+            <!-- source nodes -->
+            <g class="pulse" style="animation-delay:0s"><rect x="20" y="24" width="150" height="40" fill="none" stroke="var(--rule-strong)"/><text x="95" y="49" text-anchor="middle">ERP · ORACLE</text></g>
+            <g class="pulse" style="animation-delay:1s"><rect x="20" y="90" width="150" height="40" fill="none" stroke="var(--rule-strong)"/><text x="95" y="115" text-anchor="middle">POS · RETAIL</text></g>
+            <g class="pulse" style="animation-delay:2s"><rect x="20" y="156" width="150" height="40" fill="none" stroke="var(--rule-strong)"/><text x="95" y="181" text-anchor="middle">BANK · STMT</text></g>
+            <!-- flows in -->
+            <path class="flow" d="M170 44 C 300 44, 320 110, 420 110" fill="none" stroke="var(--ink-soft)" stroke-width="1.5"/>
+            <path class="flow" d="M170 110 L 420 110" fill="none" stroke="var(--ink-soft)" stroke-width="1.5"/>
+            <path class="flow" d="M170 176 C 300 176, 320 110, 420 110" fill="none" stroke="var(--ink-soft)" stroke-width="1.5"/>
+            <!-- engine -->
+            <rect x="420" y="78" width="170" height="64" fill="var(--paper-3)" stroke="var(--ink)" stroke-width="1.5"/>
+            <text x="505" y="106" text-anchor="middle" font-weight="600">ENGINE</text>
+            <text x="505" y="124" text-anchor="middle" font-size="10" fill="var(--ink-faint)">PY · RPA · POWER</text>
+            <!-- flow out -->
+            <path class="flow" d="M590 110 L 740 110" fill="none" stroke="var(--gain)" stroke-width="1.5"/>
+            <!-- output -->
+            <rect x="740" y="86" width="150" height="48" fill="none" stroke="var(--gain)" stroke-width="1.5"/>
+            <text x="815" y="108" text-anchor="middle" fill="var(--gain)" font-weight="600">RECONCILED</text>
+            <text x="815" y="124" text-anchor="middle" font-size="10" fill="var(--ink-faint)">100% · TO THE CENT</text>
+          </g>
+        </svg>
+      </figure>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-12">
-            <div>
-              <div class="flex justify-between font-mono text-xs text-secondary mb-4">
-                <span>MANUAL HRS / WEEK</span>
-                <span id="hours-display" class="text-white">20</span>
-              </div>
-              <input type="range" id="hours-wasted" min="5" max="40" value="20">
-            </div>
-            <div>
-              <div class="flex justify-between font-mono text-xs text-secondary mb-4">
-                <span>FINANCE TEAM SIZE</span>
-                <span id="team-display" class="text-white">15</span>
-              </div>
-              <input type="range" id="team-size" min="5" max="100" value="15">
-            </div>
-          </div>
-          
-          <div class="bg-black/50 border border-white/5 rounded-xl p-8 flex flex-col justify-center relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-accent/10 to-glow/10 pointer-events-none"></div>
-            <div class="font-mono text-xs tracking-widest text-secondary mb-4 uppercase">Annual Capital Burned</div>
-            <div class="text-6xl md:text-8xl font-bold text-gradient-accent tracking-tighter" id="annual-savings">$468k</div>
-            <div class="mt-6 text-sm text-secondary">
-              <span id="hours-per-month" class="text-white font-mono">1,200</span> hours per month trapped in manual tasks.
-            </div>
-          </div>
-        </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 border-t border-rule" data-stagger>
+        <article class="py-8 lg:pr-7 border-b lg:border-b-0 border-rule lg:border-r"><div class="note-num mb-6">01</div><div class="label mb-3">Discovery</div><p class="text-ink-soft leading-relaxed">Walk through the team's workflow and find where the time goes. The exact ROI is modelled before a line of code is written.</p></article>
+        <article class="py-8 lg:px-7 border-b lg:border-b-0 border-rule lg:border-r"><div class="note-num mb-6">02</div><div class="label mb-3">Blueprint</div><p class="text-ink-soft leading-relaxed">Map the data flows between ERP, POS and the banks. You approve the architecture before the build starts.</p></article>
+        <article class="py-8 lg:px-7 border-b md:border-b-0 border-rule lg:border-r md:border-r"><div class="note-num mb-6">03</div><div class="label mb-3 !text-gain">Execution</div><p class="text-ink-soft leading-relaxed">Development commences — Python, RPA, Power Platform — tested against live data until accuracy holds at 100%.</p></article>
+        <article class="py-8 lg:pl-7 border-rule"><div class="note-num mb-6">04</div><div class="label mb-3">Go-live</div><p class="text-ink-soft leading-relaxed">Your team deploys the code with 30 days of close support, until the targeted hours are fully recovered.</p></article>
       </div>
     </section>
 
-    <!-- METHODOLOGY -->
-    <section class="reveal">
-      <h2 class="text-4xl md:text-6xl font-bold mb-16 tracking-tight">How we do this.</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <div class="glass-panel p-8">
-          <div class="font-mono text-xs text-secondary mb-8">PHASE 01 // AUDIT</div>
-          <h3 class="text-2xl font-bold mb-4 text-white">Discovery</h3>
-          <p class="text-sm text-secondary leading-relaxed">Walk through your team's workflow. Find where time goes. Model the exact ROI before any code is written.</p>
-        </div>
-        
-        <div class="glass-panel p-8">
-          <div class="font-mono text-xs text-secondary mb-8">PHASE 02 // DESIGN</div>
-          <h3 class="text-2xl font-bold mb-4 text-white">Blueprint</h3>
-          <p class="text-sm text-secondary leading-relaxed">Map data flows between ERPs, POS systems, and banks. You approve the architecture before build starts.</p>
-        </div>
-        
-        <div class="glass-panel p-8">
-          <div class="font-mono text-xs text-accent mb-8">PHASE 03 // BUILD</div>
-          <h3 class="text-2xl font-bold mb-4 text-white">Execution</h3>
-          <p class="text-sm text-secondary leading-relaxed">Development commences. Python, RPA, Power Platform. Tested against live data until 100% accuracy.</p>
-        </div>
-        
-        <div class="glass-panel p-8">
-          <div class="font-mono text-xs text-glow mb-8">PHASE 04 // LAUNCH</div>
-          <h3 class="text-2xl font-bold mb-4 text-white">Go-Live</h3>
-          <p class="text-sm text-secondary leading-relaxed">Your team deploys the code. We provide 30 days of meticulous support to ensure the targeted hours are fully recovered.</p>
-        </div>
-
+    <!-- ============ §04 VERIFICATIONS ============ -->
+    <section id="reviews" class="max-w-[1180px] mx-auto px-6 md:px-10 py-16 md:py-24">
+      <div class="flex items-center gap-4 mb-12" data-fade>
+        <span class="sec-no">§04</span><span class="label">Verifications</span><span class="rule-hr flex-1 draw-x" data-draw></span>
+      </div>
+      <div class="grid md:grid-cols-3 gap-px bg-rule border border-rule" data-stagger>
+        <figure class="bg-paper p-7 md:p-8 flex flex-col"><blockquote class="font-serif text-xl leading-relaxed mb-8 flex-1">“He didn't just automate a process; he architected a completely new way for our data to flow. The ROI was visible in week&nbsp;one.”</blockquote><figcaption class="pt-5 border-t border-rule"><div class="font-serif text-lg leading-tight">Ahmed Al-Sayed</div><div class="label mt-1.5">Controller · Real FZE</div></figcaption></figure>
+        <figure class="bg-paper p-7 md:p-8 flex flex-col"><blockquote class="font-serif text-xl leading-relaxed mb-8 flex-1">“The cleanest implementation of Oracle ERP automation I have seen. Our IT team was skeptical — Deya delivered flawless integration.”</blockquote><figcaption class="pt-5 border-t border-rule"><div class="font-serif text-lg leading-tight">James Chen</div><div class="label mt-1.5">CTO · Tech Flow</div></figcaption></figure>
+        <figure class="bg-paper p-7 md:p-8 flex flex-col"><blockquote class="font-serif text-xl leading-relaxed mb-8 flex-1">“Saved us 160 hours a month — the equivalent of a full-time employee — achieved in a six-week engagement.”</blockquote><figcaption class="pt-5 border-t border-rule"><div class="font-serif text-lg leading-tight">Tom Baker</div><div class="label mt-1.5">Operations Manager</div></figcaption></figure>
       </div>
     </section>
 
-    <!-- REVIEWS -->
-    <section class="reveal">
-      <div class="font-mono text-[10px] tracking-widest text-secondary uppercase mb-8 border-b border-white/10 pb-4">
-        Verifications
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <div class="glass-panel p-8 flex flex-col justify-between">
-          <i data-lucide="quote" class="w-6 h-6 text-white/20 mb-6"></i>
-          <p class="text-lg font-light leading-relaxed mb-8">"He didn't just automate a process; he architected a completely new way for our data to flow. The ROI was visible in week one."</p>
-          <div class="flex items-center gap-4 border-t border-white/10 pt-6">
-            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center font-bold">AA</div>
-            <div>
-              <div class="font-bold text-sm">Ahmed Al-Sayed</div>
-              <div class="text-xs text-secondary">Controller @ Real FZE</div>
-            </div>
+    <!-- ============ §05 FAQ ============ -->
+    <section id="faq" class="max-w-[1180px] mx-auto px-6 md:px-10 py-16 md:py-24">
+      <div class="grid lg:grid-cols-12 gap-x-12">
+        <div class="lg:col-span-4 mb-10 lg:mb-0">
+          <div class="flex items-center gap-4 mb-8" data-fade><span class="sec-no">§05</span><span class="label">Frequently asked</span></div>
+          <h2 class="display text-4xl md:text-5xl" data-fade>Before<br>you ask.</h2>
+        </div>
+        <div class="lg:col-span-8" data-fade>
+          <div class="border-t border-rule-strong">
+            <div class="faq-item border-b border-rule"><button class="faq-q" aria-expanded="false" data-hot><span class="font-serif text-xl md:text-2xl">Will this work if we only have 10 finance people?</span><span class="faq-plus"></span></button><div class="faq-content"><p class="pb-6 text-ink-soft leading-relaxed max-w-[60ch]">Probably not worth it. I work with 20+ person finance teams — that's where manual work creates real cost. At 10 people you might save 100–150 hours / month, not enough to justify the engagement. At 25+ people you're looking at 400+ hours saved — $300k+ annually.</p></div></div>
+            <div class="faq-item border-b border-rule"><button class="faq-q" aria-expanded="false" data-hot><span class="font-serif text-xl md:text-2xl">What is the cost structure?</span><span class="faq-plus"></span></button><div class="faq-content"><p class="pb-6 text-ink-soft leading-relaxed max-w-[60ch]">Fixed price, $15,000–$75,000. No hidden hourly billing. The range depends on how many systems need to talk to each other. ROI typically lands in 3–6 months: pay $50k in month one, save $300k+ annually from month four.</p></div></div>
+            <div class="faq-item border-b border-rule"><button class="faq-q" aria-expanded="false" data-hot><span class="font-serif text-xl md:text-2xl">Can you work with our ERP system?</span><span class="faq-plus"></span></button><div class="faq-content"><p class="pb-6 text-ink-soft leading-relaxed max-w-[60ch]">Oracle EBS, SAP, Dynamics 365, NetSuite, and dozens of POS systems. If your system has APIs or database access, the automation can be built around it.</p></div></div>
           </div>
         </div>
-
-        <div class="glass-panel p-8 flex flex-col justify-between">
-          <i data-lucide="quote" class="w-6 h-6 text-white/20 mb-6"></i>
-          <p class="text-lg font-light leading-relaxed mb-8">"The cleanest implementation of Oracle ERP automation I have seen. Our IT team was skeptical, but Deya delivered flawless integration."</p>
-          <div class="flex items-center gap-4 border-t border-white/10 pt-6">
-            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center font-bold">JC</div>
-            <div>
-              <div class="font-bold text-sm">James Chen</div>
-              <div class="text-xs text-secondary">CTO @ Tech Flow</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass-panel p-8 flex flex-col justify-between">
-          <i data-lucide="quote" class="w-6 h-6 text-white/20 mb-6"></i>
-          <p class="text-lg font-light leading-relaxed mb-8">"Saved us 160 hours a month. That is the equivalent of a full-time employee, achieved in just a 6-week project engagement."</p>
-          <div class="flex items-center gap-4 border-t border-white/10 pt-6">
-            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center font-bold">TB</div>
-            <div>
-              <div class="font-bold text-sm">Tom Baker</div>
-              <div class="text-xs text-secondary">Ops Manager</div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="reveal max-w-4xl mx-auto w-full">
-      <h2 class="text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-      <div class="space-y-4">
-        
-        <div class="glass-panel p-6 faq-item">
-          <button class="w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
-            <span class="text-lg font-medium">Will this work if we only have 10 finance people?</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-secondary transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content">
-            <p class="pt-6 text-secondary leading-relaxed">Probably not worth it. I work with 20+ person finance teams — that's where manual work creates real cost. At 10 people you might save 100-150 hours/month, not enough to justify the engagement cost. At 25+ people you are looking at 400+ hours saved = $300k+ annually.</p>
-          </div>
-        </div>
-
-        <div class="glass-panel p-6 faq-item">
-          <button class="w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
-            <span class="text-lg font-medium">What is the cost structure?</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-secondary transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content">
-            <p class="pt-6 text-secondary leading-relaxed">Fixed price. $15,000 – $75,000. No hidden hourly billing. Range depends on how many systems need to talk. ROI lands in 3-6 months. Pay $50k in month 1, save $300k+ annually from month 4.</p>
-          </div>
-        </div>
-
-        <div class="glass-panel p-6 faq-item">
-          <button class="w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
-            <span class="text-lg font-medium">Can you work with our ERP system?</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-secondary transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content">
-            <p class="pt-6 text-secondary leading-relaxed">Oracle EBS, SAP, Dynamics 365, NetSuite, and dozens of POS systems. If your system has APIs or database access, we can automate around it.</p>
-          </div>
-        </div>
-
+    <!-- ============ §06 AUDIT ============ -->
+    <section id="audit" class="max-w-[1180px] mx-auto px-6 md:px-10 py-16 md:py-28">
+      <div class="flex items-center gap-4 mb-12" data-fade>
+        <span class="sec-no">§06</span><span class="label">Request an audit</span><span class="rule-hr flex-1 draw-x" data-draw></span>
       </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="audit" class="reveal">
-      <div class="glass-panel p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-16 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-glow/5 pointer-events-none"></div>
-        
-        <div class="relative z-10">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-glow">Initiate Audit.</h2>
-          <p class="text-lg text-secondary mb-12">Book a 30-minute audit. I'll identify the biggest time-sink, and give you an exact number. No pitch — just the math.</p>
-          
-          <div class="space-y-6 font-mono text-sm">
-            <a href="mailto:contact@deyaaldeen.com" class="flex items-center gap-4 text-white hover:text-accent transition-colors">
-              <i data-lucide="mail" class="w-4 h-4"></i> contact@deyaaldeen.com
-            </a>
-            <a href="https://wa.me/962798103323" class="flex items-center gap-4 text-white hover:text-green-400 transition-colors">
-              <i data-lucide="phone" class="w-4 h-4"></i> +962 79 810 3323
-            </a>
-            <div class="flex items-center gap-4 text-secondary">
-              <i data-lucide="map-pin" class="w-4 h-4"></i> AMMAN // MENA
-            </div>
+      <div class="grid lg:grid-cols-12 gap-x-12 gap-y-12">
+        <div class="lg:col-span-5" data-fade>
+          <h2 class="display text-4xl md:text-6xl mb-6">Book a<br>30-minute audit.</h2>
+          <p class="text-ink-soft text-lg leading-relaxed mb-12 max-w-[40ch]">I'll find the single biggest time-sink and give you the number. No pitch — just the arithmetic.</p>
+          <div class="space-y-5">
+            <a href="mailto:contact@deyaaldeen.com" class="flex items-center gap-4 group" data-hot><i data-lucide="mail" class="w-4 h-4 text-ink-faint"></i><span class="font-mono text-sm border-b border-transparent group-hover:border-ink transition-colors">contact@deyaaldeen.com</span></a>
+            <a href="https://wa.me/962798103323" class="flex items-center gap-4 group" data-hot><i data-lucide="message-circle" class="w-4 h-4 text-ink-faint"></i><span class="font-mono text-sm border-b border-transparent group-hover:border-gain group-hover:text-gain transition-colors">+962 79 810 3323</span></a>
+            <div class="flex items-center gap-4"><i data-lucide="map-pin" class="w-4 h-4 text-ink-faint"></i><span class="font-mono text-sm text-ink-soft">Amman · MENA</span></div>
           </div>
         </div>
-
-        <form action="https://formspree.io/f/mldyypje" method="POST" class="flex flex-col gap-6 relative z-10">
-          <div>
-            <label class="block text-xs font-mono text-secondary mb-2 uppercase">Full Name</label>
-            <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white focus:border-accent focus:outline-none transition-colors">
+        <form action="https://formspree.io/f/mldyypje" method="POST" class="lg:col-span-7" data-fade>
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-7">
+            <div><label class="label block mb-1" for="f-name">Full name</label><input id="f-name" class="field" type="text" name="name" placeholder="Jane Controller" required data-hot></div>
+            <div><label class="label block mb-1" for="f-email">Business email</label><input id="f-email" class="field" type="email" name="email" placeholder="jane@company.com" required data-hot></div>
+            <div class="sm:col-span-2"><label class="label block mb-1" for="f-msg">The bottleneck</label><textarea id="f-msg" class="field" name="message" rows="3" placeholder="Where the hours go each month…" required data-hot></textarea></div>
           </div>
-          <div>
-            <label class="block text-xs font-mono text-secondary mb-2 uppercase">Business Email</label>
-            <input type="email" name="email" required class="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white focus:border-accent focus:outline-none transition-colors">
-          </div>
-          <div>
-            <label class="block text-xs font-mono text-secondary mb-2 uppercase">Describe Your Bottleneck</label>
-            <textarea name="message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white focus:border-accent focus:outline-none resize-none transition-colors"></textarea>
-          </div>
-          <button type="submit" class="w-full py-4 rounded-lg bg-white text-black font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors mt-2">
-            Submit Request
-          </button>
+          <button type="submit" class="btn-ink mt-9" data-hot><span>Submit request <i data-lucide="arrow-up-right" class="arr w-4 h-4"></i></span></button>
         </form>
-
       </div>
     </section>
-
   </main>
 
-  <footer class="border-t border-white/10 py-12 px-6 mt-20 relative z-10">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 font-mono text-[10px] text-secondary tracking-widest uppercase">
-      <div>&copy; 2026 DEYA ALDEEN ALSOUB.</div>
-      <div class="flex gap-8">
-        <a href="https://linkedin.com/in/deyaaldeen" class="hover:text-white transition-colors">LINKEDIN</a>
-        <a href="/privacy.html" class="hover:text-white transition-colors">PRIVACY</a>
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-rule">
+    <div class="max-w-[1180px] mx-auto px-6 md:px-10 py-10 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div class="label">© 2026 Deya Aldeen Alsoub</div>
+      <div class="font-serif text-sm text-ink-faint italic">Finance automation, reconciled to the figure.</div>
+      <div class="flex gap-7 label">
+        <a href="https://linkedin.com/in/deyaaldeen" class="navlink" data-hot>LinkedIn</a>
+        <a href="https://wa.me/962798103323" class="navlink" data-hot>WhatsApp</a>
+        <a href="/privacy.html" class="navlink" data-hot>Privacy</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    lucide.createIcons();
+  <a href="https://wa.me/962798103323" class="wa-float" aria-label="WhatsApp Deya Aldeen" data-hot>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.748-.957zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
 
-    // Spotlight Effect for Glass Panels
-    document.querySelectorAll('.glass-panel').forEach(panel => {
-      panel.addEventListener('mousemove', e => {
-        const rect = panel.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        panel.style.setProperty('--mouse-x', `${x}px`);
-        panel.style.setProperty('--mouse-y', `${y}px`);
+  <!-- Libraries (loaded after content; main script follows) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+  (function(){
+    const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasGSAP = !!window.gsap;
+    if (window.lucide) lucide.createIcons();
+
+    /* ---------- Client register (clean ink wordmarks) ---------- */
+    const LOGOS = ['louis-vuitton','dior','sephora','givenchy','fendi','loewe','celine','loreal','puig','swarovski','michael-kors','lacoste','carolina-herrera','louboutin','korloff','otb-group','havas','saks-fifth-avenue'];
+    const reg = document.getElementById('register');
+    if (reg) reg.innerHTML = LOGOS.map(n=>`<div class="reg-cell flex items-center justify-center py-9 px-4"><img src="assets/images/logos/${n}.svg" alt="${n.replace(/-/g,' ')}" loading="lazy"></div>`).join('');
+
+    /* ---------- Custom cursor ---------- */
+    const cursor = document.getElementById('cursor');
+    if (cursor && !REDUCE && matchMedia('(hover:hover) and (pointer:fine)').matches){
+      let cx=innerWidth/2, cy=innerHeight/2, tx=cx, ty=cy;
+      addEventListener('mousemove', e=>{ tx=e.clientX; ty=e.clientY; });
+      (function loop(){ cx+=(tx-cx)*.18; cy+=(ty-cy)*.18; cursor.style.transform=`translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
+      const hot = () => cursor.classList.add('is-hot'), cold = () => cursor.classList.remove('is-hot');
+      document.querySelectorAll('[data-hot]').forEach(el=>{ el.addEventListener('mouseenter',hot); el.addEventListener('mouseleave',cold); });
+    } else if (cursor){ cursor.style.display='none'; }
+
+    /* ---------- Count-up util ---------- */
+    function countTo(el, to, dur, fmt){ const start=performance.now();
+      function tick(now){ const p=Math.min((now-start)/dur,1); const e=1-Math.pow(1-p,3); el.innerHTML=fmt(Math.round(e*to)); if(p<1) requestAnimationFrame(tick); }
+      requestAnimationFrame(tick); }
+
+    /* ---------- Entrance: headline + fades ---------- */
+    if (hasGSAP && !REDUCE){
+      gsap.registerPlugin(window.ScrollTrigger);
+      // headline words
+      gsap.set('.reveal-word',{ yPercent:115, opacity:0 });
+      gsap.set('[data-fade]',{ opacity:0, y:24 });
+      gsap.set('[data-draw]',{ scaleX:0, opacity:1, transformOrigin:'left' });
+
+      const tl = gsap.timeline({ defaults:{ ease:'power3.out' } });
+      tl.to('.reveal-word',{ yPercent:0, opacity:1, duration:1, stagger:.06 }, .15)
+        .to('[data-draw]',{ scaleX:1, duration:1 }, '-=.7')
+        .to('header [data-fade], section:first-of-type [data-fade]',{ opacity:1, y:0, duration:.9, stagger:.08 }, '-=.8');
+
+      // generic fades on scroll
+      gsap.utils.toArray('[data-fade]').forEach(el=>{
+        if (el.closest('section:first-of-type') || el.closest('header')) return;
+        gsap.to(el,{ opacity:1, y:0, duration:.9, ease:'power3.out',
+          scrollTrigger:{ trigger:el, start:'top 88%' } });
+      });
+      // draw rules on scroll
+      gsap.utils.toArray('[data-draw]').forEach(el=>{
+        if (el.closest('section:first-of-type')) return;
+        gsap.fromTo(el,{ scaleX:0 },{ scaleX:1, duration:1, ease:'power3.out', transformOrigin:'left',
+          scrollTrigger:{ trigger:el, start:'top 90%' } });
+      });
+      // staggered groups
+      gsap.utils.toArray('[data-stagger]').forEach(grp=>{
+        gsap.from(grp.children,{ opacity:0, y:30, duration:.8, stagger:.1, ease:'power3.out',
+          scrollTrigger:{ trigger:grp, start:'top 85%' } });
+      });
+      // count stats
+      gsap.utils.toArray('[data-count]').forEach(el=>{
+        const to=+el.dataset.count, suf=el.dataset.suffix||'';
+        ScrollTrigger.create({ trigger:el, start:'top 90%', once:true, onEnter:()=>{
+          countTo(el, to, 1200, v=>v+`<span class="text-base text-ink-faint ml-1">${suf.trim()}</span>`); } });
+      });
+    } else {
+      document.querySelectorAll('[data-fade]').forEach(e=>{ e.style.opacity=1; e.style.transform='none'; });
+      document.querySelectorAll('.reveal-word').forEach(e=>{ e.style.opacity=1; e.style.transform='none'; });
+      document.querySelectorAll('[data-draw]').forEach(e=>{ e.style.opacity=1; e.style.transform='none'; });
+    }
+
+    /* ---------- Hero journal: strike + credit count-up ---------- */
+    const credit=document.getElementById('credit-count'), debit=document.getElementById('debitFig');
+    function reconcile(){
+      if (REDUCE){ credit.textContent='400'; debit.classList.add('struck'); return; }
+      // animate strike via inline width using GSAP-free approach
+      const after = debit; after.style.setProperty('--x','0');
+      let s=null; const dur=1400, delay=600;
+      function step(t){ if(!s)s=t; const p=Math.min(Math.max((t-s-delay)/dur,0),1); const e=1-Math.pow(1-p,3);
+        credit.textContent=Math.round(e*400); if(p<1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+      // strike line draw
+      const line=document.createElement('style');
+      line.textContent='#debitFig.go::after{animation:strikeGo 1s var(--ease) .6s forwards}@keyframes strikeGo{to{right:-2%}}';
+      document.head.appendChild(line); debit.classList.add('go');
+    }
+    if (hasGSAP && !REDUCE && window.ScrollTrigger){
+      ScrollTrigger.create({ trigger:'#journal', start:'top 70%', once:true, onEnter:reconcile });
+    } else { reconcile(); }
+
+    /* ---------- Interactive statement + chart ---------- */
+    const hoursInput=document.getElementById('hours-wasted'), teamInput=document.getElementById('team-size');
+    const hoursDisp=document.getElementById('hours-display'), teamDisp=document.getElementById('team-display');
+    const lineHours=document.getElementById('line-hours'), lineRecover=document.getElementById('line-recover');
+    const savings=document.getElementById('annual-savings'), hpm=document.getElementById('hours-per-month');
+    const chartLine=document.getElementById('chartLine'), chartArea=document.getElementById('chartArea'), chartDot=document.getElementById('chartDot');
+    const RATE=75, POT=0.80, fmt=n=>n.toLocaleString('en-US');
+    let savAnim=null;
+
+    function drawChart(perMonthHours){
+      if(!chartLine) return;
+      const W=460,H=150, weeks=6, peak=perMonthHours*1.5; // ramp to ~1.5x monthly over 6 wks
+      const pts=[]; for(let i=0;i<=weeks;i++){ const t=i/weeks; const ease=t*t*(3-2*t); // smoothstep ramp
+        const x=t*W; const y=H-2-ease*(H-14); pts.push([x,y]); }
+      const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+      chartLine.setAttribute('d',d);
+      chartArea.setAttribute('d',d+` L ${W} ${H} L 0 ${H} Z`);
+      const last=pts[pts.length-1]; chartDot.setAttribute('cx',last[0]); chartDot.setAttribute('cy',last[1]);
+    }
+    function updateROI(animate){
+      const hours=parseInt(hoursInput.value||20), team=parseInt(teamInput.value||15);
+      const yearly=hours*team*52, recoverable=Math.round(yearly*POT), saved=recoverable*RATE;
+      const perMonth=Math.round(hours*team*4*POT);
+      hoursDisp.textContent=hours; teamDisp.textContent=team;
+      lineHours.textContent=fmt(yearly)+' hrs'; lineRecover.textContent=fmt(recoverable)+' hrs';
+      hpm.textContent=fmt(perMonth); drawChart(perMonth);
+      const target=Math.round(saved/1000);
+      if(animate && hasGSAP){ const o={v:parseInt((savings.textContent||'0').replace(/[^0-9]/g,''))||0};
+        if(savAnim) savAnim.kill();
+        savAnim=gsap.to(o,{ v:target, duration:.6, ease:'power2.out', onUpdate:()=>savings.textContent='$'+fmt(Math.round(o.v))+'k' }); }
+      else savings.textContent='$'+fmt(target)+'k';
+    }
+    if(hoursInput&&teamInput){
+      hoursInput.addEventListener('input',()=>updateROI(true));
+      teamInput.addEventListener('input',()=>updateROI(true));
+      updateROI(false);
+      // draw-in chart on first view
+      if(hasGSAP && !REDUCE && window.ScrollTrigger && chartLine){
+        const len=chartLine.getTotalLength ? chartLine.getTotalLength() : 600;
+        gsap.set(chartLine,{ strokeDasharray:len, strokeDashoffset:len });
+        gsap.set([chartArea,chartDot],{ opacity:0 });
+        ScrollTrigger.create({ trigger:'#chart', start:'top 85%', once:true, onEnter:()=>{
+          gsap.to(chartLine,{ strokeDashoffset:0, duration:1.4, ease:'power2.out' });
+          gsap.to(chartArea,{ opacity:.1, duration:.6, delay:.6 });
+          gsap.to(chartDot,{ opacity:1, duration:.6, delay:.6 });
+        }});
+      }
+    }
+
+    /* ---------- FAQ ---------- */
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      const btn=item.querySelector('.faq-q'), content=item.querySelector('.faq-content');
+      btn.addEventListener('click',()=>{
+        const open=item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(o=>{ o.classList.remove('open'); o.querySelector('.faq-content').style.maxHeight=null; o.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
+        if(!open){ item.classList.add('open'); content.style.maxHeight=content.scrollHeight+'px'; btn.setAttribute('aria-expanded','true'); if(window.ScrollTrigger) setTimeout(()=>ScrollTrigger.refresh(),500); }
       });
     });
 
-    // ROI Calculator Logic
-    const hoursInput = document.getElementById('hours-wasted');
-    const teamInput = document.getElementById('team-size');
-    const hoursDisplay = document.getElementById('hours-display');
-    const teamDisplay = document.getElementById('team-display');
-    const savingsDisplay = document.getElementById('annual-savings');
-    const hoursPerMonthDisplay = document.getElementById('hours-per-month');
-    
-    const HOURLY_RATE = 75; 
-    const AUTOMATION_POTENTIAL = 0.80; 
-
-    function updateROI() {
-      const hours = parseInt(hoursInput.value || 20);
-      const team = parseInt(teamInput.value || 15);
-      
-      const totalHoursPerYear = hours * team * 52;
-      const automatableHours = totalHoursPerYear * AUTOMATION_POTENTIAL;
-      const savings = automatableHours * HOURLY_RATE;
-      const hoursPerMonth = Math.round((hours * team * 4) * AUTOMATION_POTENTIAL);
-      
-      hoursDisplay.textContent = hours;
-      teamDisplay.textContent = team;
-      savingsDisplay.textContent = `$${Math.round(savings/1000)}k`;
-      hoursPerMonthDisplay.textContent = hoursPerMonth.toLocaleString();
-    }
-
-    hoursInput.addEventListener('input', updateROI);
-    teamInput.addEventListener('input', updateROI);
-    updateROI();
-
-    // Reveal Animations
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-
-    revealElements.forEach(el => observer.observe(el));
-
-    // FAQ Toggle
-    function toggleFaq(btn) {
-      const content = btn.nextElementSibling;
-      const icon = btn.querySelector('i');
-      const isOpen = content.style.maxHeight;
-
-      document.querySelectorAll('.faq-content').forEach(el => el.style.maxHeight = null);
-      document.querySelectorAll('.faq-item i').forEach(el => el.style.transform = 'rotate(0deg)');
-
-      if (!isOpen) {
-        content.style.maxHeight = content.scrollHeight + "px";
-        icon.style.transform = 'rotate(180deg)';
-      }
-    }
-
-    // High-End WebGL / Canvas Data Flow Background
-    const canvas = document.getElementById('ambient-canvas');
-    const ctx = canvas.getContext('2d');
-    
-    let width, height;
-    let particles = [];
-
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener('resize', resize);
-    resize();
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2;
-      }
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < 60; i++) {
-      particles.push(new Particle());
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-
-      // Draw glowing gradients
-      const time = Date.now() * 0.0005;
-      
-      const grad1 = ctx.createRadialGradient(
-        width * 0.5 + Math.sin(time) * 300, 
-        height * 0.5 + Math.cos(time) * 200, 
-        0, 
-        width * 0.5 + Math.sin(time) * 300, 
-        height * 0.5 + Math.cos(time) * 200, 
-        600
-      );
-      grad1.addColorStop(0, 'rgba(0, 112, 243, 0.08)');
-      grad1.addColorStop(1, 'transparent');
-      
-      const grad2 = ctx.createRadialGradient(
-        width * 0.5 + Math.cos(time * 0.8) * 300, 
-        height * 0.5 + Math.sin(time * 0.8) * 200, 
-        0, 
-        width * 0.5 + Math.cos(time * 0.8) * 300, 
-        height * 0.5 + Math.sin(time * 0.8) * 200, 
-        600
-      );
-      grad2.addColorStop(0, 'rgba(248, 28, 229, 0.08)');
-      grad2.addColorStop(1, 'transparent');
-
-      ctx.fillStyle = grad1;
-      ctx.fillRect(0, 0, width, height);
-      ctx.fillStyle = grad2;
-      ctx.fillRect(0, 0, width, height);
-
-      // Draw particle network
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-        
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          
-          if (dist < 150) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - dist / 150)})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(animate);
-    }
-    animate();
+    if (hasGSAP && window.ScrollTrigger){ window.addEventListener('load',()=>ScrollTrigger.refresh()); }
+  })();
   </script>
 </body>
 </html>
