@@ -173,48 +173,20 @@
     }
   }
 
-  /* ---------- ledger spine + footer tie-out: sections post as read ---------- */
-  /* Each section is a line item. Reading it posts the mark on the spine
-     AND its row in the footer tally; reading everything earns the stamp.
-     Skipped sections stay pending: the tally is honest. */
+  /* ---------- ledger spine: posting marks fill as sections are read ---------- */
   var kickers = document.querySelectorAll("main .kicker");
-  var tallyRows = document.querySelectorAll(".tally-row");
-  var tallyCount = document.getElementById("tally-count");
-  var tallyStatus = document.getElementById("tally-status");
-  var tallyStamp = document.getElementById("tally-stamp");
-  var tallyPosted = 0;
-  function postSection(kicker) {
-    kicker.classList.add("posted");
-    var sec = kicker.closest("section[id]");
-    var row = sec && document.querySelector('.tally-row[data-sec="' + sec.id + '"]');
-    if (!row || row.classList.contains("posted")) return;
-    row.classList.add("posted");
-    tallyPosted++;
-    if (tallyCount) tallyCount.textContent = tallyPosted + " / " + tallyRows.length + " posted";
-    if (tallyPosted === tallyRows.length) {
-      if (tallyStatus) {
-        tallyStatus.textContent = "signed off ✓";
-        tallyStatus.classList.add("done");
-      }
-      if (tallyStamp) tallyStamp.classList.add("on");
-    }
-  }
   if (!reducedMotion && "IntersectionObserver" in window) {
-    /* live run: reset the tally (HTML ships the finished state for no-JS) */
-    if (tallyCount) tallyCount.textContent = "0 / " + tallyRows.length + " posted";
-    if (tallyStatus) tallyStatus.textContent = "in review";
-    if (tallyStamp) tallyStamp.classList.remove("on");
     var kio = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          postSection(entry.target);
+          entry.target.classList.add("posted");
           kio.unobserve(entry.target);
         }
       });
     }, { threshold: 0.5 });
     kickers.forEach(function (el) { kio.observe(el); });
   } else {
-    kickers.forEach(function (el) { postSection(el); });
+    kickers.forEach(function (el) { el.classList.add("posted"); });
   }
 
   /* ---------- nav scrollspy ---------- */
