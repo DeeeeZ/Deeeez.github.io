@@ -27,6 +27,59 @@
     revealed.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---------- hero recon panel (decorative sample run) ---------- */
+  var reconRows = document.getElementById("recon-rows");
+  if (reconRows) {
+    var ROWS = [
+      ["ORD-83112", "1,240.50", "1,240.50"],
+      ["ORD-83113", "312.00", "312.00"],
+      ["ORD-83117", "5,880.25", "5,880.25"],
+      ["ORD-83121", "94.75", "94.75"],
+      ["ORD-83126", "2,406.10", "2,406.10"],
+      ["ORD-83130", "770.00", "770.00"]
+    ];
+    var countEl = document.getElementById("recon-count");
+    var statusEl = document.getElementById("recon-status");
+    var els = ROWS.map(function (r) {
+      var div = document.createElement("div");
+      div.className = "recon-row";
+      div.innerHTML = '<span class="rid">' + r[0] + '</span>' +
+        '<span class="amt">' + r[1] + '</span>' +
+        '<span class="amt">' + r[2] + '</span>' +
+        '<span class="st">pending</span>';
+      reconRows.appendChild(div);
+      return div;
+    });
+
+    function setMatched(el, on) {
+      el.classList.toggle("matched", on);
+      el.querySelector(".st").textContent = on ? "matched ✓" : "pending";
+    }
+
+    if (reducedMotion) {
+      els.forEach(function (el) { setMatched(el, true); });
+      countEl.textContent = "6 / 6 matched";
+      statusEl.textContent = "tied to the cent";
+    } else {
+      var i = 0;
+      setInterval(function () {
+        if (i < els.length) {
+          setMatched(els[i], true);
+          i++;
+          countEl.textContent = i + " / 6 matched";
+          if (i === els.length) statusEl.textContent = "tied to the cent";
+        } else if (i < els.length + 3) {
+          i++; /* hold the finished state a few beats */
+        } else {
+          els.forEach(function (el) { setMatched(el, false); });
+          i = 0;
+          countEl.textContent = "0 / 6 matched";
+          statusEl.textContent = "running";
+        }
+      }, 850);
+    }
+  }
+
   /* ---------- proof numerals count-up ---------- */
   function fmt(n, decimals) {
     return n.toLocaleString("en-US", {
