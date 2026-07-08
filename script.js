@@ -28,38 +28,102 @@
   }
 
   /* ---------- hero recon panel (decorative sample run) ---------- */
+  /* One row per scene carries a real problem: the engine's job is
+     catching what's wrong, not just ticking what's right. The panel
+     rotates through two sample runs so it reads as an instrument,
+     not a looping GIF. Row: [id, expected, actual, kind, flagText] */
   var reconRows = document.getElementById("recon-rows");
   if (reconRows) {
-    var ROWS = [
-      ["ORD-83112", "1,240.50", "1,240.50"],
-      ["ORD-83113", "312.00", "312.00"],
-      ["ORD-83117", "5,880.25", "5,880.25"],
-      ["ORD-83121", "94.75", "94.75"],
-      ["ORD-83126", "2,406.10", "2,406.10"],
-      ["ORD-83130", "770.00", "770.00"]
+    var SCENES = [
+      {
+        title: "Settlement recon · sample",
+        unit: "matched",
+        matchText: "matched ✓",
+        flagNote: "1 exception flagged",
+        rows: [
+          ["ORD-83112", "1,240.50", "1,240.50", "match"],
+          ["ORD-83113", "312.00", "312.00", "match"],
+          ["ORD-83117", "5,880.25", "5,880.25", "match"],
+          ["ORD-83121", "94.75", "94.25", "flag", "Δ 0.50"],
+          ["ORD-83126", "2,406.10", "2,406.10", "match"],
+          ["ORD-83130", "770.00", "770.00", "match"]
+        ]
+      },
+      {
+        title: "Statement completeness · sample",
+        unit: "complete",
+        matchText: "complete ✓",
+        flagNote: "1 gap flagged",
+        rows: [
+          ["AC-2201", "112 ln", "112 ln", "match"],
+          ["AC-2207", "96 ln", "96 ln", "match"],
+          ["AC-2213", "58 ln", "58 ln", "match"],
+          ["AC-2216", "141 ln", "137 ln", "flag", "4 missing"],
+          ["AC-2222", "73 ln", "73 ln", "match"],
+          ["AC-2230", "210 ln", "210 ln", "match"]
+        ]
+      },
+      {
+        title: "Intercompany recon · sample",
+        unit: "matched",
+        matchText: "matched ✓",
+        flagNote: "1 exception flagged",
+        rows: [
+          ["AE01·SA02", "18,420.00", "18,420.00", "match"],
+          ["AE01·QA04", "2,155.75", "2,155.75", "match"],
+          ["JO03·KW01", "9,114.20", "9,113.90", "flag", "Δ 0.30"],
+          ["SA02·BH02", "640.00", "640.00", "match"],
+          ["QA04·JO03", "31,002.60", "31,002.60", "match"],
+          ["KW01·AE01", "4,780.15", "4,780.15", "match"]
+        ]
+      }
     ];
     var countEl = document.getElementById("recon-count");
     var statusEl = document.getElementById("recon-status");
-    var els = ROWS.map(function (r) {
+    var titleEl = document.getElementById("recon-title");
+    var sceneIdx = 0;
+    var scene = SCENES[0];
+    var els = scene.rows.map(function () {
       var div = document.createElement("div");
       div.className = "recon-row";
-      div.innerHTML = '<span class="rid">' + r[0] + '</span>' +
-        '<span class="amt">' + r[1] + '</span>' +
-        '<span class="amt">' + r[2] + '</span>' +
+      div.innerHTML = '<span class="rid"></span>' +
+        '<span class="amt"></span>' +
+        '<span class="amt"></span>' +
         '<span class="st">pending</span>';
       reconRows.appendChild(div);
       return div;
     });
 
-    function setMatched(el, on) {
-      el.classList.toggle("matched", on);
-      el.querySelector(".st").textContent = on ? "matched ✓" : "pending";
+    function loadScene(s) {
+      if (titleEl) titleEl.textContent = s.title;
+      els.forEach(function (el, idx) {
+        var r = s.rows[idx];
+        el.classList.remove("matched", "flagged", "scan");
+        el.querySelector(".rid").textContent = r[0];
+        var amts = el.querySelectorAll(".amt");
+        amts[0].textContent = r[1];
+        amts[1].textContent = r[2];
+        el.querySelector(".st").textContent = "pending";
+      });
+    }
+    function resolveRow(idx) {
+      var el = els[idx];
+      var r = scene.rows[idx];
+      var flagged = r[3] === "flag";
+      el.classList.remove("scan");
+      el.classList.add(flagged ? "flagged" : "matched");
+      el.querySelector(".st").textContent = flagged ? r[4] : scene.matchText;
+    }
+    function finish() {
+      countEl.textContent = "5 / 6 " + scene.unit;
+      statusEl.textContent = scene.flagNote;
+      statusEl.className = "flag";
     }
 
+    loadScene(scene);
     if (reducedMotion) {
-      els.forEach(function (el) { setMatched(el, true); });
-      countEl.textContent = "6 / 6 matched";
-      statusEl.textContent = "tied to the cent";
+      els.forEach(function (el, idx) { resolveRow(idx); });
+      finish();
     } else {
       var reconVisible = true;
       if ("IntersectionObserver" in window) {
@@ -69,24 +133,72 @@
         }).observe(reconRows);
       }
       var i = 0;
+      var matched = 0;
+      els[0].classList.add("scan");
       setInterval(function () {
         if (!reconVisible || document.hidden) return;
         if (i < els.length) {
-          setMatched(els[i], true);
+          resolveRow(i);
+          if (i + 1 < els.length) els[i + 1].classList.add("scan");
+          if (scene.rows[i][3] === "match") matched++;
           i++;
-          countEl.textContent = i + " / 6 matched";
-          if (i === els.length) statusEl.textContent = "tied to the cent";
-        } else if (i < els.length + 3) {
+          countEl.textContent = matched + " / 6 " + scene.unit;
+          if (i === els.length) finish();
+        } else if (i < els.length + 4) {
           i++; /* hold the finished state a few beats */
         } else {
-          els.forEach(function (el) { setMatched(el, false); });
+          sceneIdx = (sceneIdx + 1) % SCENES.length;
+          scene = SCENES[sceneIdx];
+          loadScene(scene);
+          els[0].classList.add("scan");
           i = 0;
-          countEl.textContent = "0 / 6 matched";
+          matched = 0;
+          countEl.textContent = "0 / 6 " + scene.unit;
           statusEl.textContent = "running";
+          statusEl.className = "ok";
         }
       }, 850);
     }
   }
+
+  /* ---------- ledger spine: posting marks fill as sections are read ---------- */
+  var kickers = document.querySelectorAll("main .kicker");
+  if (!reducedMotion && "IntersectionObserver" in window) {
+    var kio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("posted");
+          kio.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    kickers.forEach(function (el) { kio.observe(el); });
+  } else {
+    kickers.forEach(function (el) { el.classList.add("posted"); });
+  }
+
+  /* ---------- nav scrollspy ---------- */
+  var spySections = document.querySelectorAll("main section[id]");
+  var spyLinks = document.querySelectorAll(".nav-links a[href^='#']:not(.btn)");
+  var spyTicking = false;
+  function spy() {
+    spyTicking = false;
+    var current = "";
+    var probe = window.scrollY + window.innerHeight * 0.35;
+    spySections.forEach(function (sec) {
+      if (sec.offsetTop <= probe) current = sec.id;
+    });
+    spyLinks.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+    });
+  }
+  window.addEventListener("scroll", function () {
+    if (!spyTicking) {
+      spyTicking = true;
+      requestAnimationFrame(spy);
+    }
+  }, { passive: true });
+  spy();
 
   /* ---------- proof numerals count-up ---------- */
   function fmt(n, decimals) {
