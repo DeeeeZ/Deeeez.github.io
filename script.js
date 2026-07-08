@@ -40,6 +40,7 @@
         unit: "matched",
         matchText: "matched ✓",
         flagNote: "1 exception flagged",
+        cause: "ORD-83121 · gateway fee held at source",
         rows: [
           ["ORD-83112", "1,240.50", "1,240.50", "match"],
           ["ORD-83113", "312.00", "312.00", "match"],
@@ -54,6 +55,7 @@
         unit: "complete",
         matchText: "complete ✓",
         flagNote: "1 gap flagged",
+        cause: "AC-2216 · portal export truncated",
         rows: [
           ["AC-2201", "112 ln", "112 ln", "match"],
           ["AC-2207", "96 ln", "96 ln", "match"],
@@ -68,6 +70,7 @@
         unit: "matched",
         matchText: "matched ✓",
         flagNote: "1 exception flagged",
+        cause: "JO03·KW01 · FX rounding on posting",
         rows: [
           ["AE01·SA02", "18,420.00", "18,420.00", "match"],
           ["AE01·QA04", "2,155.75", "2,155.75", "match"],
@@ -81,6 +84,7 @@
     var countEl = document.getElementById("recon-count");
     var statusEl = document.getElementById("recon-status");
     var titleEl = document.getElementById("recon-title");
+    var noteEl = document.getElementById("recon-note");
     var sceneIdx = 0;
     var scene = SCENES[0];
     var els = scene.rows.map(function () {
@@ -105,6 +109,10 @@
         amts[1].textContent = r[2];
         el.querySelector(".st").textContent = "pending";
       });
+      if (noteEl) {
+        noteEl.classList.remove("show");
+        noteEl.textContent = "";
+      }
     }
     function resolveRow(idx) {
       var el = els[idx];
@@ -113,6 +121,10 @@
       el.classList.remove("scan");
       el.classList.add(flagged ? "flagged" : "matched");
       el.querySelector(".st").textContent = flagged ? r[4] : scene.matchText;
+      if (flagged && noteEl) {
+        noteEl.textContent = "└ " + scene.cause;
+        noteEl.classList.add("show");
+      }
     }
     function finish() {
       countEl.textContent = "5 / 6 " + scene.unit;
@@ -161,28 +173,67 @@
     }
   }
 
-  /* ---------- ledger spine: posting marks fill as sections are read ---------- */
+  /* ---------- ledger spine + footer tie-out: sections post as read ---------- */
+  /* Each section is a line item. Reading it posts the mark on the spine
+     AND its row in the footer tally; reading everything earns the stamp.
+     Skipped sections stay pending: the tally is honest. */
   var kickers = document.querySelectorAll("main .kicker");
+  var tallyRows = document.querySelectorAll(".tally-row");
+  var tallyCount = document.getElementById("tally-count");
+  var tallyStatus = document.getElementById("tally-status");
+  var tallyStamp = document.getElementById("tally-stamp");
+  var tallyPosted = 0;
+  function postSection(kicker) {
+    kicker.classList.add("posted");
+    var sec = kicker.closest("section[id]");
+    var row = sec && document.querySelector('.tally-row[data-sec="' + sec.id + '"]');
+    if (!row || row.classList.contains("posted")) return;
+    row.classList.add("posted");
+    tallyPosted++;
+    if (tallyCount) tallyCount.textContent = tallyPosted + " / " + tallyRows.length + " posted";
+    if (tallyPosted === tallyRows.length) {
+      if (tallyStatus) {
+        tallyStatus.textContent = "signed off ✓";
+        tallyStatus.classList.add("done");
+      }
+      if (tallyStamp) tallyStamp.classList.add("on");
+    }
+  }
   if (!reducedMotion && "IntersectionObserver" in window) {
+    /* live run: reset the tally (HTML ships the finished state for no-JS) */
+    if (tallyCount) tallyCount.textContent = "0 / " + tallyRows.length + " posted";
+    if (tallyStatus) tallyStatus.textContent = "in review";
+    if (tallyStamp) tallyStamp.classList.remove("on");
     var kio = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add("posted");
+          postSection(entry.target);
           kio.unobserve(entry.target);
         }
       });
     }, { threshold: 0.5 });
     kickers.forEach(function (el) { kio.observe(el); });
   } else {
-    kickers.forEach(function (el) { el.classList.add("posted"); });
+    kickers.forEach(function (el) { postSection(el); });
   }
 
   /* ---------- nav scrollspy ---------- */
   var spySections = document.querySelectorAll("main section[id]");
   var spyLinks = document.querySelectorAll(".nav-links a[href^='#']:not(.btn)");
+  var rails = document.querySelectorAll(".rail");
   var spyTicking = false;
+  function fillRails() {
+    /* the spine rules itself in behind the reader, band by band */
+    var probe = window.innerHeight * 0.8;
+    rails.forEach(function (r) {
+      var rect = r.getBoundingClientRect();
+      var p = Math.min(Math.max((probe - rect.top) / rect.height, 0), 1);
+      r.style.setProperty("--fill", p.toFixed(3));
+    });
+  }
   function spy() {
     spyTicking = false;
+    if (!reducedMotion) fillRails();
     var current = "";
     var probe = window.scrollY + window.innerHeight * 0.35;
     spySections.forEach(function (sec) {
