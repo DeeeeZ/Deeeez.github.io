@@ -19,8 +19,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="styles.css">
 
   <script>document.documentElement.classList.add('js');</script>
@@ -86,7 +86,7 @@
           <p class="hero-trust">In production inside the finance shared services of a leading GCC retail group.</p>
         </div>
 
-        <div class="recon glass" aria-hidden="true">
+        <div class="recon panel" aria-hidden="true">
           <div class="recon-head"><span>Settlement recon · sample</span><span class="recon-dot"></span></div>
           <div class="recon-rows" id="recon-rows"></div>
           <div class="recon-foot"><span id="recon-count">0 / 6 matched</span><span class="ok" id="recon-status">running</span></div>
@@ -95,31 +95,34 @@
     </section>
 
     <!-- ============ PROOF ============ -->
-    <section class="proof" aria-label="Delivered results">
+    <section aria-label="Delivered results">
       <div class="container">
-        <div class="proof-grid">
-          <div class="proof-card reveal">
-            <p class="proof-num"><span data-count="98.9" data-decimals="1">98.9</span><span class="unit">%</span></p>
-            <p class="proof-desc">orders auto-matched, to the cent (7,761 of 7,851)</p>
+        <div class="rail rail-pad">
+          <p class="kicker reveal">Delivered results</p>
+          <div class="proof-grid">
+            <div class="proof-card reveal">
+              <p class="proof-num"><span data-count="98.9" data-decimals="1">98.9</span><span class="unit">%</span></p>
+              <p class="proof-desc">orders auto-matched, to the cent (7,761 of 7,851)</p>
+            </div>
+            <div class="proof-card reveal">
+              <p class="proof-num"><span data-count="1900">1,900</span><span class="unit">+</span></p>
+              <p class="proof-desc">entity pairs, 30+ currencies, reconciled in about 10 minutes</p>
+            </div>
+            <div class="proof-card reveal">
+              <p class="proof-num"><span class="unit">~</span><span data-count="190">190</span><span class="unit gap">hrs/yr</span></p>
+              <p class="proof-desc">returned by one bank statement completeness engine</p>
+            </div>
           </div>
-          <div class="proof-card reveal">
-            <p class="proof-num"><span data-count="1900">1,900</span><span class="unit">+</span></p>
-            <p class="proof-desc">entity pairs, 30+ currencies, reconciled in about 10 minutes</p>
-          </div>
-          <div class="proof-card reveal">
-            <p class="proof-num"><span class="unit">~</span><span data-count="190">190</span><span class="unit gap">hrs/yr</span></p>
-            <p class="proof-desc">returned by one bank statement completeness engine</p>
-          </div>
+          <p class="proof-foot">Real delivered projects. Anonymized; details on a call.</p>
         </div>
-        <p class="proof-foot">Real delivered projects. Anonymized; details on a call.</p>
       </div>
     </section>
 
     <!-- ============ STORY ============ -->
     <section class="story" id="story">
       <div class="container">
-        <div class="story-wrap reveal">
-          <p class="kicker">01 · Why me</p>
+        <div class="rail rail-pad reveal">
+          <p class="kicker">Why me</p>
           <h2 class="section-title">I’ve closed the books. Most developers haven’t.</h2>
           <p>Eleven years inside finance shared services. I know the manual ticking, the portal logins, the spreadsheet nobody fully trusts.</p>
           <p>Vendors sell generic tools and your process bends around them. <strong>I do the opposite:</strong> map the process with the people who run it, then build exactly what it needs. No license. No translation layer.</p>
@@ -128,241 +131,279 @@
     </section>
 
     <!-- ============ WHAT I BUILD ============ -->
-    <section class="build" id="build">
+    <section id="build">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">02 · What I build</p>
-          <h2 class="section-title">Software for the gap between your ERP and reality.</h2>
-        </div>
-        <div class="build-grid">
-          <div class="build-card glass reveal">
-            <h3>Reconciliation engines</h3>
-            <p>Bank, intercompany, marketplace. Multi-currency, matched to the cent.</p>
-            <p class="build-tags">PYTHON · SQL · MATCHING</p>
+        <div class="rail rail-pad">
+          <div class="section-head reveal">
+            <p class="kicker">What I build</p>
+            <h2 class="section-title">Software for the gap between your ERP and reality.</h2>
           </div>
-          <div class="build-card glass reveal">
-            <h3>Robotic data collection</h3>
-            <p>Bots pull from bank and partner portals. Files arrive named and filed. No one logs in.</p>
-            <p class="build-tags">RPA · BROWSER AUTOMATION</p>
-          </div>
-          <div class="build-card glass reveal">
-            <h3>Document processing</h3>
-            <p>Statements, invoices and PDFs in. Validated, structured data out.</p>
-            <p class="build-tags">PYTHON · PDF · VALIDATION</p>
-          </div>
-          <div class="build-card glass reveal">
-            <h3>Reporting and close outputs</h3>
-            <p>Exception reports, dashboards, draft journal entries. Assembled automatically.</p>
-            <p class="build-tags">SQL · ORACLE EBS · DASHBOARDS</p>
-          </div>
-          <div class="build-card glass reveal">
-            <h3>Multi-layered pipelines</h3>
-            <p>Database, ETL, RPA and scripting combined when one tool can’t carry the process.</p>
-            <p class="build-tags">GO · PYTHON · SQL · RPA</p>
+          <div class="spec-list reveal">
+            <div class="spec-row">
+              <span class="spec-code">RCN</span>
+              <h3>Reconciliation engines</h3>
+              <p>Bank, intercompany, marketplace. Multi-currency, matched to the cent.</p>
+              <span class="spec-tags">PYTHON · SQL</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-code">BOT</span>
+              <h3>Robotic data collection</h3>
+              <p>Bots pull from bank and partner portals. Files arrive named and filed. No one logs in.</p>
+              <span class="spec-tags">RPA · BROWSER</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-code">DOC</span>
+              <h3>Document processing</h3>
+              <p>Statements, invoices and PDFs in. Validated, structured data out.</p>
+              <span class="spec-tags">PYTHON · PDF</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-code">RPT</span>
+              <h3>Reporting and close outputs</h3>
+              <p>Exception reports, dashboards, draft journal entries. Assembled automatically.</p>
+              <span class="spec-tags">SQL · ORACLE EBS</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-code">PIP</span>
+              <h3>Multi-layered pipelines</h3>
+              <p>Database, ETL, RPA and scripting combined when one tool can’t carry the process.</p>
+              <span class="spec-tags">GO · PYTHON · RPA</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ DELIVERED WORK ============ -->
-    <section class="work" id="work">
+    <!-- ============ DELIVERED WORK: THE TIE-OUT ============ -->
+    <section class="work-band" id="work">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">03 · Delivered work</p>
-          <h2 class="section-title">Shipped, signed off, in production.</h2>
+        <div class="rail rail-pad">
+          <div class="section-head reveal">
+            <p class="kicker">Delivered work</p>
+            <h2 class="section-title">Shipped, signed off, in production.</h2>
+          </div>
+          <div class="reveal">
+            <table class="tieout">
+              <caption>Three builds inside one GCC retail group’s finance shared services.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Ref</th>
+                  <th scope="col">Build</th>
+                  <th scope="col">Result</th>
+                  <th scope="col">Sign-off</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="t-ref">IC·01</td>
+                  <td class="t-build">
+                    <h3>Intercompany reconciliation platform</h3>
+                    1,900+ entity pairs in 30+ currencies, stranded when a legacy tool died.
+                  </td>
+                  <td class="t-result">Rebuilt as a web application. A full run takes <span class="metric">about 10 minutes</span>.</td>
+                  <td class="t-status">SIGNED OFF ✓<small>process owner<br>senior management<br>finance leadership</small></td>
+                </tr>
+                <tr>
+                  <td class="t-ref">CA·02</td>
+                  <td class="t-build">
+                    <h3>Bank statement completeness engine</h3>
+                    Missing statement lines across ~200 accounts at three banks, caught only at month-end.
+                  </td>
+                  <td class="t-result">Now checked every morning. About <span class="metric">190 hours a year</span> returned.</td>
+                  <td class="t-status">SIGNED OFF ✓<small>process owner<br>senior management<br>finance leadership</small></td>
+                </tr>
+                <tr>
+                  <td class="t-ref">OC·03</td>
+                  <td class="t-build">
+                    <h3>Marketplace settlement reconciliation</h3>
+                    A fully manual monthly close across portals, PDFs and bank statements.
+                  </td>
+                  <td class="t-result"><span class="metric">98.9% of orders</span> matched automatically, to the cent. Surfaced a six-figure amount the old process missed.</td>
+                  <td class="t-status">SIGNED OFF ✓<small>process owner<br>senior management<br>finance leadership</small></td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- testimonials: pending written permission from real clients -->
+          </div>
         </div>
-        <div class="work-grid">
-          <article class="work-card reveal">
-            <span class="work-badge">INTERCOMPANY</span>
-            <h3>Intercompany reconciliation platform</h3>
-            <p class="work-problem">1,900+ entity pairs in 30+ currencies, stranded when a legacy tool died.</p>
-            <p class="work-result">Rebuilt as a web application. A full run takes <span class="metric">about 10 minutes</span>.</p>
-            <p class="work-signoff">Signed off: process owner, senior management, finance leadership</p>
-          </article>
-          <article class="work-card reveal">
-            <span class="work-badge">CASH</span>
-            <h3>Bank statement completeness engine</h3>
-            <p class="work-problem">Missing statement lines across ~200 accounts at three banks, caught only at month-end.</p>
-            <p class="work-result">Now checked every morning. About <span class="metric">190 hours a year</span> returned.</p>
-            <p class="work-signoff">Signed off: process owner, senior management, finance leadership</p>
-          </article>
-          <article class="work-card reveal">
-            <span class="work-badge">O2C</span>
-            <h3>Marketplace settlement reconciliation</h3>
-            <p class="work-problem">A fully manual monthly close across portals, PDFs and bank statements.</p>
-            <p class="work-result"><span class="metric">98.9% of orders</span> matched automatically, to the cent. Surfaced a six-figure amount the old process missed.</p>
-            <p class="work-signoff">Signed off: process owner, senior management, finance leadership</p>
-          </article>
-        </div>
-        <!-- testimonials: pending written permission from real clients -->
       </div>
     </section>
 
     <!-- ============ HOW ============ -->
-    <section class="how" id="how">
+    <section id="how">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">04 · How it works</p>
-          <h2 class="section-title">Fixed scope. Real data. Sign-off.</h2>
-        </div>
-        <div class="how-grid">
-          <div class="how-step reveal">
-            <span class="num">01</span>
-            <h3>Walkthrough</h3>
-            <p>I sit with the people who do the work. Requirements in days, not months.</p>
+        <div class="rail rail-pad">
+          <div class="section-head reveal">
+            <p class="kicker">How it works</p>
+            <h2 class="section-title">Fixed scope. Real data. Sign-off.</h2>
           </div>
-          <div class="how-step reveal">
-            <span class="num">02</span>
-            <h3>Locked scope</h3>
-            <p>Price and effort fixed before any build starts. No meter running.</p>
-          </div>
-          <div class="how-step reveal">
-            <span class="num">03</span>
-            <h3>Build on real data</h3>
-            <p>Working output during requirements, validated against months you already closed.</p>
-          </div>
-          <div class="how-step reveal">
-            <span class="num">04</span>
-            <h3>Sign-off and handover</h3>
-            <p>You sign off on results. Training, documentation, 60 days of support.</p>
+          <div class="how-grid">
+            <div class="how-step reveal">
+              <span class="num">01</span>
+              <h3>Walkthrough</h3>
+              <p>I sit with the people who do the work. Requirements in days, not months.</p>
+            </div>
+            <div class="how-step reveal">
+              <span class="num">02</span>
+              <h3>Locked scope</h3>
+              <p>Price and effort fixed before any build starts. No meter running.</p>
+            </div>
+            <div class="how-step reveal">
+              <span class="num">03</span>
+              <h3>Build on real data</h3>
+              <p>Working output during requirements, validated against months you already closed.</p>
+            </div>
+            <div class="how-step reveal">
+              <span class="num">04</span>
+              <h3>Sign-off and handover</h3>
+              <p>You sign off on results. Training, documentation, 60 days of support.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ PRICING ============ -->
-    <section class="pricing" id="pricing">
+    <section id="pricing">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">05 · Pricing</p>
-          <h2 class="section-title">Fixed prices, known up front.</h2>
+        <div class="rail rail-pad">
+          <div class="section-head reveal">
+            <p class="kicker">Pricing</p>
+            <h2 class="section-title">Fixed prices, known up front.</h2>
+          </div>
+          <div class="pricing-grid">
+            <div class="tier reveal">
+              <h3>Process Health Check</h3>
+              <p class="tier-price">$2,500 <span class="per">fixed · 5 days</span></p>
+              <p>One painful process, mapped end to end. You get the hours, the error exposure, and a fixed build quote. Credited in full against a build signed within 60 days.</p>
+              <a href="#contact" class="btn btn-primary btn-block">Book a Health Check</a>
+            </div>
+            <div class="tier tier-featured reveal">
+              <span class="tier-badge">MOST ENGAGEMENTS</span>
+              <h3>Automation Build</h3>
+              <p class="tier-price">$9,500 <span class="per">fixed · 3-4 weeks</span></p>
+              <p>One manual process turned into software. Validated against months you already closed. Training, documentation, 60-day support.</p>
+              <a href="#contact" class="btn btn-primary btn-block">Start with a Health Check</a>
+            </div>
+            <div class="tier reveal">
+              <h3>Automation Platform</h3>
+              <p class="tier-price"><span class="per">scoped per engagement</span></p>
+              <p>Multi-process infrastructure: databases, ETL, RPA layers, dashboards. Effort locked before build, always.</p>
+              <a href="https://wa.me/962798103323" class="btn btn-ghost btn-block" target="_blank" rel="noopener">Talk scope on WhatsApp</a>
+            </div>
+          </div>
+          <p class="pricing-note">No hourly billing. No license fees. You own the software outright.</p>
         </div>
-        <div class="pricing-grid">
-          <div class="tier glass reveal">
-            <h3>Process Health Check</h3>
-            <p class="tier-price">$2,500 <span class="per">fixed · 5 days</span></p>
-            <p>One painful process, mapped end to end. You get the hours, the error exposure, and a fixed build quote. Credited in full against a build signed within 60 days.</p>
-            <a href="#contact" class="btn btn-primary btn-block">Book a Health Check</a>
-          </div>
-          <div class="tier glass tier-featured reveal">
-            <span class="tier-badge">MOST ENGAGEMENTS</span>
-            <h3>Automation Build</h3>
-            <p class="tier-price">$9,500 <span class="per">fixed · 3-4 weeks</span></p>
-            <p>One manual process turned into software. Validated against months you already closed. Training, documentation, 60-day support.</p>
-            <a href="#contact" class="btn btn-primary btn-block">Start with a Health Check</a>
-          </div>
-          <div class="tier glass reveal">
-            <h3>Automation Platform</h3>
-            <p class="tier-price"><span class="per">scoped per engagement</span></p>
-            <p>Multi-process infrastructure: databases, ETL, RPA layers, dashboards. Effort locked before build, always.</p>
-            <a href="https://wa.me/962798103323" class="btn btn-ghost btn-block" target="_blank" rel="noopener">Talk scope on WhatsApp</a>
-          </div>
-        </div>
-        <p class="pricing-note">No hourly billing. No license fees. You own the software outright.</p>
       </div>
     </section>
 
     <!-- ============ CALCULATOR ============ -->
-    <section class="calc" id="calc">
+    <section id="calc">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">06 · The cost of manual</p>
-          <h2 class="section-title">What does one manual process cost?</h2>
-        </div>
-        <div class="calc-panel glass reveal">
-          <div>
-            <div class="calc-field">
-              <label for="calc-people-num">People on the process <input type="number" id="calc-people-num" min="1" max="20" value="3" aria-label="People on the process, number"></label>
-              <input type="range" id="calc-people" min="1" max="20" value="3" aria-label="People on the process, slider">
-            </div>
-            <div class="calc-field">
-              <label for="calc-hours-num">Hours per person per week <input type="number" id="calc-hours-num" min="1" max="20" value="6" aria-label="Hours per person per week, number"></label>
-              <input type="range" id="calc-hours" min="1" max="20" value="6" aria-label="Hours per person per week, slider">
-            </div>
-            <div class="calc-field">
-              <label for="calc-rate-num">Loaded hourly rate, USD <input type="number" id="calc-rate-num" min="10" max="100" value="35" aria-label="Loaded hourly rate in dollars, number"></label>
-              <input type="range" id="calc-rate" min="10" max="100" value="35" aria-label="Loaded hourly rate in dollars, slider">
-            </div>
+        <div class="rail rail-pad">
+          <div class="section-head reveal">
+            <p class="kicker">The cost of manual</p>
+            <h2 class="section-title">What does one manual process cost?</h2>
           </div>
-          <div class="calc-out" aria-live="polite">
+          <div class="calc-panel panel reveal">
             <div>
-              <p class="calc-out-label">Hours per year</p>
-              <p class="calc-out-num" id="calc-out-hours">936 <span class="unit">hrs</span></p>
+              <div class="calc-field">
+                <label for="calc-people-num">People on the process <input type="number" id="calc-people-num" min="1" max="20" value="3" aria-label="People on the process, number"></label>
+                <input type="range" id="calc-people" min="1" max="20" value="3" aria-label="People on the process, slider">
+              </div>
+              <div class="calc-field">
+                <label for="calc-hours-num">Hours per person per week <input type="number" id="calc-hours-num" min="1" max="20" value="6" aria-label="Hours per person per week, number"></label>
+                <input type="range" id="calc-hours" min="1" max="20" value="6" aria-label="Hours per person per week, slider">
+              </div>
+              <div class="calc-field">
+                <label for="calc-rate-num">Loaded hourly rate, USD <input type="number" id="calc-rate-num" min="10" max="100" value="35" aria-label="Loaded hourly rate in dollars, number"></label>
+                <input type="range" id="calc-rate" min="10" max="100" value="35" aria-label="Loaded hourly rate in dollars, slider">
+              </div>
             </div>
-            <div>
-              <p class="calc-out-label">Cost per year</p>
-              <p class="calc-out-num" id="calc-out-cost">$32,760</p>
+            <div class="calc-out" aria-live="polite">
+              <div>
+                <p class="calc-out-label">Hours per year</p>
+                <p class="calc-out-num" id="calc-out-hours">936 <span class="unit">hrs</span></p>
+              </div>
+              <div>
+                <p class="calc-out-label">Cost per year</p>
+                <p class="calc-out-num" id="calc-out-cost">$32,760</p>
+              </div>
+              <p class="calc-note">Delivered projects have automated 60-90% of a process’s manual hours. The Health Check gives you your exact number.</p>
+              <p class="calc-disclaimer">An estimate, not a promise. Your real number comes from mapping your real process.</p>
             </div>
-            <p class="calc-note">Delivered projects have automated 60-90% of a process’s manual hours. The Health Check gives you your exact number.</p>
-            <p class="calc-disclaimer">An estimate, not a promise. Your real number comes from mapping your real process.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ FAQ ============ -->
-    <section class="faq" id="faq">
+    <section id="faq">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">07 · FAQ</p>
-          <h2 class="section-title">The questions finance directors ask.</h2>
-        </div>
-        <div class="faq-list reveal">
-          <details class="faq-item">
-            <summary>What does it cost?</summary>
-            <p>Health Check $2,500 fixed. Most single-process builds are $9,500 fixed. Platforms are scoped case by case, effort locked before building. No hourly billing.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Can you work with our ERP?</summary>
-            <p>Oracle EBS in production today. Anything with APIs, database access or exportable files can be automated around, including SAP, Dynamics and NetSuite.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Is our data safe?</summary>
-            <p>Everything runs inside your environment, on your machines. No cloud dependency, no data leaves your network, no subscription phoning home.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Is our team too small?</summary>
-            <p>If one process burns 20+ hours a month, automation usually pays for itself inside a year. The Health Check gives you the number before you commit.</p>
-          </details>
-          <details class="faq-item">
-            <summary>What if it doesn’t work?</summary>
-            <p>You sign off on results, not promises. Every build is validated against months you already closed, and the Health Check fee is credited against the build.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Who actually does the work?</summary>
-            <p>I do. No agency, no handoffs. The person who mapped your process builds your tool.</p>
-          </details>
+        <div class="rail rail-pad">
+          <div class="section-head reveal">
+            <p class="kicker">FAQ</p>
+            <h2 class="section-title">The questions finance directors ask.</h2>
+          </div>
+          <div class="faq-list reveal">
+            <details class="faq-item">
+              <summary>What does it cost?</summary>
+              <p>Health Check $2,500 fixed. Most single-process builds are $9,500 fixed. Platforms are scoped case by case, effort locked before building. No hourly billing.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Can you work with our ERP?</summary>
+              <p>Oracle EBS in production today. Anything with APIs, database access or exportable files can be automated around, including SAP, Dynamics and NetSuite.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Is our data safe?</summary>
+              <p>Everything runs inside your environment, on your machines. No cloud dependency, no data leaves your network, no subscription phoning home.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Is our team too small?</summary>
+              <p>If one process burns 20+ hours a month, automation usually pays for itself inside a year. The Health Check gives you the number before you commit.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What if it doesn’t work?</summary>
+              <p>You sign off on results, not promises. Every build is validated against months you already closed, and the Health Check fee is credited against the build.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Who actually does the work?</summary>
+              <p>I do. No agency, no handoffs. The person who mapped your process builds your tool.</p>
+            </details>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="contact" id="contact">
+    <section class="contact-band" id="contact">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">08 · Contact</p>
-          <h2 class="section-title">Where do the hours go?</h2>
-        </div>
-        <div class="contact-grid">
-          <div class="reveal">
-            <p class="about-bio"><strong>DeyaAldeen AlSoub.</strong> Amman based, serving MENA. If a process burns hours every close, send it my way.</p>
-            <div class="contact-rows">
-              <a class="contact-row" href="mailto:contact@deyaaldeen.com"><span class="k">Email</span><span class="v">contact@deyaaldeen.com</span></a>
-              <a class="contact-row" href="https://wa.me/962798103323" target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">+962 79 810 3323</span></a>
-              <a class="contact-row" href="https://linkedin.com/in/deyaaldeen" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">linkedin.com/in/deyaaldeen</span></a>
-            </div>
-            <a href="https://wa.me/962798103323" class="btn btn-wa" target="_blank" rel="noopener">Message me on WhatsApp</a>
+        <div class="rail rail-pad">
+          <div class="section-head reveal">
+            <p class="kicker">Contact</p>
+            <h2 class="section-title">Where do the hours go?</h2>
           </div>
-          <div class="reveal">
-            <form class="contact-form" action="https://formspree.io/f/mldyypje" method="POST">
-              <label for="f-name">Name</label>
-              <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Your name…">
-              <label for="f-email">Business email</label>
-              <input type="email" id="f-email" name="email" required autocomplete="email" spellcheck="false" placeholder="name@company.com">
-              <label for="f-msg">Where do the hours go?</label>
-              <textarea id="f-msg" name="message" required placeholder="e.g. bank recon eats two days every close…"></textarea>
-              <button type="submit" class="btn btn-primary" data-submit>Request a Health Check</button>
-            </form>
+          <div class="contact-grid">
+            <div class="reveal">
+              <p class="about-bio"><strong>DeyaAldeen AlSoub.</strong> Amman based, serving MENA. If a process burns hours every close, send it my way.</p>
+              <div class="contact-rows">
+                <a class="contact-row" href="mailto:contact@deyaaldeen.com"><span class="k">Email</span><span class="v">contact@deyaaldeen.com</span></a>
+                <a class="contact-row" href="https://wa.me/962798103323" target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">+962 79 810 3323</span></a>
+                <a class="contact-row" href="https://linkedin.com/in/deyaaldeen" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">linkedin.com/in/deyaaldeen</span></a>
+              </div>
+              <a href="https://wa.me/962798103323" class="btn btn-wa" target="_blank" rel="noopener">Message me on WhatsApp</a>
+            </div>
+            <div class="reveal">
+              <form class="contact-form" action="https://formspree.io/f/mldyypje" method="POST">
+                <label for="f-name">Name</label>
+                <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Your name…">
+                <label for="f-email">Business email</label>
+                <input type="email" id="f-email" name="email" required autocomplete="email" spellcheck="false" placeholder="name@company.com">
+                <label for="f-msg">Where do the hours go?</label>
+                <textarea id="f-msg" name="message" required placeholder="e.g. bank recon eats two days every close…"></textarea>
+                <button type="submit" class="btn btn-primary" data-submit>Request a Health Check</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
