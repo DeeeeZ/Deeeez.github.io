@@ -61,8 +61,16 @@
       countEl.textContent = "6 / 6 matched";
       statusEl.textContent = "tied to the cent";
     } else {
+      var reconVisible = true;
+      if ("IntersectionObserver" in window) {
+        reconVisible = false;
+        new IntersectionObserver(function (entries) {
+          reconVisible = entries[0].isIntersecting;
+        }).observe(reconRows);
+      }
       var i = 0;
       setInterval(function () {
+        if (!reconVisible || document.hidden) return;
         if (i < els.length) {
           setMatched(els[i], true);
           i++;
@@ -156,4 +164,17 @@
     });
   });
   if (outHours && outCost) recalc();
+
+  /* ---------- form pending state ---------- */
+  var form = document.querySelector(".contact-form");
+  if (form) {
+    form.addEventListener("submit", function () {
+      var btn = form.querySelector("[data-submit]");
+      if (btn) {
+        btn.textContent = "Sending…";
+        btn.style.opacity = "0.7";
+        btn.style.pointerEvents = "none";
+      }
+    });
+  }
 })();

@@ -59,7 +59,13 @@
 
 /* ---------- reset ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+}
+a, button, input, textarea, summary, label { touch-action: manipulation; }
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -126,6 +132,7 @@ h1, h2, h3 {
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 .section-title { font-size: var(--text-3xl); max-width: 24ch; }
 .section-head { margin-bottom: var(--s8); }
@@ -760,6 +767,7 @@ html.js .hero-stagger > *:nth-child(5) { animation-delay: 0.45s; }
   text-transform: uppercase;
   color: var(--text-low);
 }
+.contact-form ::placeholder { color: var(--text-low); opacity: 1; }
 .contact-form input, .contact-form textarea {
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -801,8 +809,8 @@ html.js .hero-stagger > *:nth-child(5) { animation-delay: 0.45s; }
 /* floating WhatsApp */
 .whatsapp-float {
   position: fixed;
-  right: var(--s3);
-  bottom: var(--s3);
+  right: calc(var(--s3) + env(safe-area-inset-right, 0px));
+  bottom: calc(var(--s3) + env(safe-area-inset-bottom, 0px));
   z-index: 95;
   width: 54px;
   height: 54px;
