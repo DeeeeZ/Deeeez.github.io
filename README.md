@@ -1,97 +1,65 @@
-# DeyaAldeen.com - Finance Automation Landing Page
+# DeyaAldeen.com
 
-## 🚀 Setup Instructions
+One-page marketing site for **DeyaAldeen AlSoub**, a finance process automation
+consultant in the MENA region. Live at [www.DeyaAldeen.com](https://www.DeyaAldeen.com).
 
-### 1. Formspree Setup (REQUIRED for form to work)
-1. Go to [Formspree.io](https://formspree.io)
-2. Sign up with: DeyaAldeen.AlSoub@outlook.com
-3. Create a new form
-4. Copy your form ID (looks like: `xyzabcde`)
-5. Replace `YOUR_FORM_ID` in `index.html` line ~475
+Plain HTML + CSS + vanilla JS — no build tools, no framework, no CDN JavaScript.
+Google Fonts is the only external request. Hosted on GitHub Pages.
 
-### 2. Google Analytics Setup (Optional)
-1. Create a GA4 property at [analytics.google.com](https://analytics.google.com)
-2. Get your Measurement ID (G-XXXXXXXXXX)
-3. Replace `G-XXXXXXXXXX` in `index.html` line ~62
+## Run locally
 
-### 3. Microsoft Clarity Setup (Optional)
-1. Sign up at [clarity.microsoft.com](https://clarity.microsoft.com) with your Outlook account
-2. Get your Project ID
-3. Replace `XXXXXXXXXX` in `index.html` line ~71
-
-### 4. Add Your Content
-- Replace placeholder image: Add your headshot to `assets/images/deya-headshot.jpg`
-- Update LinkedIn URL: Search for `deyaaldeen-alsoub` and replace with your actual LinkedIn username
-- Add phone number: Replace `+XXXXXXXXXXX` with your actual phone
-
-### 5. Deploy to GitHub Pages
-1. Push this code to a repo named `[your-username].github.io`
-2. Go to Settings → Pages
-3. Set Source to "Deploy from a branch"
-4. Select "main" branch and "/ (root)" folder
-5. Save and wait 5-10 minutes for deployment
-
-### 6. Custom Domain Setup
-1. Add your domain in GitHub Pages settings
-2. Configure DNS at your domain registrar:
-   - CNAME record: www → [your-username].github.io
-   - A records for apex domain:
-     - 185.199.108.153
-     - 185.199.109.153
-     - 185.199.110.153
-     - 185.199.111.153
-
-## 📁 File Structure
-```
-/
-├── index.html           # Main landing page
-├── CNAME               # Custom domain config
-├── README.md           # This file
-└── assets/
-    ├── css/
-    │   └── styles.css  # Optimized CSS (replaces Tailwind CDN)
-    ├── images/
-    │   └── deya-headshot.jpg  # Your professional photo
-    └── downloads/
-        └── (future PDFs)  # Case studies, ROI templates
+```bash
+python -m http.server 8000    # then open http://localhost:8000
 ```
 
-## ✨ Features Implemented
-- ✅ Formspree contact form with animations
-- ✅ Floating ROI calculator widget
-- ✅ Smooth scroll animations
-- ✅ Dark mode toggle
-- ✅ Mobile responsive design
-- ✅ SEO optimized meta tags
-- ✅ Performance optimized (no CDN dependencies)
-- ✅ Analytics ready (GA4 + Clarity)
-- ✅ Professional animations and transitions
-- ✅ Email validation with helpful feedback
-- ✅ Success celebration animation
+Test both `index.html` and `privacy.html`.
 
-## 🎯 Quick Wins Checklist
-- [ ] Sign up for Formspree and add form ID
-- [ ] Add your professional headshot
-- [ ] Update LinkedIn URL
-- [ ] Create PDF case studies for downloads
-- [ ] Set up analytics tracking
-- [ ] Test form submission
-- [ ] Test on mobile devices
+## Deploy
 
-## 📈 Performance Metrics
-- Page Speed: ~95/100 (after optimizations)
-- First Contentful Paint: <1s
-- Total Blocking Time: <50ms
-- Cumulative Layout Shift: <0.1
+GitHub Pages auto-builds on push to `main`:
 
-## 🔧 Customization Tips
-- Colors: Edit CSS variables in `index.html` lines 46-49
-- Fonts: Change Google Fonts import in line 30
-- Animations: Adjust timing in CSS section (lines 800-900)
-- ROI Calculator: Modify calculation logic in lines 741-743
+```bash
+git push origin main
+```
 
-## 📞 Support
-For questions about the code: DeyaAldeen.AlSoub@outlook.com
+The custom domain is set by `CNAME` (`www.deyaaldeen.com`).
 
----
-Built with ❤️ for high conversions
+## Structure
+
+```
+index.html     Landing page (the whole site)
+privacy.html   Privacy page, linked from the footer
+styles.css     All styles + design tokens (:root)
+script.js      All behavior (single vanilla-JS IIFE)
+og.png         Social share card (1200×630)
+CNAME          Custom domain
+CLAUDE.md      Design system, content rules, and project decisions
+AGENTS.md      Short contributor/agent guidelines
+```
+
+`assets/` and `archive/` are leftovers from earlier design systems and are not
+used by the live site. Do not edit or link them.
+
+## Design
+
+Full-dark "Cobalt Ledger" system — the page presents delivered work as a
+reconciliation ledger. Space Grotesk / Instrument Sans / JetBrains Mono type,
+cobalt accent, status-semantic green (matched) and amber (exception). See
+`CLAUDE.md` for the full rationale and the rules to preserve when editing.
+
+## Notable behavior
+
+- **Contact form** via Formspree (no backend).
+- **WhatsApp** touchpoints throughout, plus a floating button.
+- **Hero recon panel** cycles three sample reconciliation runs, each ending on a
+  deliberate exception — catching exceptions is the value proposition.
+- **Cost calculator** with live count-up outputs.
+- **No analytics, no cookies** (reflected in `privacy.html`).
+- Accessibility: WCAG 2.1 AA contrast, reduced-motion support, no-JS fallback,
+  JSON-LD structured data.
+
+## Notes
+
+- Every number on the page is sourced from the owner's Facts Registry — do not
+  change figures without confirming them with the owner.
+- The client is intentionally anonymized as "a leading GCC retail group."
